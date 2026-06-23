@@ -1,0 +1,60 @@
+{
+  "dataset": "志愿计划类数据",
+  "publisher": "山东省教育招生考试院",
+  "official_domain": "sdzk.cn",
+  "source_registry": [
+    "raw/_common/来源索引/官方来源索引.md",
+    "raw/_common/来源索引/补充官方数据来源索引.md"
+  ],
+  "source_file_patterns": [
+    "raw/<year>/常规批第2次志愿计划/*.xls",
+    "raw/<year>/常规批第3次志愿计划/*.xls",
+    "raw/<year>/提前批第2次志愿计划/*.xls",
+    "raw/<year>/高职注册入学计划/*.xls"
+  ],
+  "quality_level": "A",
+  "verification_status": "official_excel_extracted",
+  "extract_script": "scripts/_process_plans.py",
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "batches": [
+    "常规批第2次",
+    "常规批第3次",
+    "提前批第2次",
+    "高职注册入学"
+  ],
+  "categories": [
+    "普通类",
+    "艺术类",
+    "体育类",
+    "春季高考"
+  ],
+  "fields": [
+    "year",
+    "batch",
+    "category",
+    "school_code",
+    "school_name",
+    "major_code",
+    "major_name",
+    "subject_requirement",
+    "level",
+    "study_years",
+    "plan_count",
+    "annual_fee"
+  ],
+  "description": "山东夏季高考各批次志愿计划数据",
+  "notes": [
+    "常规批第2次志愿计划 = 剩余本科计划（第1次未完成的本科计划）",
+    "常规批第3次志愿计划 = 剩余计划（含专科）",
+    "提前批第2次志愿计划 = 第1次未完成的提前批计划",
+    "高职注册入学计划 = 专科录取后期的注册入学招生计划",
+    "major_code 从\"专业代号 名称\"格式拆分",
+    "院校行和专业行通过\"院校代号\"列是否为空区分"
+  ]
+}

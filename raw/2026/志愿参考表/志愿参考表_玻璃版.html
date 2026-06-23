@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>志愿参考 · 450分 · 历史+政治+生物</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── Design Tokens ── */
+:root {
+  --bg: #F0F4FE;
+  --bg-gradient: linear-gradient(135deg, #EBF2FF 0%, #F5F0FF 50%, #FFF0F5 100%);
+  --glass-bg: rgba(255,255,255,.68);
+  --glass-bg-strong: rgba(255,255,255,.82);
+  --glass-border: rgba(255,255,255,.7);
+  --glass-shadow: 0 8px 32px rgba(100,120,200,.08), 0 2px 8px rgba(100,120,200,.04);
+  --glass-shadow-hover: 0 12px 40px rgba(100,120,200,.12), 0 4px 12px rgba(100,120,200,.06);
+  --glass-blur: blur(20px);
+
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-tertiary: #94A3B8;
+  --text-inverse: #FFFFFF;
+
+  --red: #EF4444;
+  --red-light: #FEE2E2;
+  --red-soft: rgba(239,68,68,.08);
+  --amber: #F59E0B;
+  --amber-light: #FEF3C7;
+  --amber-soft: rgba(245,158,11,.08);
+  --green: #10B981;
+  --green-light: #D1FAE5;
+  --green-soft: rgba(16,185,129,.08);
+  --blue: #3B82F6;
+  --blue-light: #DBEAFE;
+  --blue-soft: rgba(59,130,246,.08);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  --font: 'Noto Sans SC','Inter',system-ui,-apple-system,sans-serif;
+  --font-mono: 'JetBrains Mono','SF Mono',monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:var(--font);
+  background:var(--bg-gradient);
+  color:var(--text-primary);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+/* ── Glass utility ── */
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow);
+}
+.glass-strong{
+  background:var(--glass-bg-strong);
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow);
+}
+
+/* ── Header ── */
+.header{
+  position:sticky;top:0;z-index:100;
+  padding:12px 0;
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  background:rgba(240,244,254,.75);
+  border-bottom:1px solid rgba(255,255,255,.5);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;
+  padding:0 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.header-icon{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,#818CF8,#6366F1);
+  border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:1rem;color:#fff;
+  box-shadow:0 4px 12px rgba(99,102,241,.25);
+}
+.header h1{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}
+.header-tags{display:flex;gap:4px;margin-left:auto}
+.header-tag{
+  font-size:.62rem;padding:3px 10px;border-radius:20px;
+  background:rgba(255,255,255,.5);color:var(--text-secondary);
+  backdrop-filter:blur(8px);font-weight:500;
+}
+
+/* ── Container ── */
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* ── Hero ── */
+.hero{margin-top:20px}
+.hero-grid{display:grid;grid-template-columns:1fr 260px;gap:16px}
+.hero-card{
+  border-radius:var(--radius-lg);padding:24px 28px;
+}
+.hero-card h2{font-size:1.2rem;font-weight:700;margin-bottom:2px}
+.hero-card .sub{font-size:.82rem;color:var(--text-tertiary);margin-bottom:16px}
+.hero-score{display:flex;align-items:baseline;gap:4px;margin-bottom:8px}
+.hero-score .num{font-size:2.8rem;font-weight:800;font-family:var(--font-mono);background:linear-gradient(135deg,#6366F1,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.hero-score .label{font-size:.85rem;color:var(--text-tertiary);font-weight:500}
+
+/* Hero probability bar */
+.hero-bar{display:flex;align-items:center;gap:12px;margin-top:4px}
+.hero-bar .track{flex:1;height:6px;background:rgba(148,163,184,.2);border-radius:3px;overflow:hidden}
+.hero-bar .fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#6366F1,#8B5CF6);transition:width .6s ease}
+.hero-bar .pct{font-size:.78rem;font-family:var(--font-mono);color:var(--text-tertiary);font-weight:500;min-width:60px;text-align:right}
+
+/* Hero stats */
+.hero-stats{display:flex;flex-direction:column;gap:10px}
+.hero-stat{
+  border-radius:var(--radius-md);padding:14px 18px;
+  display:flex;align-items:center;gap:12px;
+  transition:all .2s;cursor:default;
+}
+.hero-stat:hover{box-shadow:var(--glass-shadow-hover);transform:translateY(-1px)}
+.hero-stat .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.hero-stat .info{flex:1}
+.hero-stat .info .n{font-size:1.1rem;font-weight:700;font-family:var(--font-mono);line-height:1.2}
+.hero-stat .info .l{font-size:.7rem;color:var(--text-tertiary)}
+.hero-stat .info .l strong{color:var(--text-secondary);font-weight:600}
+
+/* ── Probability Guide ── */
+.prob-guide{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
+.prob-guide-item{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--text-tertiary)}
+.prob-guide-item .sw{width:20px;height:4px;border-radius:2px}
+
+/* ── Controls ── */
+.controls{margin-top:16px;padding:8px 16px;border-radius:var(--radius-lg);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.control-group{display:flex;gap:4px;flex-wrap:wrap}
+.ctrl-btn{
+  padding:5px 14px;border-radius:20px;
+  background:rgba(255,255,255,.4);color:var(--text-secondary);
+  border:1px solid rgba(255,255,255,.3);
+  cursor:pointer;font-size:.75rem;font-weight:500;
+  transition:all .2s;font-family:inherit;
+  backdrop-filter:blur(8px);
+}
+.ctrl-btn:hover{background:rgba(255,255,255,.7);color:var(--text-primary)}
+.ctrl-btn.active{
+  background:#6366F1;color:#fff;
+  border-color:#6366F1;
+  box-shadow:0 4px 12px rgba(99,102,241,.25);
+}
+.ctrl-btn.sd.active{background:#F59E0B;border-color:#F59E0B;box-shadow:0 4px 12px rgba(245,158,11,.2)}
+.ctrl-btn.prob-high.active{background:#10B981;border-color:#10B981}
+.ctrl-btn.prob-mid.active{background:#F59E0B;border-color:#F59E0B}
+.ctrl-btn.prob-low.active{background:#EF4444;border-color:#EF4444}
+.search-wrap{position:relative;margin-left:auto}
+.search-wrap input{
+  padding:5px 12px 5px 30px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.3);
+  font-size:.75rem;width:160px;font-family:inherit;
+  background:rgba(255,255,255,.4);color:var(--text-primary);
+  outline:none;transition:all .15s;
+  backdrop-filter:blur(8px);
+}
+.search-wrap input::placeholder{color:var(--text-tertiary)}
+.search-wrap input:focus{border-color:rgba(99,102,241,.4);background:rgba(255,255,255,.7)}
+.search-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:12px;height:12px;opacity:.4;pointer-events:none}
+.ctrl-count{font-size:.72rem;color:var(--text-tertiary);margin-left:8px;white-space:nowrap}
+
+/* ── Section Label ── */
+.section{margin-top:16px}
+.section-label{
+  display:flex;align-items:center;gap:10px;padding:8px 4px;
+}
+.section-label h3{font-size:.9rem;font-weight:700;letter-spacing:-.01em}
+.section-label .sub{font-size:.7rem;color:var(--text-tertiary)}
+.section-label .line{flex:1;height:1px;background:linear-gradient(90deg,var(--glass-border),transparent)}
+
+/* ── Card ── */
+.card{
+  border-radius:var(--radius-md);margin-bottom:8px;
+  overflow:hidden;
+  transition:all .2s;
+}
+.card:hover{box-shadow:var(--glass-shadow-hover);transform:translateY(-1px)}
+.card-inner{
+  display:grid;
+  grid-template-columns:36px 1fr 1.4fr 90px 70px 110px 56px;
+  gap:6px;
+  padding:10px 16px 10px 18px;
+  align-items:center;
+  cursor:pointer;
+}
+.card .idx{font-size:.72rem;color:var(--text-tertiary);font-family:var(--font-mono);text-align:center}
+.card .tag{
+  display:inline-block;padding:2px 10px;border-radius:8px;
+  font-size:.65rem;font-weight:600;text-align:center;
+}
+.card .tag.t-chong{background:var(--red-soft);color:var(--red)}
+.card .tag.t-chongwen{background:var(--amber-soft);color:var(--amber)}
+.card .tag.t-wen{background:var(--green-soft);color:var(--green)}
+.card .tag.t-bao{background:var(--blue-soft);color:var(--blue)}
+.card .school-info{display:flex;flex-direction:column}
+.card .school-name{
+  font-weight:600;font-size:.82rem;display:flex;align-items:center;gap:4px;
+}
+.card .sd-badge{
+  font-size:.52rem;background:#F59E0B;color:#fff;padding:1px 5px;
+  border-radius:4px;font-weight:700;line-height:1.6;
+  box-shadow:0 2px 6px rgba(245,158,11,.25);
+}
+.card .school-code{font-size:.6rem;color:var(--text-tertiary);font-family:var(--font-mono)}
+.card .major-info{display:flex;flex-direction:column}
+.card .major-name{font-size:.78rem;color:var(--text-secondary)}
+.card .major-code{font-size:.6rem;color:var(--text-tertiary);font-family:var(--font-mono)}
+.card .rank-val{font-size:.78rem;font-family:var(--font-mono);font-weight:500;text-align:right}
+.card .score-val{font-size:.78rem;font-family:var(--font-mono);font-weight:600;text-align:center}
+.card .prob-cell{display:flex;flex-direction:column;align-items:center}
+.card .prob-pct{font-size:.72rem;font-family:var(--font-mono);font-weight:600}
+.card .prob-label{font-size:.58rem;color:var(--text-tertiary);line-height:1}
+
+/* ── Detail ── */
+.card-detail{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1)}
+.card.expanded .card-detail{max-height:300px}
+.card-detail-inner{padding:4px 18px 14px;display:grid;grid-template-columns:1.5fr 1fr;gap:10px;border-top:1px solid rgba(255,255,255,.3);margin:0 4px}
+.detail-item{display:flex;flex-direction:column;gap:1px}
+.detail-item .dl{font-size:.62rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em}
+.detail-item .dv{font-size:.75rem;color:var(--text-secondary)}
+.detail-item .dv.highlight{color:#6366F1;font-weight:500}
+
+/* ── Empty ── */
+.empty-state{text-align:center;padding:60px 20px;display:none}
+.empty-state.active{display:block}
+.empty-state .icon{font-size:2rem;margin-bottom:8px}
+.empty-state .msg{font-size:.85rem;color:var(--text-tertiary)}
+
+/* ── Legend ── */
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;padding-bottom:32px}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--text-tertiary)}
+.legend-item .ld{width:8px;height:8px;border-radius:50%}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .card-inner{grid-template-columns:32px 1fr 1.2fr 80px 60px 90px 50px}
+}
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-card{padding:18px 20px}
+  .hero-score .num{font-size:2.2rem}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .card-inner{grid-template-columns:28px auto auto;grid-template-rows:auto auto;gap:2px 6px;padding:8px 10px 8px 14px}
+  .card .idx{grid-row:1/3}
+  .card .school-info{grid-column:2;grid-row:1}
+  .card .major-info{grid-column:2;grid-row:2}
+  .card .rank-val,.card .score-val,.card .school-code,.card .major-code{display:none}
+  .card .prob-cell{grid-column:3;grid-row:1/3;justify-self:end;align-self:center}
+  .controls{padding:6px 12px;flex-direction:column;align-items:stretch}
+  .search-wrap{margin-left:0;width:100%}
+  .search-wrap input{width:100%}
+  .container{padding:0 12px}
+  .header-inner{padding:0 12px}
+  .hero-stat .info .l{font-size:.65rem}
+}
+@media(max-width:480px){
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hero-stat{padding:10px 12px}
+  .hero-stat .info .n{font-size:.95rem}
+  .control-group{gap:3px}
+  .ctrl-btn{font-size:.7rem;padding:4px 10px}
+  .card-inner{padding:6px 8px 6px 12px;gap:2px 4px}
+  .card .major-name{font-size:.72rem}
+  .card .prob-pct{font-size:.65rem}
+  .header h1{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-icon">志</div>
+    <h1>高考志愿参考</h1>
+    <div class="header-tags">
+      <span class="header-tag">450分</span>
+      <span class="header-tag">历史+政治+生物</span>
+      <span class="header-tag">96志愿</span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="container">
+<div class="hero">
+  <div class="hero-grid">
+    <div class="hero-card glass">
+      <h2>你的分数画像</h2>
+      <div class="sub">450分 · 历史+政治+生物 · 预估位次约136,600</div>
+      <div class="hero-score">
+        <span class="num">450</span>
+        <span class="label">分</span>
+      </div>
+      <div class="hero-bar">
+        <div class="track"><div class="fill" id="probBarAll" style="width:0%"></div></div>
+        <span class="pct" id="probLabelAll">0/96 志愿</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat glass" id="statChong">
+        <div class="dot" style="background:var(--red)"></div>
+        <div class="info">
+          <div class="n" style="color:var(--red)">0</div>
+          <div class="l"><strong>冲刺</strong> · 录取概率约 20-45%</div>
+        </div>
+      </div>
+      <div class="hero-stat glass" id="statChongwen">
+        <div class="dot" style="background:var(--amber)"></div>
+        <div class="info">
+          <div class="n" style="color:var(--amber)">0</div>
+          <div class="l"><strong>冲稳</strong> · 录取概率约 40-70%</div>
+        </div>
+      </div>
+      <div class="hero-stat glass" id="statWen">
+        <div class="dot" style="background:var(--green)"></div>
+        <div class="info">
+          <div class="n" style="color:var(--green)">0</div>
+          <div class="l"><strong>稳妥</strong> · 录取概率约 65-90%</div>
+        </div>
+      </div>
+      <div class="hero-stat glass" id="statBao">
+        <div class="dot" style="background:var(--blue)"></div>
+        <div class="info">
+          <div class="n" style="color:var(--blue)">0</div>
+          <div class="l"><strong>保底</strong> · 录取概率约 85-98%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prob-guide">
+    <span class="prob-guide-item"><span class="sw" style="background:var(--green)"></span> ≥60% 高概率</span>
+    <span class="prob-guide-item"><span class="sw" style="background:var(--amber)"></span> 40-60% 中等</span>
+    <span class="prob-guide-item"><span class="sw" style="background:var(--red)"></span> ≤40% 低概率</span>
+    <span class="prob-guide-item" style="margin-left:auto;font-size:.65rem">💡 点击卡片查看详情与推荐理由</span>
+  </div>
+</div>
+
+<!-- Controls -->
+<div class="controls glass">
+  <div class="control-group">
+    <button class="ctrl-btn active" data-filter="all">全部</button>
+    <button class="ctrl-btn" data-filter="冲">🔴 冲</button>
+    <button class="ctrl-btn" data-filter="冲稳">🟠 冲稳</button>
+    <button class="ctrl-btn" data-filter="稳">🟢 稳</button>
+    <button class="ctrl-btn" data-filter="保">🔵 保</button>
+  </div>
+  <div class="control-group">
+    <button class="ctrl-btn sd" data-filter="sd">🏠 山东</button>
+    <button class="ctrl-btn prob-high" data-filter="high">✓ 高概率</button>
+    <button class="ctrl-btn prob-mid" data-filter="medium">~ 中概率</button>
+    <button class="ctrl-btn prob-low" data-filter="low">! 低概率</button>
+  </div>
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="搜索学校或专业..." />
+  </div>
+  <span class="ctrl-count" id="ctrlCount"></span>
+</div>
+
+<!-- Sections -->
+<div id="sections"></div>
+
+<!-- Empty -->
+<div class="empty-state" id="emptyState">
+  <div class="icon">🔍</div>
+  <div class="msg">没有匹配的志愿，试试调整筛选条件</div>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <span class="legend-item"><span class="ld" style="background:var(--red)"></span>冲（100k-130k）</span>
+  <span class="legend-item"><span class="ld" style="background:var(--amber)"></span>冲稳（130k-155k）</span>
+  <span class="legend-item"><span class="ld" style="background:var(--green)"></span>稳（155k-185k）</span>
+  <span class="legend-item"><span class="ld" style="background:var(--blue)"></span>保（185k以上）</span>
+  <span class="legend-item" style="margin-left:auto;color:var(--text-tertiary);font-size:.65rem">
+    基于 2025 年投档数据 · 含院校/专业代码 · 概率仅供参考
+  </span>
+</div>
+</div>
+
+<script>
+// ── Data ──
+const DATA = [
+  [1,"山东农业大学","A434","行政管理","50",100106,472,"冲",true,"省属重点，农科龙头 · 行政管理可考公务员","冲刺省属重点本科，平台价值高"],
+  [2,"山东师范大学","A445","心理学类(地方专项)","LU",100110,472,"冲",true,"省属师范最高学府，地方专项有单独名额 · 低分上名校","强烈推荐：地方专项是最佳降分通道"],
+  [3,"烟台大学","B066","数字人文","62",100284,472,"冲",true,"烟台区位好 · 数字人文是文科+数据的交叉新方向","推荐冲刺：烟台城市吸引力强，新兴交叉专业"],
+  [4,"山东建筑大学","A430","地理信息科学","62",100370,471,"冲",true,"GIS应用广 · 智慧城市急需，测绘/规划均可","推荐冲刺：GIS就业领域不断扩展"],
+  [5,"山东政法学院","E100","财务管理","0G",100535,471,"冲",true,"政法背景+财务=复合型人才 · 企业法务方向","推荐冲刺：财务管理就业稳定，行业通用"],
+  [6,"山东财经大学","A456","金融科技","07",100617,471,"冲",true,"省内财经最高学府 · 金融科技是风口方向","强烈推荐：山财校友遍布山东金融界"],
+  [7,"山东科技大学","A424","安全工程(地方专项)","U9",100658,471,"冲",true,"工科强校，地方专项竞争小 · 安全工程就业有保障","推荐冲刺：地方专项性价比极高"],
+  [8,"山东财经大学(济南走读)","Y014","金融科技(济南走读)","25",100819,471,"冲",true,"同样的山财文凭 · 走读代码分数更低","强烈推荐：济南考生首选，同校低分上"],
+  [9,"山东理工大学","A433","测控技术与仪器(新工科)","2P",101116,471,"冲",true,"新工科实验班资源倾斜 · 保研率较高","推荐冲刺：实验班培养质量更高"],
+  [10,"青岛理工大学","A429","社会工作","0B",101924,470,"冲",true,"青岛区位 · 社工岗位需求逐年增加","推荐冲刺：青岛城市魅力，社工可考公"],
+  [11,"济南大学","A427","日语","0F",102006,470,"冲",true,"济南核心区位 · 小语种+其他技能复合竞争力","推荐冲刺：日语复合型人才稀缺"],
+  [12,"青岛科技大学","A426","制药工程","1B",102075,470,"冲",true,"橡胶/化工行业黄埔 · 行业认可度高","推荐冲刺：行业特色院校就业对口"],
+  [13,"山东工商学院","B688","信用风险管理与法律防控","AB",102274,470,"冲",true,"交叉学科新设专业 · 竞争小，就业差异化","推荐冲刺：新设专业竞争压力小"],
+  [14,"青岛大学","Y017","环境科学与工程","96",104375,468,"冲",true,"青岛大学品牌强 · 环境方向考研深造好跳板","推荐冲刺：青大平台，考研率高"],
+  [15,"济南大学(济南走读)","Y016","应用心理学(师范类，济南走读)","3C",105627,467,"冲",true,"走读分数优惠 · 师范+心理双就业方向","推荐冲刺：走读性价比极高"],
+  [16,"青岛大学(地方专项)","B065","轻化工程(地方专项)","7Y",106314,466,"冲",true,"地方专项降分 · 青岛大学平台高","推荐冲刺：地方专项上青大的好机会"],
+  [17,"山东交通学院","B510","审计学","53",106735,466,"冲",true,"审计就业稳定 · 交通行业背景有加分","推荐冲刺：审计市场需求量大"],
+  [18,"山东中医药大学","A441","针灸推拿学","13",106825,466,"冲",true,"中医特色 · 可考执业医师，就业灵活","推荐冲刺：中医行业政策利好"],
+  [19,"山东石油化工学院","D386","法学","21",107527,465,"冲",true,"公办本科 · 法学考研/考公率高","推荐冲刺：法学是考公首选专业"],
+  [20,"青岛农业大学","A435","电气工程及其自动化","24",108869,464,"冲",true,"工科热门 · 电气就业面广，国家电网","推荐冲刺：电气工程就业稳定有保障"],
+  [21,"山东第二医科大学","A438","中医学","07",108982,464,"冲",true,"医学类门槛高就业好 · 中医学政策支持","推荐冲刺：医学专业入行门槛即保障"],
+  [22,"新疆财经大学","A766","审计学","15",100013,472,"冲",false,"财经类审计就业好 · 适合考研跳板","可选：异地就读，充分考虑适应问题"],
+  [23,"长春理工大学","A186","英语","M1",100016,472,"冲",false,"工科背景英语 · 科技英语方向独特","可选：科技翻译方向需求增长"],
+  [24,"江西师范大学","A414","工商管理(组织人事管理)","AU",100032,472,"冲",false,"师范强校 · 人力资源管理就业面广","可选：人力资源管理是通用岗位"],
+  [25,"河南农业大学","A466","工商管理类","19",100034,472,"冲",false,"农林院校工商管理 · 分数友好","可选：大类招生，大二分流"],
+  [26,"南昌航空大学","A406","工程管理","67",100040,472,"冲",false,"航空特色工程管理 · 行业对口","可选：航空/建筑行业需求稳定"],
+  [27,"重庆交通大学","A618","给排水科学与工程","15",100047,472,"冲",false,"交通特色 · 市政工程方向好","可选：基建行业就业稳定"],
+  [28,"滁州学院","A377","财务管理","45",100053,472,"冲",false,"安徽公办 · 财务管理就业稳定","可选：财务管理是通用好专业"],
+  [29,"华东交通大学","A404","建筑学","06",100093,472,"冲",false,"建筑学五年制 · 含金量高","可选：需五年制，适合有建筑设计兴趣"],
+  [30,"湘南学院","A545","法学","33",100112,472,"冲",false,"湖南公办 · 法学考公优势","可选：法学考研/考公是主要路径"],
+  [31,"青岛理工大学(临沂校区)","Y004","电气工程与智能控制(临沂)","C1",131331,445,"冲稳",true,"青岛理工品牌+低分友好 · 电气智能双方向","强烈推荐：性价比极高的选择"],
+  [32,"山东农业工程学院","E439","会计学","41",132084,444,"冲稳",true,"省属公办 · 会计学就业面最广","推荐：会计学市场需求稳定"],
+  [33,"绵阳师范学院","A639","英语(师范类)","07",130043,446,"冲稳",false,"师范类 · 适合想当英语老师","可选：师范类就业方向明确"],
+  [34,"南阳理工学院","B653","财务管理(智能财务方向)","38",130064,446,"冲稳",false,"智能财务新方向 · 迎合数字化","可选：智能财务是财会发展趋势"],
+  [35,"北京科技大学天津学院","D898","法学","0S",130114,446,"冲稳",false,"北京985独立学院 · 法学可考法考","可选：名校独立学院品牌"],
+  [36,"宁德师范学院","A398","汉语言文学(师范类)","07",130211,446,"冲稳",false,"汉语言师范 · 考编热门专业","可选：汉语言文学师范考编岗位多"],
+  [37,"莆田学院","B498","临床医学","77",131027,445,"冲稳",false,"临床医学五年制 · 低分上车机会","强烈推荐：医学入行门槛很难得"],
+  [38,"遵义医科大学","A661","英语","0X",131242,445,"冲稳",false,"医科英语 · 医学翻译方向","可选：医学英语小众但需求稳"],
+  [39,"集美大学诚毅学院","D471","法学","05",131375,445,"冲稳",false,"独立学院 · 法学培养成熟","可选：法学考公考编方向"],
+  [40,"渭南师范学院","A723","汉语言文学(师范类)","50",131705,445,"冲稳",false,"汉语言师范 · 教师招聘需求大","可选：师范类专业就业稳定"],
+  [41,"宝鸡文理学院","A721","会计学","18",131847,445,"冲稳",false,"公办本科 · 会计学就业稳定","可选：会计学是通用好专业"],
+  [42,"牡丹江师范学院","A233","知识产权","26",132054,444,"冲稳",false,"知识产权新兴产业 · 法学交叉","可选：知识产权前景好"],
+  [43,"普洱学院","A685","法学","05",132103,444,"冲稳",false,"公办本科 · 法学考公优势","可选：法学考公考研是主要路径"],
+  [44,"新乡学院","B071","会计学(注册会计师方向)","1F",132515,444,"冲稳",false,"CPA方向 · 直接对标注会考试","推荐：会计学CPA培养方向明确"],
+  [45,"广东轻工职业技术大学","A833","现代物流管理","1M",132778,444,"冲稳",false,"珠三角就业优势 · 物流需求旺","推荐：广东就业区位好"],
+  [46,"广东技术师范大学","A588","计算机科学与技术(师范类)","0L",132882,444,"冲稳",false,"计算机+师范双方向 · IT教师缺口大","推荐：信息技术教师需求激增"],
+  [47,"重庆中医药学院","E830","中西医临床医学","06",133164,443,"冲稳",false,"新建中医药院校 · 中西医结合","可选：医学类专业方向"],
+  [48,"泰山学院","A453","汉语言文学(含师范类)","0N",134153,443,"冲稳",true,"泰安公办 · 师范类汉语言考研率高","推荐：山东公办师范，专业对口"],
+  [49,"景德镇学院","A894","财务管理","17",134280,443,"冲稳",false,"公办本科 · 财务管理通用专业","可选：财务管理就业面宽"],
+  [50,"琼台师范学院","D811","汉语言文学(师范类)","29",134427,442,"冲稳",false,"海南自贸港红利 · 师范前景好","可选：政策红利地区未来可期"],
+  [51,"泉州师范学院","A399","历史学(师范类)","07",134453,442,"冲稳",false,"历史+政治+生物最适合历史师范","推荐：选科组合高度匹配"],
+  [52,"广州体育学院","A585","广播电视编导","15",134577,442,"冲稳",false,"体育传媒方向 · 就业差异化","可选：体育传媒独特竞争力"],
+  [53,"承德医学院","A093","中西医临床医学","15",134830,442,"冲稳",false,"临床医学低分上车","推荐：医学门槛难得"],
+  [54,"武汉体育学院","A522","新闻学","0M",135243,442,"冲稳",false,"体育新闻特色 · 新媒体就业好","可选：体育新闻方向独特"],
+  [55,"北京物资学院","A037","应用统计学","28",135472,441,"冲稳",false,"北京高校 · 数据分析方向热门","推荐：数据分析就业前景好"],
+  [56,"河南牧业经济学院","A469","审计学","21",135498,441,"冲稳",false,"公办本科 · 审计学考公对口","可选：审计学就业稳定"],
+  [57,"广州航海学院","B106","船舶与海洋工程","06",135533,441,"冲稳",false,"广州区位 · 船舶工程前景好","可选：广州就业区位加分"],
+  [58,"曲靖师范学院","A684","历史学(师范类)","0G",135947,441,"冲稳",false,"历史师范 · 适合历史+政治选科","推荐：历史学师范匹配度高"],
+  [59,"山东体育学院","A457","特殊教育(师范类)","02",164025,418,"稳",true,"特教师资缺口大 · 入编率高","强烈推荐：稳定就业，入编保障好"],
+  [60,"山东财经大学东方学院","D999","会计学","01",164930,417,"稳",true,"山财品牌 · 会计学就业面广","推荐：山财品牌背书，会计通用"],
+  [61,"上海财经大学浙江学院","E207","会计学(注册会计师)","04",155067,425,"稳",false,"上财品牌 · 注会方向含金量高","推荐：名校品牌+注会方向"],
+  [62,"唐山师范学院","A099","地理科学(师范类)","48",155425,425,"稳",false,"地理教师需求稳定 · 选科相关","可选：地理教师岗位稳定需求"],
+  [63,"吉林工程技术师范学院","A204","汉语言文学(师范类)","X3",155585,425,"稳",false,"汉语言师范 · 考编热门","可选：师范类就业稳定"],
+  [64,"安徽医科大学临床医学院","D618","临床医学","01",155880,424,"稳",false,"临床医学最佳上车机会","强烈推荐：医学入门神奇保底"],
+  [65,"吉林农业科技学院","B439","工商管理类","43",155935,424,"稳",false,"公办本科 · 大类招生选择多","可选：大类招生分流灵活"],
+  [66,"集宁师范学院","B427","汉语言文学(师范类)","44",155979,424,"稳",false,"公办 · 汉语言师范保底好","可选：师范类专业就业稳定"],
+  [67,"兰州石化职业技术大学","F209","大数据与会计","BW",156198,424,"稳",false,"大数据+会计双技能 · 竞争力强","推荐：双技能复合人才需求旺"],
+  [68,"嘉应学院","A582","护理学","1Z",156298,424,"稳",false,"护理就业率最高 · 广东需求大","推荐：护理学供不应求"],
+  [69,"南京师范大学泰州学院","D843","法学","05",156355,424,"稳",false,"南师大独立学院 · 法学可考法考","可选：法学考研/考公"],
+  [70,"天津外国语大学滨海外事学院","D658","法学","13",156443,424,"稳",false,"天外背景 · 涉外法律方向","可选：涉外法律复合型方向"],
+  [71,"乐山师范学院","A649","汉语国际教育","9M",156451,424,"稳",false,"对外汉语教学方向 · 国际中文需求","可选：对外汉语教学方向"],
+  [72,"滇西科技师范学院","E092","汉语言文学(师范类)","C1",156798,424,"稳",false,"云南公办 · 汉语言师范考编","可选：师范类汉语言文学"],
+  [73,"天津医科大学临床医学院","D661","临床医学","01",156885,424,"稳",false,"天医品牌 · 临床医学保底","强烈推荐：临床医学最佳保底选择"],
+  [74,"温州医科大学仁济学院","D284","麻醉学","01",157043,423,"稳",false,"麻醉学稀缺 · 就业有保障","推荐：医学紧缺专业就业好"],
+  [75,"龙岩学院","B312","运动康复","0A",158335,422,"稳",false,"运动康复 · 体育+医学交叉","可选：运动康复前景好"],
+  [76,"四川工程职业技术大学","C763","电气工程及自动化","D3",158524,422,"稳",false,"电气工程 · 制造业就业需求旺盛","推荐：工科就业面最广"],
+  [77,"贵阳学院","A976","经济学","24",158640,422,"稳",false,"省会公办 · 经济学考研方向多","可选：经济学基础学科"],
+  [78,"郑州工商学院","D507","法学","25",158728,422,"稳",false,"独立学院 · 法学专业成熟","可选：法学考研考公"],
+  [79,"西安航空学院","B736","交通运输","23",159262,422,"稳",false,"西安航空特色 · 行业对口","可选：航空交通行业就业对口"],
+  [80,"衢州学院","B488","机械设计制造及其自动化","0E",159486,421,"稳",false,"浙江公办 · 机械就业面广","可选：浙江经济发达区位好"],
+  [81,"亳州学院","B963","网络与新媒体","13",160289,421,"稳",false,"新媒体行业快速增长","推荐：新媒体人才需求大"],
+  [82,"山东财经大学燕山学院","D383","会计学","01",170305,413,"稳",true,"山财品牌+会计=就业保障","推荐：山财品牌加持"],
+  [83,"福建江夏学院","D763","商务英语","0C",160866,420,"稳",false,"福建公办 · 外贸经济方向","可选：福建外贸活跃"],
+  [84,"烟台理工学院","D359","法学","01",186221,400,"保",true,"烟台区位 · 法学考研考公","推荐：烟台区位，法学通用"],
+  [85,"山东协和学院","D324","会计学","38",188196,398,"保",true,"山东民办 · 会计学通用","推荐：民办保底，会计通用"],
+  [86,"青岛农业大学海都学院","D997","财务管理","01",188729,398,"保",true,"青岛区位 · 财务管理考研可冲","推荐：青岛区位好"],
+  [87,"青岛工学院","D995","知识产权","64",191618,395,"保",true,"青岛民办 · 知识产权前景好","推荐：知识产权新兴专业"],
+  [88,"三江学院","B122","国际经济与贸易","0N",185503,400,"保",false,"江苏民办 · 国贸外语复合","可选：国贸方向就业面宽"],
+  [89,"三亚学院","D892","法学(自贸港法律)","02",186441,399,"保",false,"自贸港法律方向独特 · 政策红利","推荐：自贸港法律方向稀缺"],
+  [90,"郑州工业应用技术学院","C747","会计学","12",186538,399,"保",false,"河南民办 · 会计学就业稳定","可选：会计学通用专业"],
+  [91,"成都外国语学院","D673","汉语言文学","05",186677,399,"保",false,"成都区位 · 汉语言可考教资","可选：成都城市魅力"],
+  [92,"郑州科技学院","C746","财务管理","12",186799,399,"保",false,"河南民办 · 财务管理通用","可选：财务管理就业面广"],
+  [93,"新疆交通职业技术大学","D926","现代物流管理","21",186808,399,"保",false,"新设本科职大 · 物流需求增","可选：物流行业需求持续增长"],
+  [94,"新疆艺术学院","A768","非物质文化遗产保护","13",187379,399,"保",false,"非遗保护方向特色鲜明","可选：非遗保护特色专业"],
+  [95,"汉口学院","B800","法学","01",187460,399,"保",false,"湖北民办 · 法学性价比高","可选：法学考研考公"],
+  [96,"辽宁师范大学海华学院","D215","法学","01",187541,399,"保",false,"辽师品牌 · 法学培养体系成熟","可选：师范品牌保底"],
+];
+
+// ── Probability ──
+function calcProb(rank, gradient) {
+  const ranges = {'冲':[100000,130000],'冲稳':[130000,155000],'稳':[155000,185000],'保':[185000,210000]};
+  const [lo, hi] = ranges[gradient]||[100000,210000];
+  let raw = 1-(rank-lo)/(hi-lo);
+  raw = Math.max(0,Math.min(1,raw));
+  let p;
+  if(gradient==='冲') p=0.18+raw*0.28;
+  else if(gradient==='冲稳') p=0.42+raw*0.30;
+  else if(gradient==='稳') p=0.68+raw*0.22;
+  else p=0.86+raw*0.12;
+  return Math.round(Math.min(p,.98)*100);
+}
+function probCat(p){return p>=60?'high':p>=40?'medium':'low'}
+function probColor(p){return p>=60?'var(--green)':p>=40?'var(--amber)':'var(--red)'}
+
+// ── State ──
+let cur={'filter':'all','sd':false,'prob':null,'search':''};
+
+// ── Filtered data ──
+function getData(){
+  let d=DATA;
+  if(cur.filter!=='all') d=d.filter(r=>r[7]===cur.filter);
+  if(cur.sd) d=d.filter(r=>r[8]===true);
+  if(cur.prob) d=d.filter(r=>probCat(calcProb(r[5],r[7]))===cur.prob);
+  if(cur.search){
+    const q=cur.search.toLowerCase();
+    d=d.filter(r=>r[1].toLowerCase().includes(q)||r[3].toLowerCase().includes(q));
+  }
+  return d;
+}
+
+// ── Render ──
+function render(){
+  const data=getData();
+  const sec=document.getElementById('sections');
+  const empty=document.getElementById('emptyState');
+  document.getElementById('ctrlCount').textContent=`${data.length}/96`;
+
+  if(!data.length){sec.innerHTML='';empty.classList.add('active');
+    document.getElementById('probBarAll').style.width='0%';
+    document.getElementById('probLabelAll').textContent='0/96';return}
+  empty.classList.remove('active');
+
+  document.getElementById('probBarAll').style.width=`${(data.length/96)*100}%`;
+  document.getElementById('probLabelAll').textContent=`${data.length}/96`;
+
+  // Stats
+  document.querySelector('#statChong .n').textContent=DATA.filter(r=>r[7]==='冲').length;
+  document.querySelector('#statChongwen .n').textContent=DATA.filter(r=>r[7]==='冲稳').length;
+  document.querySelector('#statWen .n').textContent=DATA.filter(r=>r[7]==='稳').length;
+  document.querySelector('#statBao .n').textContent=DATA.filter(r=>r[7]==='保').length;
+
+  // Group
+  const groups={'冲':[],'冲稳':[],'稳':[],'保':[]};
+  data.forEach(r=>{if(groups[r[7]])groups[r[7]].push(r)});
+
+  const labels={
+    '冲':{label:'🔴 冲刺',sub:'大胆尝试 · 概率约20-45%'},
+    '冲稳':{label:'🟠 冲稳结合',sub:'最佳匹配段 · 概率约40-70%'},
+    '稳':{label:'🟢 稳妥',sub:'录取大概率 · 概率约65-90%'},
+    '保':{label:'🔵 保底',sub:'确保录取 · 概率85-98%'}
+  };
+
+  let html='';
+  for(const[tier,items]of Object.entries(groups)){
+    if(!items.length)continue;
+    const l=labels[tier];
+    html+=`
+      <div class="section">
+      <div class="section-label">
+        <h3>${l.label}</h3>
+        <span class="sub">${l.sub} · ${items.length}个</span>
+        <div class="line"></div>
+      </div>`;
+    items.forEach(r=>{
+      const[idx,school,sCode,major,mCode,rank,score,gradient,isSd,short,desc]=r;
+      const prob=calcProb(rank,gradient);
+      const pc=probColor(prob);
+      const tclass='t-'+gradient;
+      html+=`
+      <div class="card glass" onclick="this.classList.toggle('expanded')">
+        <div class="card-inner">
+          <div class="idx">${idx}</div>
+          <div><span class="tag ${tclass}">${gradient}</span></div>
+          <div class="school-info">
+            <div class="school-name">${isSd?'<span class="sd-badge">山东</span>':''}${school}<span class="school-code"> ${sCode}</span></div>
+          </div>
+          <div class="major-info">
+            <div class="major-name">${major}</div>
+            <div class="major-code">专业 ${mCode}</div>
+          </div>
+          <div class="rank-val">${rank.toLocaleString()}</div>
+          <div class="score-val">${score}</div>
+          <div class="prob-cell">
+            <span class="prob-pct" style="color:${pc}">${prob}%</span>
+            <span class="prob-label">${prob>=80?'很高':prob>=60?'较高':prob>=40?'中等':'偏低'}</span>
+          </div>
+        </div>
+        <div class="card-detail">
+          <div class="card-detail-inner">
+            <div class="detail-item"><span class="dl">推荐理由</span><span class="dv highlight">${short}</span></div>
+            <div class="detail-item"><span class="dl">深度分析</span><span class="dv">${desc}</span></div>
+            <div class="detail-item"><span class="dl">院校代码</span><span class="dv" style="font-family:var(--font-mono)">${sCode}</span></div>
+            <div class="detail-item"><span class="dl">专业代码</span><span class="dv" style="font-family:var(--font-mono)">${mCode}</span></div>
+          </div>
+        </div>
+      </div>`;
+    });
+    html+=`</div>`;
+  }
+  sec.innerHTML=html;
+}
+
+// ── Events ──
+document.querySelectorAll('.ctrl-btn[data-filter]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const f=btn.dataset.filter;
+    if(f==='sd'){cur.sd=!cur.sd;btn.classList.toggle('active');render();return}
+    if(['high','medium','low'].includes(f)){
+      cur.prob=cur.prob===f?null:f;
+      document.querySelectorAll('.ctrl-btn[data-filter]').forEach(b=>{
+        if(['high','medium','low'].includes(b.dataset.filter))b.classList.toggle('active',b.dataset.filter===cur.prob);
+        if(['all','冲','冲稳','稳','保'].includes(b.dataset.filter))b.classList.remove('active');
+      });
+      if(!cur.prob)document.querySelector('.ctrl-btn[data-filter="all"]').classList.add('active');
+      cur.filter='all';
+      render();return;
+    }
+    cur.filter=f;cur.prob=null;
+    document.querySelectorAll('.ctrl-btn[data-filter]').forEach(b=>{
+      if(b.dataset.filter===f)b.classList.add('active');
+      else if(!['sd','high','medium','low'].includes(b.dataset.filter))b.classList.remove('active');
+      if(['high','medium','low'].includes(b.dataset.filter))b.classList.remove('active');
+    });
+    render();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input',e=>{
+  cur.search=e.target.value;render();
+});
+
+render();
+</script>
+</body>
+</html>

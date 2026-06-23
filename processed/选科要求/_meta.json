@@ -1,0 +1,51 @@
+{
+  "dataset": "选科要求",
+  "publisher": "山东省教育招生考试院",
+  "official_domain": "sdzk.cn",
+  "source_registry": [
+    "raw/_common/来源索引/官方来源索引.md"
+  ],
+  "source_files": [
+    "raw/2026/政策文件原件/2024通用版普通高校拟在山东招生专业类选考科目要求（本科，适用2025-2026）.pdf",
+    "raw/2026/政策文件原件/2024通用版普通高校拟在山东招生专业类选考科目要求（专科，适用2025-2026）.pdf",
+    "raw/2026/政策文件原件/2027通用版普通高校拟在山东招生专业类选考科目要求（本科，2027及以后）.pdf",
+    "raw/2026/政策文件原件/2027通用版普通高校拟在山东招生专业类选考科目要求（专科，2027及以后）.pdf"
+  ],
+  "quality_level": "A",
+  "verification_status": "official_pdf_extracted",
+  "extract_script": "scripts/_process_subject_requirements.py",
+  "editions": [
+    "2024（适用2025-2026）",
+    "2027（2027及以后）"
+  ],
+  "levels": [
+    "本科",
+    "专科"
+  ],
+  "fields": [
+    "edition",
+    "level",
+    "school_code",
+    "school_name",
+    "major_code",
+    "major_name",
+    "subject_requirement_raw",
+    "subject_requirement_type",
+    "subjects_list",
+    "province"
+  ],
+  "subject_requirement_type": {
+    "none": "不提科目要求（任何选科组合可报）",
+    "one": "1 门科目必须选考",
+    "two": "2 门科目均须选考",
+    "three": "3 门科目均须选考",
+    "any": "多门科目中任选 1 门即可报考（\"或\"关系）"
+  },
+  "subjects_list": "用 | 分隔的科目中文名",
+  "total_count": 180788,
+  "notes": [
+    "2024 版适用 2025-2026 届（2026 届主要使用此版）",
+    "2027 版适用 2027 届及以后",
+    "最终以当年招生计划为准"
+  ]
+}

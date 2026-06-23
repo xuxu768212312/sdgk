@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Runtime/cache artifacts
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.inspect.ndjson
+
+# Local environment
+.env
+.env.*
+
+# Student privacy workspace: never commit personal consultation data
+students/
+
+# Local note/workspace state
+.obsidian/
+
+# Root-level generated demo outputs
+/96个志愿表_*.xlsx
+/志愿表_*.txt
+
+# Root-level ad hoc generation scripts kept local; maintained scripts live in scripts/
+/gen_excel.py
+/make_96*.py
+/province_map.json

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年山东高考96志愿参考表 · 450分·历史+政治+生物</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1E40AF;
+  --primary-light: #3B82F6;
+  --primary-dark: #1E3A8A;
+  --accent: #D97706;
+  --accent-light: #F59E0B;
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --muted: #E9EEF6;
+  --border: #DBEAFE;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --destructive: #DC2626;
+  --success: #16A34A;
+
+  --chong: #DC2626;
+  --chong-bg: #FEF2F2;
+  --chongwen: #D97706;
+  --chongwen-bg: #FFF7ED;
+  --wen: #16A34A;
+  --wen-bg: #F0FDF4;
+  --bao: #2563EB;
+  --bao-bg: #EFF6FF;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.04);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans SC','Fira Sans',system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--text-primary);line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header */
+.header{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;padding:0;
+  position:sticky;top:0;z-index:100;
+  box-shadow:var(--shadow-md);
+}
+.header-inner{
+  max-width:1400px;margin:0 auto;padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.header h1{font-size:1.35rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.header h1 .badge{
+  font-size:.7rem;background:rgba(255,255,255,.15);padding:2px 10px;
+  border-radius:20px;font-weight:500;letter-spacing:0;
+}
+.header-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;opacity:.9}
+.header-meta span{display:flex;align-items:center;gap:4px}
+
+/* Stats bar */
+.stats-bar{
+  max-width:1400px;margin:0 auto;padding:16px 24px 0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;
+}
+.stat-card{
+  background:var(--surface);border-radius:var(--radius);padding:12px 16px;
+  box-shadow:var(--shadow);text-align:center;border:1px solid var(--border);
+  transition:transform .15s,box-shadow .15s;
+}
+.stat-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.stat-card .num{font-size:1.3rem;font-weight:700;font-family:'Fira Code',monospace}
+.stat-card .label{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+.stat-card .num.chong{color:var(--chong)}
+.stat-card .num.chongwen{color:var(--chongwen)}
+.stat-card .num.wen{color:var(--wen)}
+.stat-card .num.bao{color:var(--bao)}
+.stat-card .num.total{color:var(--primary)}
+
+/* Filter bar */
+.filter-bar{
+  max-width:1400px;margin:0 auto;padding:12px 24px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+}
+.filter-btn{
+  padding:6px 16px;border-radius:20px;border:1.5px solid var(--border);
+  background:var(--surface);cursor:pointer;font-size:.82rem;font-weight:500;
+  transition:all .15s;font-family:inherit;
+}
+.filter-btn:hover{border-color:var(--primary-light);color:var(--primary)}
+.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.filter-btn.sd{display:flex;align-items:center;gap:4px}
+.filter-btn.sd.active{background:var(--accent);border-color:var(--accent)}
+.filter-count{font-size:.82rem;color:var(--text-muted);margin-left:auto}
+
+/* Search */
+.search-box{position:relative;margin-left:auto}
+.search-box input{
+  padding:6px 12px 6px 32px;border-radius:20px;border:1.5px solid var(--border);
+  font-size:.82rem;width:200px;font-family:inherit;
+  background:var(--surface);outline:none;transition:border-color .15s;
+}
+.search-box input:focus{border-color:var(--primary-light)}
+.search-box svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--text-muted)}
+
+/* Table container */
+.table-wrap{
+  max-width:1400px;margin:6px auto 40px;padding:0 24px;
+}
+.table-container{
+  background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);
+  border:1px solid var(--border);overflow:hidden;
+}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+thead{position:sticky;top:0;z-index:10}
+thead th{
+  background:var(--primary);color:#fff;padding:12px 10px;
+  text-align:left;font-weight:600;font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.03em;white-space:nowrap;position:relative;
+}
+thead th:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:6px;bottom:6px;width:1px;
+  background:rgba(255,255,255,.15);
+}
+th.sortable{cursor:pointer;user-select:none}
+th.sortable:hover{background:var(--primary-dark)}
+th.sortable .sort-icon{display:inline-block;margin-left:3px;opacity:.3;font-size:.65rem}
+th.sortable.sort-asc .sort-icon,.th.sortable.sort-desc .sort-icon{opacity:1}
+
+tbody tr{
+  transition:background .12s;
+  border-bottom:1px solid var(--muted);
+}
+tbody tr:hover{background:var(--muted)}
+tbody tr.row-chong{background:var(--chong-bg)}
+tbody tr.row-chongwen{background:var(--chongwen-bg)}
+tbody tr.row-wen{background:var(--wen-bg)}
+tbody tr.row-bao{background:var(--bao-bg)}
+tbody tr.row-chong:hover{background:#FEE2E2}
+tbody tr.row-chongwen:hover{background:#FFEDD5}
+tbody tr.row-wen:hover{background:#DCFCE7}
+tbody tr.row-bao:hover{background:#DBEAFE}
+
+tbody td{padding:8px 10px;vertical-align:middle}
+td.idx{font-weight:600;text-align:center;font-family:'Fira Code',monospace;font-size:.78rem;width:40px}
+td.school{font-weight:600}
+td.school .code{font-size:.68rem;color:var(--text-muted);font-weight:400;font-family:'Fira Code',monospace;margin-left:4px}
+td.school .sd-tag{
+  display:inline-block;font-size:.6rem;background:var(--accent-light);color:#fff;
+  padding:0 6px;border-radius:4px;font-weight:600;margin-right:4px;line-height:1.5;
+}
+td.major{max-width:220px}
+td.major .major-code{
+  display:inline-block;font-size:.68rem;font-family:'Fira Code',monospace;
+  background:var(--muted);padding:0 6px;border-radius:3px;margin-right:4px;
+  color:var(--text-secondary);
+}
+td.rank{font-family:'Fira Code',monospace;font-weight:500;text-align:right;font-size:.78rem}
+td.score{font-family:'Fira Code',monospace;font-weight:600;font-size:.85rem;text-align:center}
+td.gradient{
+  text-align:center;font-weight:600;font-size:.72rem;
+  border-radius:4px;white-space:nowrap;
+}
+.tag{
+  display:inline-block;padding:2px 10px;border-radius:12px;
+  font-size:.72rem;font-weight:600;
+}
+.tag-chong{background:var(--chong);color:#fff}
+.tag-chongwen{background:var(--chongwen);color:#fff}
+.tag-wen{background:var(--wen);color:#fff}
+.tag-bao{background:var(--bao);color:#fff}
+
+/* Rank bar */
+.rank-bar-cell{width:120px;padding:8px 10px}
+.rank-bar-track{
+  height:6px;background:var(--muted);border-radius:3px;overflow:hidden;position:relative;
+  min-width:60px;
+}
+.rank-bar-fill{
+  height:100%;border-radius:3px;transition:width .3s ease;
+}
+.rank-bar-fill.chong{background:var(--chong)}
+.rank-bar-fill.chongwen{background:var(--chongwen)}
+.rank-bar-fill.wen{background:var(--wen)}
+.rank-bar-fill.bao{background:var(--bao)}
+
+/* Recommendation reason */
+.reason-toggle{
+  cursor:pointer;color:var(--primary-light);font-size:.72rem;
+  text-decoration:underline dotted;user-select:none;background:none;border:none;font-family:inherit;
+}
+.reason-popup{
+  display:none;position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);
+  background:var(--text-primary);color:#fff;padding:8px 12px;border-radius:6px;
+  font-size:.78rem;width:280px;z-index:20;text-align:left;font-weight:400;line-height:1.5;
+  box-shadow:var(--shadow-lg);
+}
+.reason-popup::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--text-primary)}
+td.reason-cell{position:relative;text-align:center}
+tr:hover .reason-popup{display:block}
+
+/* Legend */
+.legend{
+  max-width:1400px;margin:0 auto;padding:16px 24px 32px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-secondary)}
+.legend-dot{width:10px;height:10px;border-radius:50%}
+
+/* Responsive */
+@media(max-width:1024px){
+  .rank-bar-cell{display:none}
+  td.major{max-width:160px}
+}
+@media(max-width:768px){
+  .header-inner{padding:12px 16px}
+  .header h1{font-size:1.05rem}
+  .header-meta{font-size:.72rem;gap:8px}
+  .stats-bar{padding:12px 16px 0;grid-template-columns:repeat(3,1fr)}
+  .filter-bar{padding:10px 16px}
+  .search-box input{width:140px}
+  .table-wrap{padding:0 12px}
+  table{font-size:.78rem}
+  thead th{padding:8px 6px;font-size:.7rem}
+  tbody td{padding:6px 6px}
+  td.idx{width:28px;font-size:.7rem}
+  td.major{max-width:100px}
+  td.school .code{display:none}
+  td.score{font-size:.78rem}
+  .legend{padding:12px 16px 24px}
+}
+@media(max-width:480px){
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .header-meta{width:100%}
+  td.major{max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  td.reason-cell{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <h1>
+      志愿参考表
+      <span class="badge">450分 · 历史+政治+生物</span>
+    </h1>
+    <div class="header-meta">
+      <span>📌 2025年投档数据</span>
+      <span>📐 96个志愿</span>
+      <span>🏠 省内30所</span>
+      <span>📋 含院校/专业代码</span>
+    </div>
+  </div>
+</header>
+
+<!-- Stats -->
+<div class="stats-bar" id="statsBar">
+  <div class="stat-card"><div class="num total" id="statTotal">0</div><div class="label">总计志愿</div></div>
+  <div class="stat-card"><div class="num chong" id="statChong">0</div><div class="label">🔴 冲</div></div>
+  <div class="stat-card"><div class="num chongwen" id="statChongwen">0</div><div class="label">🟠 冲稳</div></div>
+  <div class="stat-card"><div class="num wen" id="statWen">0</div><div class="label">🟢 稳</div></div>
+  <div class="stat-card"><div class="num bao" id="statBao">0</div><div class="label">🔵 保</div></div>
+  <div class="stat-card"><div class="num total" id="statSd">0</div><div class="label">🏠 省内高校</div></div>
+</div>
+
+<!-- Filter -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="冲">🔴 冲</button>
+  <button class="filter-btn" data-filter="冲稳">🟠 冲稳</button>
+  <button class="filter-btn" data-filter="稳">🟢 稳</button>
+  <button class="filter-btn" data-filter="保">🔵 保</button>
+  <button class="filter-btn sd active" data-filter="sd">🏠 省内优先</button>
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="搜索学校或专业..." />
+  </div>
+  <span class="filter-count" id="filterCount"></span>
+</div>
+
+<!-- Table -->
+<div class="table-wrap">
+  <div class="table-container">
+    <div style="overflow-x:auto">
+      <table id="mainTable">
+        <thead>
+          <tr>
+            <th style="width:40px;text-align:center">#</th>
+            <th style="width:80px;text-align:center">梯度</th>
+            <th>院校</th>
+            <th>专业</th>
+            <th class="sortable" data-sort="rank" style="text-align:right">位次 <span class="sort-icon">▼</span></th>
+            <th style="text-align:center">估分</th>
+            <th class="rank-bar-cell">位次分布</th>
+            <th style="text-align:center">推荐理由</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <span class="legend-item"><span class="legend-dot" style="background:var(--chong)"></span>冲 — 大胆冲刺，位次100k-130k</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--chongwen)"></span>冲稳 — 匹配度高，位次130k-155k</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--wen)"></span>稳 — 录取几率大，位次155k-185k</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--bao)"></span>保 — 确保录取，位次185k+</span>
+  <span class="legend-item" style="margin-left:auto;font-size:.72rem;color:var(--text-muted)">🏠 山东省属高校 &nbsp;|&nbsp; 估分根据2025年一分一段表推算</span>
+</div>
+
+<script>
+// ── Data ──
+const DATA = [
+  [1,"山东农业大学","A434","行政管理","50",100106,472,"冲",true,"省属重点，农林类龙头，位次略高但可冲刺"],
+  [2,"山东师范大学","A445","心理学类(地方专项计划)","LU",100110,472,"冲",true,"省属师范强校，地方专项降分录取机会"],
+  [3,"烟台大学","B066","数字人文","62",100284,472,"冲",true,"烟台热门高校，法学/人文专业有区域优势"],
+  [4,"山东建筑大学","A430","地理信息科学","62",100370,471,"冲",true,"建筑类特色，GIS专业就业面宽"],
+  [5,"山东政法学院","E100","财务管理","0G",100535,471,"冲",true,"政法类院校，经管法复合背景"],
+  [6,"山东财经大学","A456","金融科技","07",100617,471,"冲",true,"省内财经最高学府，金融科技新兴方向"],
+  [7,"山东科技大学","A424","安全工程(地方专项计划)","U9",100658,471,"冲",true,"工科强校，地方专项计划竞争较小"],
+  [8,"山东财经大学","Y014","金融科技(济南走读)","25",100819,471,"冲",true,"济南走读名额，分数相对较低"],
+  [9,"山东理工大学","A433","测控技术与仪器(新工科创新实验班)","2P",101116,471,"冲",true,"新工科实验班，培养质量有保障"],
+  [10,"青岛理工大学","A429","社会工作","0B",101924,470,"冲",true,"青岛区位优势，社会工作专业可考公"],
+  [11,"济南大学","A427","日语","0F",102006,470,"冲",true,"济南核心区位，小语种就业渠道多元"],
+  [12,"青岛科技大学","A426","制药工程","1B",102075,470,"冲",true,"橡胶/化工行业黄埔军校"],
+  [13,"山东工商学院","B688","信用风险管理与法律防控","AB",102274,470,"冲",true,"法学+金融交叉学科，就业差异化"],
+  [14,"青岛大学","Y017","环境科学与工程","96",104375,468,"冲",true,"青岛大学品牌效应，环境方向可深造"],
+  [15,"济南大学","Y016","应用心理学(师范类，济南走读)","3C",105627,467,"冲",true,"济南走读性价比高，师范+心理双方向"],
+  [16,"青岛大学","B065","轻化工程(地方专项计划)","7Y",106314,466,"冲",true,"地方专项降分，青岛大学平台高"],
+  [17,"山东交通学院","B510","审计学","53",106735,466,"冲",true,"审计学就业稳定，交通行业特色"],
+  [18,"山东中医药大学","A441","针灸推拿学","13",106825,466,"冲",true,"中医特色院校，针灸专业实用性强"],
+  [19,"山东石油化工学院","D386","法学","21",107527,465,"冲",true,"公办本科，法学专业考研率高"],
+  [20,"青岛农业大学","A435","电气工程及其自动化","24",108869,464,"冲",true,"工科热门专业，就业面广"],
+  [21,"山东第二医科大学","A438","中医学","07",108982,464,"冲",true,"医科院校中医学，中西医结合趋势"],
+  [22,"新疆财经大学","A766","审计学","15",100013,472,"冲",false,"财经类院校，审计就业方向好"],
+  [23,"长春理工大学","A186","英语","M1",100016,472,"冲",false,"工科院校英语专业，考研跳板"],
+  [24,"江西师范大学","A414","工商管理(组织人事管理)","AU",100032,472,"冲",false,"师范强校，管理类含人事方向"],
+  [25,"河南农业大学","A466","工商管理类","19",100034,472,"冲",false,"农业院校工商管理，位次友好"],
+  [26,"南昌航空大学","A406","工程管理","67",100040,472,"冲",false,"航空特色工程管理，行业对口"],
+  [27,"重庆交通大学","A618","给排水科学与工程","15",100047,472,"冲",false,"交通类特色院校，土木市政方向"],
+  [28,"滁州学院","A377","财务管理","45",100053,472,"冲",false,"安徽公办本科，财务管理就业稳定"],
+  [29,"华东交通大学","A404","建筑学","06",100093,472,"冲",false,"建筑学五年制，专业含金量高"],
+  [30,"湘南学院","A545","法学","33",100112,472,"冲",false,"湖南公办本科，法学考公优势"],
+  [31,"青岛理工大学(临沂校区)","Y004","电气工程与智能控制(临沂校区)","C1",131331,445,"冲稳",true,"青岛理工品牌，临沂校区分数友好"],
+  [32,"山东农业工程学院","E439","会计学","41",132084,444,"冲稳",true,"省属公办，会计学就业面广"],
+  [33,"绵阳师范学院","A639","英语(师范类)","07",130043,446,"冲稳",false,"师范类专业，适合想当老师的学生"],
+  [34,"南阳理工学院","B653","财务管理(智能财务方向)","38",130064,446,"冲稳",false,"智能财务新方向，迎合数字化转型"],
+  [35,"北京科技大学天津学院","D898","法学","0S",130114,446,"冲稳",false,"北京985独立学院，法学可考法考"],
+  [36,"宁德师范学院","A398","汉语言文学(师范类)","07",130211,446,"冲稳",false,"师范类汉语言，考编热门"],
+  [37,"莆田学院","B498","临床医学","77",131027,445,"冲稳",false,"临床医学五年制，医学入行门槛"],
+  [38,"遵义医科大学","A661","英语","0X",131242,445,"冲稳",false,"医科大学英语，可向医学英语方向发展"],
+  [39,"集美大学诚毅学院","D471","法学","05",131375,445,"冲稳",false,"福建独立学院，法学专业成熟"],
+  [40,"渭南师范学院","A723","汉语言文学(师范类)","50",131705,445,"冲稳",false,"师范类汉语言，教师招聘需求大"],
+  [41,"宝鸡文理学院","A721","会计学","18",131847,445,"冲稳",false,"陕西公办本科，会计学就业稳定"],
+  [42,"牡丹江师范学院","A233","知识产权","26",132054,444,"冲稳",false,"知识产权新兴产业，法学交叉方向"],
+  [43,"普洱学院","A685","法学","05",132103,444,"冲稳",false,"云南公办，法学专业考公优势"],
+  [44,"新乡学院","B071","会计学(注册会计师方向)","1F",132515,444,"冲稳",false,"会计学CPA方向，直接对标考证"],
+  [45,"广东轻工职业技术大学","A833","现代物流管理","1M",132778,444,"冲稳",false,"珠三角就业优势，物流管理需求旺"],
+  [46,"广东技术师范大学","A588","计算机科学与技术(师范类)","0L",132882,444,"冲稳",false,"师范类计算机，可做信息技术教师"],
+  [47,"重庆中医药学院","E830","中西医临床医学","06",133164,443,"冲稳",false,"新建中医药院校，中西医结合趋势"],
+  [48,"泰山学院","A453","汉语言文学(含师范类)","0N",134153,443,"冲稳",true,"泰安公办，师范类汉语言考研率高"],
+  [49,"景德镇学院","A894","财务管理","17",134280,443,"冲稳",false,"江西公办，财务管理就业面宽"],
+  [50,"琼台师范学院","D811","汉语言文学(师范类)","29",134427,442,"冲稳",false,"海南唯一幼儿师院，自贸港就业红利"],
+  [51,"泉州师范学院","A399","历史学(师范类)","07",134453,442,"冲稳",false,"历史学(师范)，历史+政治组合匹配"],
+  [52,"广州体育学院","A585","广播电视编导","15",134577,442,"冲稳",false,"体育传媒方向，广播电视编导特色"],
+  [53,"承德医学院","A093","中西医临床医学","15",134830,442,"冲稳",false,"临床医学低分上车机会"],
+  [54,"武汉体育学院","A522","新闻学","0M",135243,442,"冲稳",false,"体育新闻特色方向，新媒体就业好"],
+  [55,"北京物资学院","A037","应用统计学","28",135472,441,"冲稳",false,"北京高校，应用统计学数据分析方向"],
+  [56,"河南牧业经济学院","A469","审计学","21",135498,441,"冲稳",false,"河南公办，审计学考公好专业"],
+  [57,"广州航海学院","B106","船舶与海洋工程","06",135533,441,"冲稳",false,"广州区位，船舶工程就业前景好"],
+  [58,"曲靖师范学院","A684","历史学(师范类)","0G",135947,441,"冲稳",false,"云南公办，历史学师范考编对口"],
+  [59,"山东体育学院","A457","特殊教育(师范类)","02",164025,418,"稳",true,"特殊教育师范，特殊教育教师稀缺"],
+  [60,"山东财经大学东方学院","D999","会计学","01",164930,417,"稳",true,"会计学就业面最广，考研考编均可"],
+  [61,"上海财经大学浙江学院","E207","会计学(注册会计师)","04",155067,425,"稳",false,"上财品牌，注册会计师方向含金量高"],
+  [62,"唐山师范学院","A099","地理科学(师范类)","48",155425,425,"稳",false,"地理科学师范，地理教师需求稳定"],
+  [63,"吉林工程技术师范学院","A204","汉语言文学(师范类)","X3",155585,425,"稳",false,"汉语言文学师范，考编热门专业"],
+  [64,"安徽医科大学临床医学院","D618","临床医学","01",155880,424,"稳",false,"临床医学最低位次上车机会之一"],
+  [65,"吉林农业科技学院","B439","工商管理类","43",155935,424,"稳",false,"吉林公办，工商管理大类招生选择多"],
+  [66,"集宁师范学院","B427","汉语言文学(师范类)","44",155979,424,"稳",false,"内蒙公办，汉语言师范专业保底好选择"],
+  [67,"兰州石化职业技术大学","F209","大数据与会计","BW",156198,424,"稳",false,"大数据+会计双技能，就业竞争力强"],
+  [68,"嘉应学院","A582","护理学","1Z",156298,424,"稳",false,"护理学就业率高，广东需求大"],
+  [69,"南京师范大学泰州学院","D843","法学","05",156355,424,"稳",false,"南师大独立学院，法学可考法考/公考"],
+  [70,"天津外国语大学滨海外事学院","D658","法学","13",156443,424,"稳",false,"天津外国语学院背景，涉外法律方向"],
+  [71,"乐山师范学院","A649","汉语国际教育","9M",156451,424,"稳",false,"汉语国际教育，可从事对外汉语教学"],
+  [72,"滇西科技师范学院","E092","汉语言文学(师范类)","C1",156798,424,"稳",false,"云南公办，汉语言师范考编好选择"],
+  [73,"天津医科大学临床医学院","D661","临床医学","01",156885,424,"稳",false,"临床医学，天津医科大学品牌背书"],
+  [74,"温州医科大学仁济学院","D284","麻醉学","01",157043,423,"稳",false,"麻醉学专业稀缺，就业有保障"],
+  [75,"龙岩学院","B312","运动康复","0A",158335,422,"稳",false,"运动康复，体育+医学交叉就业好"],
+  [76,"四川工程职业技术大学","C763","电气工程及自动化","D3",158524,422,"稳",false,"电气工程，制造业就业需求旺盛"],
+  [77,"贵阳学院","A976","经济学","24",158640,422,"稳",false,"贵州省会公办，经济学考研考公均可"],
+  [78,"郑州工商学院","D507","法学","25",158728,422,"稳",false,"河南独立学院，法学专业成熟"],
+  [79,"西安航空学院","B736","交通运输","23",159262,422,"稳",false,"西安航空特色，交通运输行业对口"],
+  [80,"衢州学院","B488","机械设计制造及其自动化","0E",159486,421,"稳",false,"浙江公办，机械制造就业面广"],
+  [81,"亳州学院","B963","网络与新媒体","13",160289,421,"稳",false,"网络与新媒体，新媒体行业需求大"],
+  [82,"山东财经大学燕山学院","D383","会计学","01",170305,413,"稳",true,"山财品牌，会计学考研/就业双优势"],
+  [83,"福建江夏学院","D763","商务英语","0C",160866,420,"稳",false,"福建公办，商务英语外贸方向就业好"],
+  [84,"烟台理工学院","D359","法学","01",186221,400,"保",true,"烟台独立学院，法学考公考编性价比高"],
+  [85,"山东协和学院","D324","会计学","38",188196,398,"保",true,"山东民办，会计学就业面广"],
+  [86,"青岛农业大学海都学院","D997","财务管理","01",188729,398,"保",true,"青岛区位，财务管理考研可冲"],
+  [87,"青岛工学院","D995","知识产权","64",191618,395,"保",true,"青岛民办，知识产权新兴专业"],
+  [88,"三江学院","B122","国际经济与贸易","0N",185503,400,"保",false,"江苏民办，国贸专业外语+贸易复合"],
+  [89,"三亚学院","D892","法学(自贸港法律)","02",186441,399,"保",false,"海南自贸港背景，自贸港法律方向稀缺"],
+  [90,"郑州工业应用技术学院","C747","会计学","12",186538,399,"保",false,"河南民办，会计学就业稳定"],
+  [91,"成都外国语学院","D673","汉语言文学","05",186677,399,"保",false,"成都区位，汉语言文学可考教资"],
+  [92,"郑州科技学院","C746","财务管理","12",186799,399,"保",false,"河南民办，财务管理就业面广"],
+  [93,"新疆交通职业技术大学","D926","现代物流管理","21",186808,399,"保",false,"新设本科层次职大，物流管理需求增"],
+  [94,"新疆艺术学院","A768","非物质文化遗产保护","13",187379,399,"保",false,"艺术类院校，非遗保护方向特色鲜明"],
+  [95,"汉口学院","B800","法学","01",187460,399,"保",false,"湖北民办，法学考研/考公性价比高"],
+  [96,"辽宁师范大学海华学院","D215","法学","01",187541,399,"保",false,"辽师品牌，法学专业培养体系成熟"],
+];
+
+// ── State ──
+let currentFilter = 'all';
+let sdOnly = false;
+let currentSort = { key: null, dir: 'asc' };
+let searchTerm = '';
+
+function getFilteredData() {
+  let d = DATA;
+  if (currentFilter !== 'all') d = d.filter(r => r[7] === currentFilter);
+  if (sdOnly) d = d.filter(r => r[8] === true);
+  if (searchTerm) {
+    const q = searchTerm.toLowerCase();
+    d = d.filter(r => r[1].toLowerCase().includes(q) || r[3].toLowerCase().includes(q));
+  }
+  return d;
+}
+
+function sortData(data) {
+  if (!currentSort.key) return data;
+  const d = [...data];
+  d.sort((a, b) => {
+    const aidx = a[0], bIdx = b[0];
+    let va, vb;
+    if (currentSort.key === 'rank') { va = a[5]; vb = b[5]; }
+    else { va = aidx; vb = bIdx; }
+    const cmp = va - vb;
+    return currentSort.dir === 'asc' ? cmp : -cmp;
+  });
+  return d;
+}
+
+function formatRank(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+const rankMin = 90000, rankMax = 210000;
+
+function rankPercent(rank) {
+  return Math.max(0, Math.min(100, ((rank - rankMin) / (rankMax - rankMin)) * 100));
+}
+
+function reasonText(idx, major, reason) {
+  return `${idx}. ${major} — ${reason}`;
+}
+
+function render() {
+  let data = getFilteredData();
+  data = sortData(data);
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+
+  document.getElementById('filterCount').textContent = `显示 ${data.length} / 96 个志愿`;
+
+  // Stats
+  const all = getFilteredData();
+  document.getElementById('statTotal').textContent = DATA.length;
+  document.getElementById('statChong').textContent = DATA.filter(r => r[7]==='冲').length;
+  document.getElementById('statChongwen').textContent = DATA.filter(r => r[7]==='冲稳').length;
+  document.getElementById('statWen').textContent = DATA.filter(r => r[7]==='稳').length;
+  document.getElementById('statBao').textContent = DATA.filter(r => r[7]==='保').length;
+  document.getElementById('statSd').textContent = DATA.filter(r => r[8]===true).length;
+
+  data.forEach(r => {
+    const [idx, school, sCode, major, mCode, rank, score, gradient, isSd, reason] = r;
+    const tr = document.createElement('tr');
+    tr.className = `row-${gradient}`;
+
+    const gradClass = `tag-${gradient}`;
+
+    tr.innerHTML = `
+      <td class="idx">${idx}</td>
+      <td class="gradient"><span class="tag ${gradClass}">${gradient}</span></td>
+      <td class="school">
+        ${isSd ? '<span class="sd-tag">山东</span>' : ''}
+        ${school}
+        <span class="code">${sCode}</span>
+      </td>
+      <td class="major">
+        <span class="major-code">${mCode}</span>
+        ${major}
+      </td>
+      <td class="rank">${formatRank(rank)}</td>
+      <td class="score">${score}</td>
+      <td class="rank-bar-cell">
+        <div class="rank-bar-track">
+          <div class="rank-bar-fill ${gradient}" style="width:${rankPercent(rank)}%"></div>
+        </div>
+      </td>
+      <td class="reason-cell">
+        <button class="reason-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">💡 理由</button>
+        <div class="reason-popup">${reason}</div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ── Event handlers ──
+document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    if (f === 'sd') {
+      sdOnly = !sdOnly;
+      btn.classList.toggle('active');
+      if (currentFilter !== 'all') {
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
+          if (b.dataset.filter !== 'sd') b.classList.remove('active');
+        });
+        currentFilter = 'all';
+      }
+      render();
+      return;
+    }
+    currentFilter = f;
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
+      if (b.dataset.filter !== 'sd') b.classList.toggle('active', b === btn);
+    });
+    render();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchTerm = e.target.value;
+  render();
+});
+
+document.querySelectorAll('th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.sort;
+    if (currentSort.key === key) {
+      currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      currentSort.key = key;
+      currentSort.dir = 'asc';
+    }
+    document.querySelectorAll('th.sortable .sort-icon').forEach(s => {
+      s.textContent = '▼';
+      s.style.opacity = '.3';
+    });
+    const icon = th.querySelector('.sort-icon');
+    icon.textContent = currentSort.dir === 'asc' ? '▲' : '▼';
+    icon.style.opacity = '1';
+    th.classList.toggle('sort-asc', currentSort.dir === 'asc');
+    th.classList.toggle('sort-desc', currentSort.dir === 'desc');
+    render();
+  });
+});
+
+// Close popups on click elsewhere
+document.addEventListener('click', e => {
+  if (!e.target.classList.contains('reason-toggle')) {
+    document.querySelectorAll('.reason-popup').forEach(p => p.style.display = 'none');
+  }
+});
+
+render();
+</script>
+</body>
+</html>

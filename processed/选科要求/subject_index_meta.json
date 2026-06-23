@@ -1,0 +1,24 @@
+{
+  "dataset": "选科要求 SQLite 索引",
+  "generated_at": "2026-06-23T10:55:22",
+  "db_file": "processed/选科要求/subject_index.sqlite",
+  "row_count": 180788,
+  "source_counts": {
+    "processed/选科要求/2024版本科.json": 50915,
+    "processed/选科要求/2024版专科.json": 39950,
+    "processed/选科要求/2027版本科.json": 52558,
+    "processed/选科要求/2027版专科.json": 37365
+  },
+  "source_files": [
+    "processed/选科要求/2024版本科.json",
+    "processed/选科要求/2024版专科.json",
+    "processed/选科要求/2027版本科.json",
+    "processed/选科要求/2027版专科.json"
+  ],
+  "publisher": "山东省教育招生考试院",
+  "official_domain": "sdzk.cn",
+  "quality_level": "A",
+  "verification_status": "derived_from_processed_subject_requirements",
+  "evidence_id_formula": "sha256(edition|level|school_code|major_code|major_name|subject_requirement_raw)",
+  "hard_gate_policy": "志愿方案中任何 BLOCK 或 REVIEW 均不得作为正式交付方案。"
+}

@@ -1,0 +1,33 @@
+{
+  "dataset": "分数线",
+  "publisher_primary": "山东省教育招生考试院",
+  "official_domain": "sdzk.cn",
+  "fields": {
+    "year": "年份",
+    "普通类": "普通类分数线",
+    "艺术类": "艺术类文化控制线",
+    "体育类": "体育类综合分线与文化控制线"
+  },
+  "files": [
+    {
+      "file": "processed/分数线/2025.json",
+      "source_file": "raw/2025/分数线/附件1_夏季高考各类别分数线.pdf",
+      "publisher": "山东省教育招生考试院",
+      "quality_level": "A",
+      "verification_status": "official_pdf_extracted",
+      "use_limit": "可作为正式决策依据；正式填报前仍需核查当年最新公告。"
+    },
+    {
+      "file": "processed/分数线/历史分数线_2020-2024.json",
+      "source_file": null,
+      "publisher": "第三方公开资料汇总，待山东省教育招生考试院回查",
+      "quality_level": "D",
+      "verification_status": "pending_sdzk_verification",
+      "use_limit": "仅作趋势线索，禁止作为正式志愿方案数值依据；正式引用前必须回查 sdzk.cn 对应年度公告或原始页面。"
+    }
+  ],
+  "notes": [
+    "山东高考正式分数线以山东省教育招生考试院最新发布为准。",
+    "若第三方汇总与 sdzk.cn 冲突，直接采用 sdzk.cn。"
+  ]
+}

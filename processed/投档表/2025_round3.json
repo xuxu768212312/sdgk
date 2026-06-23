@@ -1,0 +1,7622 @@
+[
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "口腔医学",
+    "school_code": "A442",
+    "school_name": "山东医学高等专科学校",
+    "plan_count": 2,
+    "min_rank": 200663
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "护理",
+    "school_code": "A442",
+    "school_name": "山东医学高等专科学校",
+    "plan_count": 3,
+    "min_rank": 264172
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "医学检验技术",
+    "school_code": "A442",
+    "school_name": "山东医学高等专科学校",
+    "plan_count": 1,
+    "min_rank": 205285
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "39",
+    "major_name": "护理",
+    "school_code": "A442",
+    "school_name": "山东医学高等专科学校",
+    "plan_count": 1,
+    "min_rank": 202747
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "47",
+    "major_name": "医学影像技术",
+    "school_code": "A442",
+    "school_name": "山东医学高等专科学校",
+    "plan_count": 1,
+    "min_rank": 229135
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "30",
+    "major_name": "药学",
+    "school_code": "A825",
+    "school_name": "齐鲁医药学院",
+    "plan_count": 1,
+    "min_rank": 269957
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "61",
+    "major_name": "护理",
+    "school_code": "A868",
+    "school_name": "青岛滨海学院",
+    "plan_count": 1,
+    "min_rank": 247600
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "72",
+    "major_name": "应用英语",
+    "school_code": "A868",
+    "school_name": "青岛滨海学院",
+    "plan_count": 18,
+    "min_rank": 653481
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "73",
+    "major_name": "应用韩语",
+    "school_code": "A868",
+    "school_name": "青岛滨海学院",
+    "plan_count": 6,
+    "min_rank": 646655
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "74",
+    "major_name": "应用日语",
+    "school_code": "A868",
+    "school_name": "青岛滨海学院",
+    "plan_count": 504,
+    "min_rank": 675925
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "34",
+    "major_name": "舞蹈教育(中外合作办学)(师范类)",
+    "school_code": "B824",
+    "school_name": "桂林师范学院",
+    "plan_count": 2,
+    "min_rank": 368835
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "35",
+    "major_name": "音乐教育(中外合作办学)(师范类)",
+    "school_code": "B824",
+    "school_name": "桂林师范学院",
+    "plan_count": 3,
+    "min_rank": 520884
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "护理",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 19,
+    "min_rank": 634344
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "药学",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 11,
+    "min_rank": 657802
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "中药学",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 3,
+    "min_rank": 592973
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "医学检验技术",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 14,
+    "min_rank": 662702
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "医学影像技术",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 7,
+    "min_rank": 654384
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "口腔医学技术",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 7,
+    "min_rank": 629473
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 5,
+    "min_rank": 667400
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "物联网应用技术",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 4,
+    "min_rank": 661690
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "30",
+    "major_name": "工商企业管理",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 8,
+    "min_rank": 671067
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "40",
+    "major_name": "动漫制作技术",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 2,
+    "min_rank": 615049
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "43",
+    "major_name": "康复治疗技术",
+    "school_code": "B841",
+    "school_name": "民办四川天一学院",
+    "plan_count": 2,
+    "min_rank": 640140
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "4J",
+    "major_name": "智慧健康养老服务与管理",
+    "school_code": "B964",
+    "school_name": "邢台医学院",
+    "plan_count": 1,
+    "min_rank": 201026
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "4A",
+    "major_name": "护理",
+    "school_code": "C054",
+    "school_name": "九州职业技术学院",
+    "plan_count": 8,
+    "min_rank": 636567
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "建筑设计",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 8,
+    "min_rank": 584360
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "建筑装饰工程技术",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 49,
+    "min_rank": 638573
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "古建筑工程技术",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 46,
+    "min_rank": 661243
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "食品智能加工技术",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 31,
+    "min_rank": 647175
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "19",
+    "major_name": "大数据技术",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 33,
+    "min_rank": 616755
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "现代通信技术",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 9,
+    "min_rank": 597367
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "集成电路技术",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 7,
+    "min_rank": 580299
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "37",
+    "major_name": "电子商务",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 6,
+    "min_rank": 587677
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "38",
+    "major_name": "网络营销与直播电商",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 5,
+    "min_rank": 586269
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "39",
+    "major_name": "旅游管理",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 25,
+    "min_rank": 638461
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "40",
+    "major_name": "酒店管理与数字化运营",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 66,
+    "min_rank": 672180
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "41",
+    "major_name": "餐饮智能管理",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 65,
+    "min_rank": 681029
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "43",
+    "major_name": "环境艺术设计",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 14,
+    "min_rank": 642361
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "44",
+    "major_name": "书画艺术",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 1,
+    "min_rank": 506754
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "雕刻艺术设计",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 14,
+    "min_rank": 661759
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "47",
+    "major_name": "陶瓷设计与工艺",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 15,
+    "min_rank": 668172
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "48",
+    "major_name": "音乐表演",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 15,
+    "min_rank": 680055
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "49",
+    "major_name": "舞蹈表演",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 20,
+    "min_rank": 679115
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "52",
+    "major_name": "网络新闻与传播",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 23,
+    "min_rank": 666277
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "54",
+    "major_name": "融媒体技术与运营",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 33,
+    "min_rank": 643385
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "55",
+    "major_name": "网络直播与运营",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 31,
+    "min_rank": 645247
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "58",
+    "major_name": "社区管理与服务",
+    "school_code": "C070",
+    "school_name": "曲阜远东职业技术学院",
+    "plan_count": 29,
+    "min_rank": 645515
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C8",
+    "major_name": "高分子合成技术",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 94,
+    "min_rank": 587956
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D2",
+    "major_name": "高分子材料智能制造技术",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 6,
+    "min_rank": 529018
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D7",
+    "major_name": "工程造价",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 64,
+    "min_rank": 600199
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D9",
+    "major_name": "商务数据分析与应用",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 5,
+    "min_rank": 563690
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E4",
+    "major_name": "现代家用纺织品设计",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 36,
+    "min_rank": 606908
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E6",
+    "major_name": "商务英语",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 28,
+    "min_rank": 602605
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E8",
+    "major_name": "智能建造技术",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 25,
+    "min_rank": 599422
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E9",
+    "major_name": "食品生物技术",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 92,
+    "min_rank": 600392
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "F4",
+    "major_name": "大数据技术",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 73,
+    "min_rank": 605053
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "F9",
+    "major_name": "软件技术",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 24,
+    "min_rank": 576328
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "G1",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "C332",
+    "school_name": "烟台南山学院",
+    "plan_count": 67,
+    "min_rank": 627192
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0C",
+    "major_name": "集成电路技术",
+    "school_code": "C336",
+    "school_name": "贵州电子信息职业技术学院",
+    "plan_count": 1,
+    "min_rank": 287776
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0D",
+    "major_name": "电子商务",
+    "school_code": "C336",
+    "school_name": "贵州电子信息职业技术学院",
+    "plan_count": 4,
+    "min_rank": 332935
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0E",
+    "major_name": "现代物流管理",
+    "school_code": "C336",
+    "school_name": "贵州电子信息职业技术学院",
+    "plan_count": 1,
+    "min_rank": 290416
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "50",
+    "major_name": "建筑工程技术",
+    "school_code": "C560",
+    "school_name": "云南经济管理学院",
+    "plan_count": 4,
+    "min_rank": 670456
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "52",
+    "major_name": "高速铁路客运服务",
+    "school_code": "C560",
+    "school_name": "云南经济管理学院",
+    "plan_count": 1,
+    "min_rank": 635543
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "58",
+    "major_name": "计算机应用技术",
+    "school_code": "C560",
+    "school_name": "云南经济管理学院",
+    "plan_count": 4,
+    "min_rank": 631263
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "63",
+    "major_name": "小学教育",
+    "school_code": "C560",
+    "school_name": "云南经济管理学院",
+    "plan_count": 2,
+    "min_rank": 632656
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "65",
+    "major_name": "护理",
+    "school_code": "C560",
+    "school_name": "云南经济管理学院",
+    "plan_count": 3,
+    "min_rank": 672931
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "护理",
+    "school_code": "C564",
+    "school_name": "北京北大方正软件职业技术学院",
+    "plan_count": 8,
+    "min_rank": 657879
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "软件技术",
+    "school_code": "C564",
+    "school_name": "北京北大方正软件职业技术学院",
+    "plan_count": 1,
+    "min_rank": 505655
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "43",
+    "major_name": "助产",
+    "school_code": "C662",
+    "school_name": "张家界学院",
+    "plan_count": 3,
+    "min_rank": 679148
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "商务英语",
+    "school_code": "C662",
+    "school_name": "张家界学院",
+    "plan_count": 1,
+    "min_rank": 559684
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "56",
+    "major_name": "旅游管理",
+    "school_code": "C713",
+    "school_name": "西安外事学院",
+    "plan_count": 1,
+    "min_rank": 342475
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "现代物流管理",
+    "school_code": "C717",
+    "school_name": "三亚城市职业学院",
+    "plan_count": 3,
+    "min_rank": 575511
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "智慧健康养老服务与管理",
+    "school_code": "C717",
+    "school_name": "三亚城市职业学院",
+    "plan_count": 2,
+    "min_rank": 655789
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "人力资源管理",
+    "school_code": "C717",
+    "school_name": "三亚城市职业学院",
+    "plan_count": 3,
+    "min_rank": 632659
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "17",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "C717",
+    "school_name": "三亚城市职业学院",
+    "plan_count": 8,
+    "min_rank": 676315
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "68",
+    "major_name": "大数据与会计(中外合作办学)",
+    "school_code": "C717",
+    "school_name": "三亚城市职业学院",
+    "plan_count": 8,
+    "min_rank": 680610
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "学前教育(师范类)",
+    "school_code": "C727",
+    "school_name": "黑龙江农垦职业学院",
+    "plan_count": 3,
+    "min_rank": 327605
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "C727",
+    "school_name": "黑龙江农垦职业学院",
+    "plan_count": 6,
+    "min_rank": 412920
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0M",
+    "major_name": "智慧旅游技术应用",
+    "school_code": "C754",
+    "school_name": "重庆海联职业技术学院",
+    "plan_count": 1,
+    "min_rank": 604514
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0P",
+    "major_name": "工程造价",
+    "school_code": "C754",
+    "school_name": "重庆海联职业技术学院",
+    "plan_count": 1,
+    "min_rank": 574172
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0T",
+    "major_name": "社会体育",
+    "school_code": "C754",
+    "school_name": "重庆海联职业技术学院",
+    "plan_count": 1,
+    "min_rank": 580806
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0U",
+    "major_name": "药品经营与管理",
+    "school_code": "C754",
+    "school_name": "重庆海联职业技术学院",
+    "plan_count": 1,
+    "min_rank": 634346
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "80",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "C755",
+    "school_name": "重庆信息技术职业学院",
+    "plan_count": 1,
+    "min_rank": 578245
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "护理",
+    "school_code": "C783",
+    "school_name": "石家庄城市经济职业学院",
+    "plan_count": 6,
+    "min_rank": 621412
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "75",
+    "major_name": "助产",
+    "school_code": "C795",
+    "school_name": "南昌理工学院",
+    "plan_count": 6,
+    "min_rank": 670114
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A1",
+    "major_name": "汽车智能技术",
+    "school_code": "C795",
+    "school_name": "南昌理工学院",
+    "plan_count": 2,
+    "min_rank": 407613
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "59",
+    "major_name": "护理",
+    "school_code": "C832",
+    "school_name": "兰州外语职业学院",
+    "plan_count": 1,
+    "min_rank": 634214
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "63",
+    "major_name": "智能机器人技术",
+    "school_code": "C832",
+    "school_name": "兰州外语职业学院",
+    "plan_count": 2,
+    "min_rank": 613841
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "66",
+    "major_name": "口腔医学技术",
+    "school_code": "C832",
+    "school_name": "兰州外语职业学院",
+    "plan_count": 11,
+    "min_rank": 671974
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "67",
+    "major_name": "药学",
+    "school_code": "C832",
+    "school_name": "兰州外语职业学院",
+    "plan_count": 4,
+    "min_rank": 679681
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "80",
+    "major_name": "人工智能技术应用",
+    "school_code": "C832",
+    "school_name": "兰州外语职业学院",
+    "plan_count": 2,
+    "min_rank": 632450
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "28",
+    "major_name": "大数据技术",
+    "school_code": "C842",
+    "school_name": "德州科技职业学院",
+    "plan_count": 33,
+    "min_rank": 585391
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "29",
+    "major_name": "云计算技术应用",
+    "school_code": "C842",
+    "school_name": "德州科技职业学院",
+    "plan_count": 16,
+    "min_rank": 590602
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "30",
+    "major_name": "信息安全技术应用",
+    "school_code": "C842",
+    "school_name": "德州科技职业学院",
+    "plan_count": 17,
+    "min_rank": 594921
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "大数据与会计",
+    "school_code": "C850",
+    "school_name": "贵州城市职业学院",
+    "plan_count": 6,
+    "min_rank": 667427
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "工程造价",
+    "school_code": "C850",
+    "school_name": "贵州城市职业学院",
+    "plan_count": 3,
+    "min_rank": 657484
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "无人机测绘技术",
+    "school_code": "C850",
+    "school_name": "贵州城市职业学院",
+    "plan_count": 6,
+    "min_rank": 677206
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "17",
+    "major_name": "汽车制造与试验技术",
+    "school_code": "C850",
+    "school_name": "贵州城市职业学院",
+    "plan_count": 8,
+    "min_rank": 634327
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "23",
+    "major_name": "护理",
+    "school_code": "C850",
+    "school_name": "贵州城市职业学院",
+    "plan_count": 12,
+    "min_rank": 680206
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "康复治疗技术",
+    "school_code": "C850",
+    "school_name": "贵州城市职业学院",
+    "plan_count": 10,
+    "min_rank": 675773
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "32",
+    "major_name": "歌舞表演(舞蹈表演方向)",
+    "school_code": "C850",
+    "school_name": "贵州城市职业学院",
+    "plan_count": 29,
+    "min_rank": 619893
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "26",
+    "major_name": "产品艺术设计",
+    "school_code": "C927",
+    "school_name": "泉州华光职业学院",
+    "plan_count": 2,
+    "min_rank": 673147
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "软件技术",
+    "school_code": "C945",
+    "school_name": "山东圣翰财贸职业学院",
+    "plan_count": 27,
+    "min_rank": 600176
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "35",
+    "major_name": "财税大数据应用",
+    "school_code": "C945",
+    "school_name": "山东圣翰财贸职业学院",
+    "plan_count": 34,
+    "min_rank": 659968
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "42",
+    "major_name": "大数据技术",
+    "school_code": "C945",
+    "school_name": "山东圣翰财贸职业学院",
+    "plan_count": 31,
+    "min_rank": 629590
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "43",
+    "major_name": "计算机网络技术",
+    "school_code": "C945",
+    "school_name": "山东圣翰财贸职业学院",
+    "plan_count": 3,
+    "min_rank": 560460
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "44",
+    "major_name": "计算机应用技术",
+    "school_code": "C945",
+    "school_name": "山东圣翰财贸职业学院",
+    "plan_count": 1,
+    "min_rank": 273164
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "35",
+    "major_name": "软件技术",
+    "school_code": "C961",
+    "school_name": "广东亚视演艺职业学院",
+    "plan_count": 1,
+    "min_rank": 636676
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "39",
+    "major_name": "信息安全技术应用",
+    "school_code": "C961",
+    "school_name": "广东亚视演艺职业学院",
+    "plan_count": 1,
+    "min_rank": 643573
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "41",
+    "major_name": "物联网应用技术",
+    "school_code": "C961",
+    "school_name": "广东亚视演艺职业学院",
+    "plan_count": 1,
+    "min_rank": 679518
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "45",
+    "major_name": "学前教育",
+    "school_code": "C961",
+    "school_name": "广东亚视演艺职业学院",
+    "plan_count": 1,
+    "min_rank": 678175
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "57",
+    "major_name": "药学",
+    "school_code": "C961",
+    "school_name": "广东亚视演艺职业学院",
+    "plan_count": 1,
+    "min_rank": 628300
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "35",
+    "major_name": "护理",
+    "school_code": "C963",
+    "school_name": "四川托普信息技术职业学院",
+    "plan_count": 3,
+    "min_rank": 620188
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "护理",
+    "school_code": "C964",
+    "school_name": "四川国际标榜职业学院",
+    "plan_count": 3,
+    "min_rank": 679772
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "软件技术(互联网游戏动漫开发)",
+    "school_code": "C964",
+    "school_name": "四川国际标榜职业学院",
+    "plan_count": 1,
+    "min_rank": 534567
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "21",
+    "major_name": "影视多媒体技术(媒体创意与策划)",
+    "school_code": "C964",
+    "school_name": "四川国际标榜职业学院",
+    "plan_count": 3,
+    "min_rank": 678295
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "43",
+    "major_name": "中文",
+    "school_code": "C964",
+    "school_name": "四川国际标榜职业学院",
+    "plan_count": 5,
+    "min_rank": 677247
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "YH",
+    "major_name": "人工智能技术应用",
+    "school_code": "C964",
+    "school_name": "四川国际标榜职业学院",
+    "plan_count": 3,
+    "min_rank": 680409
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A3",
+    "major_name": "市场营销",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 18,
+    "min_rank": 661192
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A4",
+    "major_name": "现代物流管理",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 23,
+    "min_rank": 670112
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B2",
+    "major_name": "工程造价",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 20,
+    "min_rank": 678809
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B3",
+    "major_name": "建设工程监理",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 32,
+    "min_rank": 680096
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B4",
+    "major_name": "建筑工程技术",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 24,
+    "min_rank": 680872
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B6",
+    "major_name": "工商企业管理",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 1,
+    "min_rank": 365237
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C5",
+    "major_name": "大数据技术",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 10,
+    "min_rank": 622336
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D0",
+    "major_name": "商务英语",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 24,
+    "min_rank": 680272
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D7",
+    "major_name": "旅游管理",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 14,
+    "min_rank": 678398
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E2",
+    "major_name": "早期教育",
+    "school_code": "D006",
+    "school_name": "山东英才学院",
+    "plan_count": 35,
+    "min_rank": 679620
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "Q2",
+    "major_name": "汽车制造与试验技术",
+    "school_code": "D007",
+    "school_name": "东营科技职业学院",
+    "plan_count": 1,
+    "min_rank": 256052
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "2W",
+    "major_name": "建筑消防技术",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 21,
+    "min_rank": 679560
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "2X",
+    "major_name": "建筑工程技术",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 51,
+    "min_rank": 680476
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "2Y",
+    "major_name": "工程造价",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 41,
+    "min_rank": 680966
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "36",
+    "major_name": "关务与外贸服务",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 29,
+    "min_rank": 664721
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "38",
+    "major_name": "市场营销",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 8,
+    "min_rank": 678220
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "39",
+    "major_name": "连锁经营与管理",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 25,
+    "min_rank": 681095
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3A",
+    "major_name": "金融服务与管理",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 19,
+    "min_rank": 676208
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3D",
+    "major_name": "旅游管理",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 33,
+    "min_rank": 679282
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3F",
+    "major_name": "应用日语",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 8,
+    "min_rank": 634022
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3G",
+    "major_name": "应用韩语",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 33,
+    "min_rank": 670376
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3J",
+    "major_name": "早期教育",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 19,
+    "min_rank": 680719
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3K",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "D015",
+    "school_name": "青岛恒星科技学院",
+    "plan_count": 20,
+    "min_rank": 678789
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0L",
+    "major_name": "人工智能技术应用",
+    "school_code": "D041",
+    "school_name": "长沙南方职业学院",
+    "plan_count": 2,
+    "min_rank": 578574
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0M",
+    "major_name": "动漫制作技术",
+    "school_code": "D041",
+    "school_name": "长沙南方职业学院",
+    "plan_count": 2,
+    "min_rank": 634152
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "体育教育",
+    "school_code": "D042",
+    "school_name": "潇湘职业学院",
+    "plan_count": 1,
+    "min_rank": 495960
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "体育保健与康复",
+    "school_code": "D042",
+    "school_name": "潇湘职业学院",
+    "plan_count": 1,
+    "min_rank": 599845
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "智慧健康养老服务与管理",
+    "school_code": "D042",
+    "school_name": "潇湘职业学院",
+    "plan_count": 2,
+    "min_rank": 675011
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "电子商务",
+    "school_code": "D042",
+    "school_name": "潇湘职业学院",
+    "plan_count": 2,
+    "min_rank": 677369
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "汽车检测与维修技术",
+    "school_code": "D042",
+    "school_name": "潇湘职业学院",
+    "plan_count": 1,
+    "min_rank": 600243
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "人工智能技术应用",
+    "school_code": "D042",
+    "school_name": "潇湘职业学院",
+    "plan_count": 1,
+    "min_rank": 664219
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "建筑工程技术",
+    "school_code": "D113",
+    "school_name": "江海职业技术学院",
+    "plan_count": 1,
+    "min_rank": 633517
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "62",
+    "major_name": "建设工程管理(BIM方向)",
+    "school_code": "D121",
+    "school_name": "西安思源学院",
+    "plan_count": 2,
+    "min_rank": 654046
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "85",
+    "major_name": "学前教育",
+    "school_code": "D121",
+    "school_name": "西安思源学院",
+    "plan_count": 3,
+    "min_rank": 672981
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "建筑室内设计",
+    "school_code": "D122",
+    "school_name": "西安高新科技职业学院",
+    "plan_count": 1,
+    "min_rank": 573590
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "建筑室内设计",
+    "school_code": "D124",
+    "school_name": "西安城市建设职业学院",
+    "plan_count": 1,
+    "min_rank": 541322
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "建筑工程技术",
+    "school_code": "D124",
+    "school_name": "西安城市建设职业学院",
+    "plan_count": 2,
+    "min_rank": 634741
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "工程造价",
+    "school_code": "D124",
+    "school_name": "西安城市建设职业学院",
+    "plan_count": 1,
+    "min_rank": 591621
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "37",
+    "major_name": "学前教育",
+    "school_code": "D124",
+    "school_name": "西安城市建设职业学院",
+    "plan_count": 3,
+    "min_rank": 656375
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "38",
+    "major_name": "计算机网络技术",
+    "school_code": "D125",
+    "school_name": "陕西服装工程学院",
+    "plan_count": 3,
+    "min_rank": 593645
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "40",
+    "major_name": "大数据技术",
+    "school_code": "D125",
+    "school_name": "陕西服装工程学院",
+    "plan_count": 7,
+    "min_rank": 579249
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "72",
+    "major_name": "人工智能技术应用",
+    "school_code": "D125",
+    "school_name": "陕西服装工程学院",
+    "plan_count": 4,
+    "min_rank": 661245
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "护理(高职3+2贯通培养，衔接山东石油化工学院护理学专业)",
+    "school_code": "D316",
+    "school_name": "山东胜利职业学院",
+    "plan_count": 1,
+    "min_rank": 194181
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "62",
+    "major_name": "工程造价",
+    "school_code": "D320",
+    "school_name": "青岛黄海学院",
+    "plan_count": 9,
+    "min_rank": 624739
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "67",
+    "major_name": "口腔医学",
+    "school_code": "D320",
+    "school_name": "青岛黄海学院",
+    "plan_count": 2,
+    "min_rank": 454477
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "70",
+    "major_name": "大数据与财务管理",
+    "school_code": "D320",
+    "school_name": "青岛黄海学院",
+    "plan_count": 48,
+    "min_rank": 673801
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "73",
+    "major_name": "早期教育",
+    "school_code": "D320",
+    "school_name": "青岛黄海学院",
+    "plan_count": 9,
+    "min_rank": 674531
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B7",
+    "major_name": "电子商务(中外合作办学)(与美国汉弗莱斯大学合作)",
+    "school_code": "D321",
+    "school_name": "青岛求实职业技术学院",
+    "plan_count": 1,
+    "min_rank": 543849
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "78",
+    "major_name": "早期教育",
+    "school_code": "D324",
+    "school_name": "山东协和学院",
+    "plan_count": 2,
+    "min_rank": 548168
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B7",
+    "major_name": "软件技术",
+    "school_code": "D330",
+    "school_name": "昆明城市学院",
+    "plan_count": 1,
+    "min_rank": 372087
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B8",
+    "major_name": "信息安全技术应用",
+    "school_code": "D330",
+    "school_name": "昆明城市学院",
+    "plan_count": 4,
+    "min_rank": 660211
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C3",
+    "major_name": "视觉传达设计",
+    "school_code": "D333",
+    "school_name": "昆明传媒学院",
+    "plan_count": 1,
+    "min_rank": 675923
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C5",
+    "major_name": "融媒体技术与运营",
+    "school_code": "D333",
+    "school_name": "昆明传媒学院",
+    "plan_count": 3,
+    "min_rank": 667114
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C7",
+    "major_name": "全媒体广告策划与营销",
+    "school_code": "D333",
+    "school_name": "昆明传媒学院",
+    "plan_count": 4,
+    "min_rank": 680201
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E5",
+    "major_name": "社会体育",
+    "school_code": "D333",
+    "school_name": "昆明传媒学院",
+    "plan_count": 2,
+    "min_rank": 609309
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "30",
+    "major_name": "现代移动通信技术",
+    "school_code": "D356",
+    "school_name": "山东工程职业技术大学",
+    "plan_count": 6,
+    "min_rank": 574361
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "32",
+    "major_name": "移动应用开发",
+    "school_code": "D356",
+    "school_name": "山东工程职业技术大学",
+    "plan_count": 25,
+    "min_rank": 675762
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "38",
+    "major_name": "民航运输服务",
+    "school_code": "D356",
+    "school_name": "山东工程职业技术大学",
+    "plan_count": 92,
+    "min_rank": 681075
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "55",
+    "major_name": "应用韩语",
+    "school_code": "D359",
+    "school_name": "烟台理工学院",
+    "plan_count": 4,
+    "min_rank": 668533
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "56",
+    "major_name": "软件技术",
+    "school_code": "D359",
+    "school_name": "烟台理工学院",
+    "plan_count": 11,
+    "min_rank": 680772
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "44",
+    "major_name": "工程造价",
+    "school_code": "D378",
+    "school_name": "青岛城市学院",
+    "plan_count": 3,
+    "min_rank": 570528
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "45",
+    "major_name": "建筑工程技术",
+    "school_code": "D378",
+    "school_name": "青岛城市学院",
+    "plan_count": 36,
+    "min_rank": 664513
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "建筑设计",
+    "school_code": "D378",
+    "school_name": "青岛城市学院",
+    "plan_count": 21,
+    "min_rank": 677903
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A6",
+    "major_name": "民航安全技术管理",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 1,
+    "min_rank": 560252
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A7",
+    "major_name": "汽车技术服务与营销",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 4,
+    "min_rank": 540603
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B1",
+    "major_name": "通用航空航务技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 17,
+    "min_rank": 646973
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B2",
+    "major_name": "通用航空器维修",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 14,
+    "min_rank": 648868
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C9",
+    "major_name": "城市轨道交通运营管理",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 58,
+    "min_rank": 659926
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D3",
+    "major_name": "市场营销",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 3,
+    "min_rank": 566844
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E2",
+    "major_name": "工程造价",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 2,
+    "min_rank": 575219
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E7",
+    "major_name": "食品智能加工技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 38,
+    "min_rank": 620746
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "E9",
+    "major_name": "休闲农业经营与管理",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 27,
+    "min_rank": 596987
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "F1",
+    "major_name": "餐饮智能管理",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 30,
+    "min_rank": 641763
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "F3",
+    "major_name": "建筑装饰工程技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 32,
+    "min_rank": 633622
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "H4",
+    "major_name": "空中乘务",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 53,
+    "min_rank": 681093
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K1",
+    "major_name": "大数据技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 1,
+    "min_rank": 522439
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K2",
+    "major_name": "电子信息工程技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 10,
+    "min_rank": 608660
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K4",
+    "major_name": "计算机应用技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 4,
+    "min_rank": 539397
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K7",
+    "major_name": "软件技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 95,
+    "min_rank": 681039
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K8",
+    "major_name": "物联网应用技术",
+    "school_code": "D388",
+    "school_name": "潍坊工商职业学院",
+    "plan_count": 16,
+    "min_rank": 595084
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "31",
+    "major_name": "邮政快递运营管理",
+    "school_code": "D397",
+    "school_name": "石家庄邮电职业技术学院",
+    "plan_count": 3,
+    "min_rank": 273949
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3B",
+    "major_name": "邮政快递运营管理",
+    "school_code": "D397",
+    "school_name": "石家庄邮电职业技术学院",
+    "plan_count": 1,
+    "min_rank": 269616
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0R",
+    "major_name": "药品经营与管理",
+    "school_code": "D403",
+    "school_name": "石家庄科技信息职业学院",
+    "plan_count": 3,
+    "min_rank": 588220
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1D",
+    "major_name": "网络规划与优化技术",
+    "school_code": "D403",
+    "school_name": "石家庄科技信息职业学院",
+    "plan_count": 4,
+    "min_rank": 674136
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1K",
+    "major_name": "人工智能技术应用",
+    "school_code": "D403",
+    "school_name": "石家庄科技信息职业学院",
+    "plan_count": 1,
+    "min_rank": 569917
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1L",
+    "major_name": "人工智能技术应用(新工业智能化方向)",
+    "school_code": "D403",
+    "school_name": "石家庄科技信息职业学院",
+    "plan_count": 3,
+    "min_rank": 588608
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "47",
+    "major_name": "电子竞技运动与管理",
+    "school_code": "D419",
+    "school_name": "江西科技职业学院",
+    "plan_count": 1,
+    "min_rank": 420623
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "汽车检测与维修技术",
+    "school_code": "D526",
+    "school_name": "桂林山水职业学院",
+    "plan_count": 4,
+    "min_rank": 609524
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "智能机器人技术",
+    "school_code": "D541",
+    "school_name": "山西信息职业技术学院",
+    "plan_count": 15,
+    "min_rank": 678207
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "数字媒体技术",
+    "school_code": "D541",
+    "school_name": "山西信息职业技术学院",
+    "plan_count": 8,
+    "min_rank": 674359
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0D",
+    "major_name": "人工智能技术应用",
+    "school_code": "D541",
+    "school_name": "山西信息职业技术学院",
+    "plan_count": 8,
+    "min_rank": 541937
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "S1",
+    "major_name": "风景园林设计",
+    "school_code": "D599",
+    "school_name": "大连艺术学院",
+    "plan_count": 2,
+    "min_rank": 576359
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "43",
+    "major_name": "软件技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 17,
+    "min_rank": 680279
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "44",
+    "major_name": "大数据技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 15,
+    "min_rank": 678442
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "45",
+    "major_name": "虚拟现实技术应用",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 25,
+    "min_rank": 678121
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "50",
+    "major_name": "智能控制技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 24,
+    "min_rank": 679466
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "53",
+    "major_name": "智能网联汽车技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 16,
+    "min_rank": 677708
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "54",
+    "major_name": "建筑工程技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 29,
+    "min_rank": 663766
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "55",
+    "major_name": "智能建造技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 33,
+    "min_rank": 667238
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "56",
+    "major_name": "工程造价",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 55,
+    "min_rank": 676136
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "57",
+    "major_name": "建设工程管理",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 30,
+    "min_rank": 675598
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "58",
+    "major_name": "市政工程技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 38,
+    "min_rank": 659990
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "59",
+    "major_name": "电子信息工程技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 6,
+    "min_rank": 667648
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "60",
+    "major_name": "物联网应用技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 28,
+    "min_rank": 675314
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "61",
+    "major_name": "智能产品开发与应用",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 46,
+    "min_rank": 678518
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "62",
+    "major_name": "人工智能技术应用",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 1,
+    "min_rank": 500639
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "63",
+    "major_name": "智能互联网络技术",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 17,
+    "min_rank": 678302
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "65",
+    "major_name": "大数据与财务管理",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 40,
+    "min_rank": 680765
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "67",
+    "major_name": "大数据与审计",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 45,
+    "min_rank": 678282
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "68",
+    "major_name": "国际经济与贸易",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 4,
+    "min_rank": 679446
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "69",
+    "major_name": "商务管理",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 10,
+    "min_rank": 670494
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "70",
+    "major_name": "市场营销",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 17,
+    "min_rank": 673671
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "72",
+    "major_name": "旅游管理",
+    "school_code": "D624",
+    "school_name": "泰山科技学院",
+    "plan_count": 24,
+    "min_rank": 670813
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "D672",
+    "school_name": "四川工商学院",
+    "plan_count": 2,
+    "min_rank": 653565
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K2",
+    "major_name": "集成电路技术",
+    "school_code": "D682",
+    "school_name": "西安工商学院",
+    "plan_count": 2,
+    "min_rank": 658692
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K5",
+    "major_name": "跨境电子商务",
+    "school_code": "D682",
+    "school_name": "西安工商学院",
+    "plan_count": 3,
+    "min_rank": 651530
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "K8",
+    "major_name": "人力资源管理",
+    "school_code": "D682",
+    "school_name": "西安工商学院",
+    "plan_count": 1,
+    "min_rank": 618957
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "中文",
+    "school_code": "D715",
+    "school_name": "广州涉外经济职业技术学院",
+    "plan_count": 3,
+    "min_rank": 675590
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "跨境电子商务",
+    "school_code": "D715",
+    "school_name": "广州涉外经济职业技术学院",
+    "plan_count": 2,
+    "min_rank": 647154
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D0",
+    "major_name": "汽车造型与改装技术",
+    "school_code": "D738",
+    "school_name": "西安汽车职业大学",
+    "plan_count": 1,
+    "min_rank": 427579
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "GE",
+    "major_name": "影视编导(双语教学)",
+    "school_code": "D747",
+    "school_name": "上海电影艺术职业学院",
+    "plan_count": 5,
+    "min_rank": 643160
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "汽车电子技术",
+    "school_code": "D750",
+    "school_name": "金山职业技术学院",
+    "plan_count": 3,
+    "min_rank": 638942
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "汽车技术服务与营销",
+    "school_code": "D750",
+    "school_name": "金山职业技术学院",
+    "plan_count": 3,
+    "min_rank": 672608
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "19",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "D750",
+    "school_name": "金山职业技术学院",
+    "plan_count": 3,
+    "min_rank": 680639
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "市场营销",
+    "school_code": "D750",
+    "school_name": "金山职业技术学院",
+    "plan_count": 1,
+    "min_rank": 660330
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "旅游管理",
+    "school_code": "D750",
+    "school_name": "金山职业技术学院",
+    "plan_count": 2,
+    "min_rank": 678759
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "26",
+    "major_name": "酒店管理与数字化运营",
+    "school_code": "D750",
+    "school_name": "金山职业技术学院",
+    "plan_count": 1,
+    "min_rank": 663116
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "29",
+    "major_name": "融媒体技术与运营",
+    "school_code": "D750",
+    "school_name": "金山职业技术学院",
+    "plan_count": 3,
+    "min_rank": 643734
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "23",
+    "major_name": "人工智能技术应用",
+    "school_code": "D759",
+    "school_name": "云南城市建设职业学院",
+    "plan_count": 4,
+    "min_rank": 663936
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "护理",
+    "school_code": "D759",
+    "school_name": "云南城市建设职业学院",
+    "plan_count": 1,
+    "min_rank": 619506
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "26",
+    "major_name": "口腔医学技术",
+    "school_code": "D759",
+    "school_name": "云南城市建设职业学院",
+    "plan_count": 4,
+    "min_rank": 668772
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "27",
+    "major_name": "医学美容技术",
+    "school_code": "D759",
+    "school_name": "云南城市建设职业学院",
+    "plan_count": 2,
+    "min_rank": 635614
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "计算机网络技术",
+    "school_code": "D761",
+    "school_name": "云南工程职业学院",
+    "plan_count": 2,
+    "min_rank": 650880
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "护理",
+    "school_code": "D761",
+    "school_name": "云南工程职业学院",
+    "plan_count": 4,
+    "min_rank": 598451
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "医学影像技术",
+    "school_code": "D761",
+    "school_name": "云南工程职业学院",
+    "plan_count": 2,
+    "min_rank": 612505
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L8",
+    "major_name": "跨境电子商务",
+    "school_code": "D776",
+    "school_name": "江西软件职业技术大学",
+    "plan_count": 5,
+    "min_rank": 660362
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R2",
+    "major_name": "云计算技术应用",
+    "school_code": "D776",
+    "school_name": "江西软件职业技术大学",
+    "plan_count": 4,
+    "min_rank": 636573
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "H1",
+    "major_name": "学前教育(中外合作办学)(师范类)",
+    "school_code": "D777",
+    "school_name": "淄博师范高等专科学校",
+    "plan_count": 2,
+    "min_rank": 275487
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "17",
+    "major_name": "医学检验技术",
+    "school_code": "D778",
+    "school_name": "山东中医药高等专科学校",
+    "plan_count": 1,
+    "min_rank": 241812
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "智能网联汽车技术",
+    "school_code": "D799",
+    "school_name": "黄冈科技职业学院",
+    "plan_count": 4,
+    "min_rank": 672589
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Q",
+    "major_name": "市场营销",
+    "school_code": "D799",
+    "school_name": "黄冈科技职业学院",
+    "plan_count": 4,
+    "min_rank": 606503
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0U",
+    "major_name": "新能源材料应用技术",
+    "school_code": "D799",
+    "school_name": "黄冈科技职业学院",
+    "plan_count": 26,
+    "min_rank": 678445
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0W",
+    "major_name": "学前教育(师范类)",
+    "school_code": "D799",
+    "school_name": "黄冈科技职业学院",
+    "plan_count": 13,
+    "min_rank": 650830
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0X",
+    "major_name": "计算机应用技术",
+    "school_code": "D799",
+    "school_name": "黄冈科技职业学院",
+    "plan_count": 15,
+    "min_rank": 676684
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "移动应用开发",
+    "school_code": "D799",
+    "school_name": "黄冈科技职业学院",
+    "plan_count": 29,
+    "min_rank": 673073
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "飞行器数字化制造技术",
+    "school_code": "D862",
+    "school_name": "山西同文职业技术学院",
+    "plan_count": 15,
+    "min_rank": 591218
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "建筑消防技术",
+    "school_code": "D873",
+    "school_name": "赣西科技职业学院",
+    "plan_count": 1,
+    "min_rank": 579223
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "电子信息工程技术",
+    "school_code": "D873",
+    "school_name": "赣西科技职业学院",
+    "plan_count": 1,
+    "min_rank": 586121
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "24",
+    "major_name": "软件技术",
+    "school_code": "D873",
+    "school_name": "赣西科技职业学院",
+    "plan_count": 9,
+    "min_rank": 622752
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "26",
+    "major_name": "护理",
+    "school_code": "D873",
+    "school_name": "赣西科技职业学院",
+    "plan_count": 6,
+    "min_rank": 649726
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "29",
+    "major_name": "大数据与会计",
+    "school_code": "D873",
+    "school_name": "赣西科技职业学院",
+    "plan_count": 2,
+    "min_rank": 537867
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0B",
+    "major_name": "建筑室内设计",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 38,
+    "min_rank": 654340
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "数字媒体技术",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 45,
+    "min_rank": 667324
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0K",
+    "major_name": "动漫制作技术",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 60,
+    "min_rank": 679387
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0M",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 49,
+    "min_rank": 681012
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0N",
+    "major_name": "大数据与会计",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 15,
+    "min_rank": 578271
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Q",
+    "major_name": "电子商务",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 25,
+    "min_rank": 651184
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0R",
+    "major_name": "旅游管理",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 28,
+    "min_rank": 674862
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0T",
+    "major_name": "书画艺术",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 57,
+    "min_rank": 681019
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0U",
+    "major_name": "商务英语",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 77,
+    "min_rank": 679253
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0V",
+    "major_name": "商务英语",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 52,
+    "min_rank": 680630
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0W",
+    "major_name": "应用韩语",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 19,
+    "min_rank": 680444
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Y",
+    "major_name": "应用俄语",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 25,
+    "min_rank": 668399
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Z",
+    "major_name": "应用法语",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 34,
+    "min_rank": 675177
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1A",
+    "major_name": "应用德语",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 36,
+    "min_rank": 588942
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1B",
+    "major_name": "体育艺术表演",
+    "school_code": "D874",
+    "school_name": "山东外事职业大学",
+    "plan_count": 37,
+    "min_rank": 680999
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Y",
+    "major_name": "护理",
+    "school_code": "D909",
+    "school_name": "云南工商学院",
+    "plan_count": 82,
+    "min_rank": 661140
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1D",
+    "major_name": "大数据与会计",
+    "school_code": "D909",
+    "school_name": "云南工商学院",
+    "plan_count": 14,
+    "min_rank": 663103
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1N",
+    "major_name": "中文",
+    "school_code": "D909",
+    "school_name": "云南工商学院",
+    "plan_count": 7,
+    "min_rank": 596178
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1R",
+    "major_name": "电气自动化技术",
+    "school_code": "D909",
+    "school_name": "云南工商学院",
+    "plan_count": 15,
+    "min_rank": 670690
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1T",
+    "major_name": "新能源汽车技术",
+    "school_code": "D909",
+    "school_name": "云南工商学院",
+    "plan_count": 6,
+    "min_rank": 608496
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1U",
+    "major_name": "计算机网络技术",
+    "school_code": "D909",
+    "school_name": "云南工商学院",
+    "plan_count": 22,
+    "min_rank": 646189
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "飞行器维修技术",
+    "school_code": "D916",
+    "school_name": "长春信息技术职业学院",
+    "plan_count": 1,
+    "min_rank": 602626
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "汽车制造与试验技术",
+    "school_code": "D916",
+    "school_name": "长春信息技术职业学院",
+    "plan_count": 2,
+    "min_rank": 570253
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0J",
+    "major_name": "软件技术",
+    "school_code": "D916",
+    "school_name": "长春信息技术职业学院",
+    "plan_count": 6,
+    "min_rank": 665171
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0V",
+    "major_name": "数字媒体艺术设计",
+    "school_code": "D916",
+    "school_name": "长春信息技术职业学院",
+    "plan_count": 4,
+    "min_rank": 653571
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Y",
+    "major_name": "学前教育(师范类)",
+    "school_code": "D916",
+    "school_name": "长春信息技术职业学院",
+    "plan_count": 2,
+    "min_rank": 610690
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0N",
+    "major_name": "室内艺术设计",
+    "school_code": "D917",
+    "school_name": "松原职业技术学院",
+    "plan_count": 1,
+    "min_rank": 325396
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "高速铁路客运服务",
+    "school_code": "D924",
+    "school_name": "湖南交通工程学院",
+    "plan_count": 2,
+    "min_rank": 559003
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "飞机机电设备维修",
+    "school_code": "D931",
+    "school_name": "三亚航空旅游职业学院",
+    "plan_count": 6,
+    "min_rank": 677285
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "应用俄语(国际航空旅游服务)",
+    "school_code": "D931",
+    "school_name": "三亚航空旅游职业学院",
+    "plan_count": 3,
+    "min_rank": 598903
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "41",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "D955",
+    "school_name": "甘肃畜牧工程职业技术学院",
+    "plan_count": 6,
+    "min_rank": 536440
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "N0",
+    "major_name": "现代农业技术",
+    "school_code": "D956",
+    "school_name": "新疆石河子职业技术学院",
+    "plan_count": 1,
+    "min_rank": 329603
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "NQ",
+    "major_name": "民航安全技术管理",
+    "school_code": "D956",
+    "school_name": "新疆石河子职业技术学院",
+    "plan_count": 1,
+    "min_rank": 318296
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "40",
+    "major_name": "建筑室内设计",
+    "school_code": "D957",
+    "school_name": "辽宁传媒学院",
+    "plan_count": 2,
+    "min_rank": 548189
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "24",
+    "major_name": "密码技术应用",
+    "school_code": "D961",
+    "school_name": "大连枫叶职业技术学院",
+    "plan_count": 2,
+    "min_rank": 590112
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "建筑设计(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 2,
+    "min_rank": 598129
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "风景园林设计(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 3,
+    "min_rank": 628533
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "建筑室内设计(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 3,
+    "min_rank": 654604
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "智能控制技术(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 2,
+    "min_rank": 609228
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "大数据技术(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 1,
+    "min_rank": 625618
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "云计算技术应用(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 2,
+    "min_rank": 653687
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "信息安全技术应用(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 1,
+    "min_rank": 631609
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "工业互联网技术(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 2,
+    "min_rank": 654391
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "17",
+    "major_name": "市场营销(中外合作办学)",
+    "school_code": "D962",
+    "school_name": "苏州百年职业学院",
+    "plan_count": 3,
+    "min_rank": 646401
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "40",
+    "major_name": "工业设计",
+    "school_code": "D995",
+    "school_name": "青岛工学院",
+    "plan_count": 51,
+    "min_rank": 681063
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "44",
+    "major_name": "数字媒体艺术设计",
+    "school_code": "D995",
+    "school_name": "青岛工学院",
+    "plan_count": 35,
+    "min_rank": 652874
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "航空物流管理",
+    "school_code": "D995",
+    "school_name": "青岛工学院",
+    "plan_count": 16,
+    "min_rank": 643032
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "32",
+    "major_name": "大数据与财务管理",
+    "school_code": "D997",
+    "school_name": "青岛农业大学海都学院",
+    "plan_count": 13,
+    "min_rank": 557181
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "食品智能加工技术",
+    "school_code": "D997",
+    "school_name": "青岛农业大学海都学院",
+    "plan_count": 7,
+    "min_rank": 596430
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "47",
+    "major_name": "园林技术",
+    "school_code": "D997",
+    "school_name": "青岛农业大学海都学院",
+    "plan_count": 1,
+    "min_rank": 486490
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "48",
+    "major_name": "中小企业创业与经营",
+    "school_code": "D997",
+    "school_name": "青岛农业大学海都学院",
+    "plan_count": 12,
+    "min_rank": 612766
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "44",
+    "major_name": "城市热能应用技术",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 10,
+    "min_rank": 549168
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "药品生物技术",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 6,
+    "min_rank": 444102
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "49",
+    "major_name": "体育艺术表演",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 223,
+    "min_rank": 680080
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "51",
+    "major_name": "现代文秘",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 134,
+    "min_rank": 681013
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "54",
+    "major_name": "中文",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 70,
+    "min_rank": 679545
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "55",
+    "major_name": "党务工作",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 153,
+    "min_rank": 677998
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "56",
+    "major_name": "国际经济与贸易",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 95,
+    "min_rank": 679561
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "61",
+    "major_name": "标准化技术",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 47,
+    "min_rank": 655003
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "63",
+    "major_name": "酒店管理与数字化运营",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 35,
+    "min_rank": 621798
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "64",
+    "major_name": "旅游管理",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 67,
+    "min_rank": 651543
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "67",
+    "major_name": "商务英语",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 79,
+    "min_rank": 670055
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "68",
+    "major_name": "应用英语",
+    "school_code": "E000",
+    "school_name": "潍坊理工学院",
+    "plan_count": 50,
+    "min_rank": 673102
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "55",
+    "major_name": "商务英语",
+    "school_code": "E001",
+    "school_name": "聊城大学东昌学院",
+    "plan_count": 49,
+    "min_rank": 608677
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "61",
+    "major_name": "药品生物技术",
+    "school_code": "E001",
+    "school_name": "聊城大学东昌学院",
+    "plan_count": 8,
+    "min_rank": 441203
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "助产",
+    "school_code": "E018",
+    "school_name": "石家庄医学高等专科学校",
+    "plan_count": 1,
+    "min_rank": 587486
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "眼视光技术",
+    "school_code": "E018",
+    "school_name": "石家庄医学高等专科学校",
+    "plan_count": 2,
+    "min_rank": 554414
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0K",
+    "major_name": "大数据与会计",
+    "school_code": "E026",
+    "school_name": "广西英华国际职业学院",
+    "plan_count": 19,
+    "min_rank": 676464
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A2",
+    "major_name": "空中乘务",
+    "school_code": "E031",
+    "school_name": "陕西旅游烹饪职业学院",
+    "plan_count": 1,
+    "min_rank": 588953
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B0",
+    "major_name": "烹饪工艺与营养",
+    "school_code": "E031",
+    "school_name": "陕西旅游烹饪职业学院",
+    "plan_count": 5,
+    "min_rank": 644486
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B3",
+    "major_name": "舞蹈表演",
+    "school_code": "E031",
+    "school_name": "陕西旅游烹饪职业学院",
+    "plan_count": 1,
+    "min_rank": 672700
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "护理",
+    "school_code": "E032",
+    "school_name": "云南新兴职业学院",
+    "plan_count": 2,
+    "min_rank": 609188
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "信息安全技术应用",
+    "school_code": "E049",
+    "school_name": "内蒙古北方职业技术学院",
+    "plan_count": 1,
+    "min_rank": 380277
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "建筑室内设计",
+    "school_code": "E055",
+    "school_name": "哈尔滨应用职业技术学院",
+    "plan_count": 2,
+    "min_rank": 576593
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0F",
+    "major_name": "新能源汽车技术",
+    "school_code": "E055",
+    "school_name": "哈尔滨应用职业技术学院",
+    "plan_count": 2,
+    "min_rank": 677065
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0D",
+    "major_name": "市场营销",
+    "school_code": "E085",
+    "school_name": "西藏职业技术学院",
+    "plan_count": 5,
+    "min_rank": 610215
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0F",
+    "major_name": "电子商务",
+    "school_code": "E085",
+    "school_name": "西藏职业技术学院",
+    "plan_count": 4,
+    "min_rank": 573298
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "智能机器人技术",
+    "school_code": "E113",
+    "school_name": "漳州科技职业学院",
+    "plan_count": 5,
+    "min_rank": 660564
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "24",
+    "major_name": "大数据与会计",
+    "school_code": "E113",
+    "school_name": "漳州科技职业学院",
+    "plan_count": 4,
+    "min_rank": 637703
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "28",
+    "major_name": "康复治疗技术",
+    "school_code": "E113",
+    "school_name": "漳州科技职业学院",
+    "plan_count": 4,
+    "min_rank": 612376
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "医学美容技术",
+    "school_code": "E122",
+    "school_name": "湖南电子科技职业学院",
+    "plan_count": 3,
+    "min_rank": 677970
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "新能源汽车技术",
+    "school_code": "E122",
+    "school_name": "湖南电子科技职业学院",
+    "plan_count": 3,
+    "min_rank": 666120
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0J",
+    "major_name": "金属智能加工技术",
+    "school_code": "E127",
+    "school_name": "广西工程职业学院",
+    "plan_count": 2,
+    "min_rank": 604651
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "网络营销与直播电商",
+    "school_code": "E127",
+    "school_name": "广西工程职业学院",
+    "plan_count": 1,
+    "min_rank": 618468
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R8",
+    "major_name": "人工智能技术应用",
+    "school_code": "E166",
+    "school_name": "江西新能源科技职业学院",
+    "plan_count": 3,
+    "min_rank": 578399
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "S6",
+    "major_name": "大数据与会计",
+    "school_code": "E166",
+    "school_name": "江西新能源科技职业学院",
+    "plan_count": 1,
+    "min_rank": 597472
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "广告艺术设计",
+    "school_code": "E167",
+    "school_name": "江西枫林涉外经贸职业学院",
+    "plan_count": 1,
+    "min_rank": 580193
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1C",
+    "major_name": "无人机应用技术",
+    "school_code": "E167",
+    "school_name": "江西枫林涉外经贸职业学院",
+    "plan_count": 2,
+    "min_rank": 565227
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1D",
+    "major_name": "新能源汽车技术",
+    "school_code": "E167",
+    "school_name": "江西枫林涉外经贸职业学院",
+    "plan_count": 8,
+    "min_rank": 635679
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1G",
+    "major_name": "数字媒体技术",
+    "school_code": "E167",
+    "school_name": "江西枫林涉外经贸职业学院",
+    "plan_count": 1,
+    "min_rank": 583657
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1K",
+    "major_name": "护理",
+    "school_code": "E167",
+    "school_name": "江西枫林涉外经贸职业学院",
+    "plan_count": 17,
+    "min_rank": 677626
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1Q",
+    "major_name": "市场营销",
+    "school_code": "E167",
+    "school_name": "江西枫林涉外经贸职业学院",
+    "plan_count": 1,
+    "min_rank": 588835
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1X",
+    "major_name": "智慧健康养老服务与管理",
+    "school_code": "E167",
+    "school_name": "江西枫林涉外经贸职业学院",
+    "plan_count": 9,
+    "min_rank": 680156
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L5",
+    "major_name": "智能控制技术",
+    "school_code": "E168",
+    "school_name": "江西泰豪动漫职业学院",
+    "plan_count": 1,
+    "min_rank": 671339
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R1",
+    "major_name": "网络直播与运营",
+    "school_code": "E168",
+    "school_name": "江西泰豪动漫职业学院",
+    "plan_count": 1,
+    "min_rank": 656743
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R6",
+    "major_name": "虚拟现实技术应用",
+    "school_code": "E168",
+    "school_name": "江西泰豪动漫职业学院",
+    "plan_count": 2,
+    "min_rank": 580979
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "工商企业管理",
+    "school_code": "E172",
+    "school_name": "海南科技职业大学",
+    "plan_count": 2,
+    "min_rank": 655847
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "45",
+    "major_name": "护理",
+    "school_code": "E175",
+    "school_name": "四川城市职业学院",
+    "plan_count": 10,
+    "min_rank": 671599
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "47",
+    "major_name": "医学检验技术",
+    "school_code": "E175",
+    "school_name": "四川城市职业学院",
+    "plan_count": 11,
+    "min_rank": 677109
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "48",
+    "major_name": "医学影像技术",
+    "school_code": "E175",
+    "school_name": "四川城市职业学院",
+    "plan_count": 12,
+    "min_rank": 586880
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "23",
+    "major_name": "小学英语教育(师范类，非英语语种考生慎重报考)",
+    "school_code": "E178",
+    "school_name": "佳木斯职业学院",
+    "plan_count": 28,
+    "min_rank": 558636
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "建筑工程技术",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 5,
+    "min_rank": 663146
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "工业机器人技术",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 5,
+    "min_rank": 672115
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "无人机应用技术",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 1,
+    "min_rank": 590483
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "新能源汽车技术",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 5,
+    "min_rank": 671245
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "食品检验检测技术",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 5,
+    "min_rank": 624832
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 5,
+    "min_rank": 667386
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "金融服务与管理",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 4,
+    "min_rank": 629280
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "21",
+    "major_name": "工商企业管理",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 4,
+    "min_rank": 642814
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "33",
+    "major_name": "表演艺术",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 3,
+    "min_rank": 652729
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "34",
+    "major_name": "社会体育",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 4,
+    "min_rank": 626688
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "36",
+    "major_name": "行政管理",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 3,
+    "min_rank": 668497
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "41",
+    "major_name": "烹饪工艺与营养(公众营养方向)",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 1,
+    "min_rank": 634056
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "42",
+    "major_name": "烹饪工艺与营养(西餐工艺方向)",
+    "school_code": "E211",
+    "school_name": "广西经济职业学院",
+    "plan_count": 1,
+    "min_rank": 666237
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "工程造价",
+    "school_code": "E212",
+    "school_name": "云南经贸外事职业学院",
+    "plan_count": 2,
+    "min_rank": 626903
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "12",
+    "major_name": "音乐表演",
+    "school_code": "E212",
+    "school_name": "云南经贸外事职业学院",
+    "plan_count": 1,
+    "min_rank": 680238
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "智能控制技术",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 9,
+    "min_rank": 647039
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "游艇设计与制造",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 1,
+    "min_rank": 616936
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "海洋工程装备技术",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 5,
+    "min_rank": 664325
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "石油化工技术",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 1,
+    "min_rank": 590165
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "12",
+    "major_name": "康复工程技术",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 2,
+    "min_rank": 487738
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "电子信息工程技术",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 1,
+    "min_rank": 593836
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "大数据技术",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 11,
+    "min_rank": 673585
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "30",
+    "major_name": "市场营销",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 3,
+    "min_rank": 667128
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "34",
+    "major_name": "港口物流管理",
+    "school_code": "E231",
+    "school_name": "泉州海洋职业学院",
+    "plan_count": 7,
+    "min_rank": 676075
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "食品质量与安全",
+    "school_code": "E232",
+    "school_name": "泉州轻工职业学院",
+    "plan_count": 2,
+    "min_rank": 649059
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "计算机网络技术",
+    "school_code": "E233",
+    "school_name": "漯河食品工程职业大学",
+    "plan_count": 75,
+    "min_rank": 674821
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "26",
+    "major_name": "大数据与会计",
+    "school_code": "E233",
+    "school_name": "漯河食品工程职业大学",
+    "plan_count": 60,
+    "min_rank": 669900
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0K",
+    "major_name": "计算机应用技术",
+    "school_code": "E235",
+    "school_name": "郑州城市职业学院",
+    "plan_count": 4,
+    "min_rank": 598491
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0W",
+    "major_name": "大数据与会计",
+    "school_code": "E235",
+    "school_name": "郑州城市职业学院",
+    "plan_count": 3,
+    "min_rank": 600328
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "市政工程技术",
+    "school_code": "E237",
+    "school_name": "重庆电讯职业学院",
+    "plan_count": 4,
+    "min_rank": 652757
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "民航运输服务",
+    "school_code": "E237",
+    "school_name": "重庆电讯职业学院",
+    "plan_count": 1,
+    "min_rank": 627719
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "现代通信技术",
+    "school_code": "E237",
+    "school_name": "重庆电讯职业学院",
+    "plan_count": 2,
+    "min_rank": 618534
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "护理",
+    "school_code": "E239",
+    "school_name": "云南三鑫职业技术学院",
+    "plan_count": 6,
+    "min_rank": 616284
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "药学",
+    "school_code": "E239",
+    "school_name": "云南三鑫职业技术学院",
+    "plan_count": 16,
+    "min_rank": 627883
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "中医康复技术",
+    "school_code": "E239",
+    "school_name": "云南三鑫职业技术学院",
+    "plan_count": 6,
+    "min_rank": 630651
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "口腔医学技术",
+    "school_code": "E239",
+    "school_name": "云南三鑫职业技术学院",
+    "plan_count": 8,
+    "min_rank": 625520
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "68",
+    "major_name": "全媒体广告策划与营销",
+    "school_code": "E261",
+    "school_name": "山东文化产业职业学院",
+    "plan_count": 38,
+    "min_rank": 680704
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "85",
+    "major_name": "跨境电子商务",
+    "school_code": "E261",
+    "school_name": "山东文化产业职业学院",
+    "plan_count": 24,
+    "min_rank": 678718
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "86",
+    "major_name": "数字媒体技术",
+    "school_code": "E261",
+    "school_name": "山东文化产业职业学院",
+    "plan_count": 35,
+    "min_rank": 680912
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "90",
+    "major_name": "工艺美术品设计",
+    "school_code": "E261",
+    "school_name": "山东文化产业职业学院",
+    "plan_count": 5,
+    "min_rank": 608201
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "92",
+    "major_name": "数字时尚设计",
+    "school_code": "E261",
+    "school_name": "山东文化产业职业学院",
+    "plan_count": 32,
+    "min_rank": 678914
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0A",
+    "major_name": "无人机应用技术",
+    "school_code": "E291",
+    "school_name": "吉林科技职业技术学院",
+    "plan_count": 4,
+    "min_rank": 605113
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0C",
+    "major_name": "新能源汽车技术",
+    "school_code": "E291",
+    "school_name": "吉林科技职业技术学院",
+    "plan_count": 5,
+    "min_rank": 623118
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0N",
+    "major_name": "计算机应用技术",
+    "school_code": "E291",
+    "school_name": "吉林科技职业技术学院",
+    "plan_count": 12,
+    "min_rank": 536691
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "学前教育(师范类)",
+    "school_code": "E291",
+    "school_name": "吉林科技职业技术学院",
+    "plan_count": 10,
+    "min_rank": 673168
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "24",
+    "major_name": "建筑工程技术",
+    "school_code": "E293",
+    "school_name": "宿迁泽达职业技术学院",
+    "plan_count": 1,
+    "min_rank": 618001
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "34",
+    "major_name": "工业互联网技术",
+    "school_code": "E293",
+    "school_name": "宿迁泽达职业技术学院",
+    "plan_count": 1,
+    "min_rank": 655272
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0E",
+    "major_name": "国际邮轮乘务管理",
+    "school_code": "E303",
+    "school_name": "郑州信息工程职业学院",
+    "plan_count": 21,
+    "min_rank": 678810
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "30",
+    "major_name": "工商企业管理",
+    "school_code": "E321",
+    "school_name": "江西工商职业技术学院",
+    "plan_count": 1,
+    "min_rank": 622432
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "43",
+    "major_name": "口腔卫生保健",
+    "school_code": "E321",
+    "school_name": "江西工商职业技术学院",
+    "plan_count": 1,
+    "min_rank": 678626
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "17",
+    "major_name": "护理",
+    "school_code": "E323",
+    "school_name": "四川长江职业学院",
+    "plan_count": 11,
+    "min_rank": 638487
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "建筑室内设计",
+    "school_code": "E323",
+    "school_name": "四川长江职业学院",
+    "plan_count": 6,
+    "min_rank": 430492
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "35",
+    "major_name": "现代物流管理",
+    "school_code": "E323",
+    "school_name": "四川长江职业学院",
+    "plan_count": 6,
+    "min_rank": 676167
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "52",
+    "major_name": "无人机应用技术",
+    "school_code": "E323",
+    "school_name": "四川长江职业学院",
+    "plan_count": 17,
+    "min_rank": 648843
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "F1",
+    "major_name": "虚拟现实技术应用",
+    "school_code": "E327",
+    "school_name": "青岛电影学院",
+    "plan_count": 142,
+    "min_rank": 680792
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "金融服务与管理",
+    "school_code": "E346",
+    "school_name": "山东海事职业学院",
+    "plan_count": 4,
+    "min_rank": 439046
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0X",
+    "major_name": "学前教育(师范类)",
+    "school_code": "E351",
+    "school_name": "信阳涉外职业技术学院",
+    "plan_count": 4,
+    "min_rank": 578116
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Z",
+    "major_name": "应用韩语",
+    "school_code": "E351",
+    "school_name": "信阳涉外职业技术学院",
+    "plan_count": 3,
+    "min_rank": 581583
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A1",
+    "major_name": "汽车检测与维修技术",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 9,
+    "min_rank": 644163
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A3",
+    "major_name": "新能源汽车技术",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 7,
+    "min_rank": 677428
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B1",
+    "major_name": "人工智能技术应用",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 8,
+    "min_rank": 671350
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B2",
+    "major_name": "物联网应用技术",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 6,
+    "min_rank": 594121
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C5",
+    "major_name": "智能制造装备技术",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 9,
+    "min_rank": 661265
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "C6",
+    "major_name": "高分子材料智能制造技术",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 8,
+    "min_rank": 654980
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D2",
+    "major_name": "网络营销与直播电商",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 2,
+    "min_rank": 660816
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D4",
+    "major_name": "大数据与会计",
+    "school_code": "E352",
+    "school_name": "鹤壁汽车工程职业学院",
+    "plan_count": 6,
+    "min_rank": 650784
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "智能控制技术",
+    "school_code": "E353",
+    "school_name": "南阳职业学院",
+    "plan_count": 27,
+    "min_rank": 679855
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "工业机器人技术",
+    "school_code": "E353",
+    "school_name": "南阳职业学院",
+    "plan_count": 82,
+    "min_rank": 676787
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "33",
+    "major_name": "计算机应用技术",
+    "school_code": "E353",
+    "school_name": "南阳职业学院",
+    "plan_count": 73,
+    "min_rank": 678934
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "39",
+    "major_name": "人工智能技术应用",
+    "school_code": "E353",
+    "school_name": "南阳职业学院",
+    "plan_count": 28,
+    "min_rank": 680385
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "44",
+    "major_name": "大数据与会计",
+    "school_code": "E353",
+    "school_name": "南阳职业学院",
+    "plan_count": 70,
+    "min_rank": 648106
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "46",
+    "major_name": "电子商务",
+    "school_code": "E353",
+    "school_name": "南阳职业学院",
+    "plan_count": 73,
+    "min_rank": 680256
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "49",
+    "major_name": "现代物流管理",
+    "school_code": "E353",
+    "school_name": "南阳职业学院",
+    "plan_count": 7,
+    "min_rank": 641661
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D6",
+    "major_name": "智能物流技术",
+    "school_code": "E367",
+    "school_name": "重庆艺术工程职业学院",
+    "plan_count": 4,
+    "min_rank": 649705
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D7",
+    "major_name": "空中乘务",
+    "school_code": "E367",
+    "school_name": "重庆艺术工程职业学院",
+    "plan_count": 3,
+    "min_rank": 631537
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D8",
+    "major_name": "民航安全技术管理",
+    "school_code": "E367",
+    "school_name": "重庆艺术工程职业学院",
+    "plan_count": 9,
+    "min_rank": 665652
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "23",
+    "major_name": "物联网应用技术",
+    "school_code": "E369",
+    "school_name": "重庆电信职业学院",
+    "plan_count": 2,
+    "min_rank": 615658
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "智能控制技术",
+    "school_code": "E369",
+    "school_name": "重庆电信职业学院",
+    "plan_count": 6,
+    "min_rank": 666564
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "31",
+    "major_name": "学前教育(师范类)",
+    "school_code": "E369",
+    "school_name": "重庆电信职业学院",
+    "plan_count": 2,
+    "min_rank": 599407
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "33",
+    "major_name": "无人机应用技术",
+    "school_code": "E369",
+    "school_name": "重庆电信职业学院",
+    "plan_count": 5,
+    "min_rank": 638078
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "大数据技术",
+    "school_code": "E370",
+    "school_name": "重庆经贸职业学院",
+    "plan_count": 10,
+    "min_rank": 678366
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "人工智能技术应用(数据处理及应用)",
+    "school_code": "E371",
+    "school_name": "贵州盛华职业学院",
+    "plan_count": 3,
+    "min_rank": 398432
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "人工智能数据工程技术",
+    "school_code": "E371",
+    "school_name": "贵州盛华职业学院",
+    "plan_count": 4,
+    "min_rank": 490195
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "12",
+    "major_name": "人工智能技术应用(数智内容制作)",
+    "school_code": "E371",
+    "school_name": "贵州盛华职业学院",
+    "plan_count": 4,
+    "min_rank": 532505
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "康复治疗技术",
+    "school_code": "E371",
+    "school_name": "贵州盛华职业学院",
+    "plan_count": 3,
+    "min_rank": 542487
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "护理",
+    "school_code": "E372",
+    "school_name": "昆明卫生职业学院",
+    "plan_count": 17,
+    "min_rank": 671896
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "储能材料技术",
+    "school_code": "E375",
+    "school_name": "甘肃有色冶金职业技术学院",
+    "plan_count": 6,
+    "min_rank": 366352
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0E",
+    "major_name": "金属智能加工技术",
+    "school_code": "E375",
+    "school_name": "甘肃有色冶金职业技术学院",
+    "plan_count": 11,
+    "min_rank": 458887
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0P",
+    "major_name": "旅游管理",
+    "school_code": "E375",
+    "school_name": "甘肃有色冶金职业技术学院",
+    "plan_count": 8,
+    "min_rank": 540529
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0V",
+    "major_name": "舞蹈表演",
+    "school_code": "E375",
+    "school_name": "甘肃有色冶金职业技术学院",
+    "plan_count": 17,
+    "min_rank": 573735
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "大数据与会计",
+    "school_code": "E380",
+    "school_name": "郑州商贸旅游职业学院",
+    "plan_count": 32,
+    "min_rank": 675519
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0B",
+    "major_name": "电子商务",
+    "school_code": "E400",
+    "school_name": "齐齐哈尔理工职业学院",
+    "plan_count": 4,
+    "min_rank": 610673
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "书画艺术(少儿美术方向)",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 7,
+    "min_rank": 655459
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "视觉传达设计",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 5,
+    "min_rank": 678134
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "23",
+    "major_name": "数字媒体艺术设计(影视动画方向)",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 11,
+    "min_rank": 664901
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "J1",
+    "major_name": "陶瓷设计与工艺",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 4,
+    "min_rank": 645367
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L1",
+    "major_name": "材料工程技术",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 1,
+    "min_rank": 576802
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L4",
+    "major_name": "软件技术",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 9,
+    "min_rank": 586068
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L5",
+    "major_name": "计算机网络技术",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 9,
+    "min_rank": 630320
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L6",
+    "major_name": "信息安全技术应用",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 10,
+    "min_rank": 608994
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L9",
+    "major_name": "电子信息工程技术",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 15,
+    "min_rank": 627779
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R1",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 1,
+    "min_rank": 594518
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R2",
+    "major_name": "电子商务",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 8,
+    "min_rank": 669387
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R3",
+    "major_name": "网络营销与直播电商",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 5,
+    "min_rank": 662045
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R5",
+    "major_name": "现代物流管理",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 4,
+    "min_rank": 594803
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R6",
+    "major_name": "金融科技应用",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 7,
+    "min_rank": 669002
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R7",
+    "major_name": "旅游管理",
+    "school_code": "E402",
+    "school_name": "景德镇陶瓷职业技术学院",
+    "plan_count": 4,
+    "min_rank": 593269
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "新能源汽车技术",
+    "school_code": "E406",
+    "school_name": "湖南吉利汽车职业技术学院",
+    "plan_count": 2,
+    "min_rank": 600138
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "智能网联汽车技术",
+    "school_code": "E406",
+    "school_name": "湖南吉利汽车职业技术学院",
+    "plan_count": 2,
+    "min_rank": 638164
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3A",
+    "major_name": "智能制造装备技术",
+    "school_code": "E406",
+    "school_name": "湖南吉利汽车职业技术学院",
+    "plan_count": 2,
+    "min_rank": 651844
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "4A",
+    "major_name": "机电一体化技术",
+    "school_code": "E406",
+    "school_name": "湖南吉利汽车职业技术学院",
+    "plan_count": 1,
+    "min_rank": 461422
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "8C",
+    "major_name": "人工智能技术应用",
+    "school_code": "E406",
+    "school_name": "湖南吉利汽车职业技术学院",
+    "plan_count": 4,
+    "min_rank": 603756
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "汽车检测与维修技术",
+    "school_code": "E411",
+    "school_name": "四川汽车职业技术学院",
+    "plan_count": 2,
+    "min_rank": 612660
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "大数据与会计(会计师实验班)",
+    "school_code": "E412",
+    "school_name": "贵州工商职业学院",
+    "plan_count": 12,
+    "min_rank": 678780
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "电子商务(京东班)",
+    "school_code": "E412",
+    "school_name": "贵州工商职业学院",
+    "plan_count": 8,
+    "min_rank": 664017
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "24",
+    "major_name": "电子商务(新媒体运营方向)",
+    "school_code": "E412",
+    "school_name": "贵州工商职业学院",
+    "plan_count": 1,
+    "min_rank": 602280
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "36",
+    "major_name": "护理",
+    "school_code": "E412",
+    "school_name": "贵州工商职业学院",
+    "plan_count": 29,
+    "min_rank": 663765
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "城市轨道交通运营管理",
+    "school_code": "E415",
+    "school_name": "云南外事外语职业学院",
+    "plan_count": 2,
+    "min_rank": 598784
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "护理",
+    "school_code": "E415",
+    "school_name": "云南外事外语职业学院",
+    "plan_count": 3,
+    "min_rank": 616929
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "建筑工程技术",
+    "school_code": "E472",
+    "school_name": "渤海理工职业学院",
+    "plan_count": 3,
+    "min_rank": 674324
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "城市轨道交通运营管理",
+    "school_code": "E472",
+    "school_name": "渤海理工职业学院",
+    "plan_count": 2,
+    "min_rank": 611009
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "34",
+    "major_name": "大数据技术",
+    "school_code": "E472",
+    "school_name": "渤海理工职业学院",
+    "plan_count": 4,
+    "min_rank": 569723
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "47",
+    "major_name": "影视多媒体技术",
+    "school_code": "E472",
+    "school_name": "渤海理工职业学院",
+    "plan_count": 4,
+    "min_rank": 620295
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "药品生产技术",
+    "school_code": "E480",
+    "school_name": "洛阳科技职业学院",
+    "plan_count": 7,
+    "min_rank": 677645
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "护理",
+    "school_code": "E483",
+    "school_name": "巴中职业技术学院",
+    "plan_count": 3,
+    "min_rank": 675367
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "康复治疗技术",
+    "school_code": "E483",
+    "school_name": "巴中职业技术学院",
+    "plan_count": 2,
+    "min_rank": 631078
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "学前教育(师范类)",
+    "school_code": "E483",
+    "school_name": "巴中职业技术学院",
+    "plan_count": 6,
+    "min_rank": 671289
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "12",
+    "major_name": "小学教育(师范类)",
+    "school_code": "E483",
+    "school_name": "巴中职业技术学院",
+    "plan_count": 2,
+    "min_rank": 676108
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "新能源汽车技术",
+    "school_code": "E483",
+    "school_name": "巴中职业技术学院",
+    "plan_count": 3,
+    "min_rank": 663313
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "电子信息工程技术",
+    "school_code": "E485",
+    "school_name": "四川电子机械职业技术学院",
+    "plan_count": 2,
+    "min_rank": 618009
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "智能控制技术",
+    "school_code": "E485",
+    "school_name": "四川电子机械职业技术学院",
+    "plan_count": 3,
+    "min_rank": 451766
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "21",
+    "major_name": "智能机器人技术",
+    "school_code": "E485",
+    "school_name": "四川电子机械职业技术学院",
+    "plan_count": 3,
+    "min_rank": 643863
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "中文",
+    "school_code": "E486",
+    "school_name": "四川文轩职业学院",
+    "plan_count": 1,
+    "min_rank": 639948
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "护理",
+    "school_code": "E486",
+    "school_name": "四川文轩职业学院",
+    "plan_count": 5,
+    "min_rank": 525736
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "药学",
+    "school_code": "E486",
+    "school_name": "四川文轩职业学院",
+    "plan_count": 1,
+    "min_rank": 601751
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "中药学",
+    "school_code": "E486",
+    "school_name": "四川文轩职业学院",
+    "plan_count": 2,
+    "min_rank": 628139
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3C",
+    "major_name": "学前教育",
+    "school_code": "E491",
+    "school_name": "重庆科技职业学院",
+    "plan_count": 1,
+    "min_rank": 614551
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "应急救援技术",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 2,
+    "min_rank": 592719
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "安全智能监测技术",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 2,
+    "min_rank": 636752
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "飞机机电设备维修",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 4,
+    "min_rank": 678185
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "机场运行服务与管理",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 4,
+    "min_rank": 666616
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "航空物流管理",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 3,
+    "min_rank": 647052
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "计算机应用技术",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 3,
+    "min_rank": 660594
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "高速铁路客运服务",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 1,
+    "min_rank": 678969
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "21",
+    "major_name": "旅游管理",
+    "school_code": "E515",
+    "school_name": "四川西南航空职业学院",
+    "plan_count": 5,
+    "min_rank": 640248
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "消防救援技术",
+    "school_code": "E523",
+    "school_name": "新疆生产建设兵团兴新职业技术学院",
+    "plan_count": 1,
+    "min_rank": 307505
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "酒店管理与数字化运营",
+    "school_code": "E528",
+    "school_name": "扬州中瑞酒店职业学院",
+    "plan_count": 4,
+    "min_rank": 663087
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "烹饪工艺与营养",
+    "school_code": "E528",
+    "school_name": "扬州中瑞酒店职业学院",
+    "plan_count": 3,
+    "min_rank": 650253
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "现代家政服务与管理",
+    "school_code": "E528",
+    "school_name": "扬州中瑞酒店职业学院",
+    "plan_count": 1,
+    "min_rank": 674146
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "8A",
+    "major_name": "学前教育(师范类)",
+    "school_code": "E539",
+    "school_name": "扎兰屯职业学院",
+    "plan_count": 3,
+    "min_rank": 484522
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "小学教育(师范类)",
+    "school_code": "E548",
+    "school_name": "四川应用技术职业学院",
+    "plan_count": 3,
+    "min_rank": 631753
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "00",
+    "major_name": "资源综合利用技术",
+    "school_code": "E555",
+    "school_name": "长江艺术工程职业学院",
+    "plan_count": 5,
+    "min_rank": 613043
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "80",
+    "major_name": "智能网联汽车技术",
+    "school_code": "E555",
+    "school_name": "长江艺术工程职业学院",
+    "plan_count": 4,
+    "min_rank": 674594
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A0",
+    "major_name": "新能源汽车检测与维修技术",
+    "school_code": "E555",
+    "school_name": "长江艺术工程职业学院",
+    "plan_count": 7,
+    "min_rank": 651293
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "G0",
+    "major_name": "移动应用开发",
+    "school_code": "E555",
+    "school_name": "长江艺术工程职业学院",
+    "plan_count": 1,
+    "min_rank": 636708
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "L0",
+    "major_name": "金融服务与管理",
+    "school_code": "E555",
+    "school_name": "长江艺术工程职业学院",
+    "plan_count": 5,
+    "min_rank": 661458
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R0",
+    "major_name": "网络营销与直播电商",
+    "school_code": "E555",
+    "school_name": "长江艺术工程职业学院",
+    "plan_count": 3,
+    "min_rank": 656617
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1C",
+    "major_name": "金融科技应用",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 1,
+    "min_rank": 615471
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "2Y",
+    "major_name": "药品质量与安全",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 7,
+    "min_rank": 671769
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3Y",
+    "major_name": "药品经营与管理",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 7,
+    "min_rank": 574221
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "4H",
+    "major_name": "建筑室内设计",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 1,
+    "min_rank": 645081
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "4Y",
+    "major_name": "智慧健康养老服务与管理",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 1,
+    "min_rank": 643075
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "5C",
+    "major_name": "学前教育",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 2,
+    "min_rank": 625936
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6S",
+    "major_name": "生态环境修复技术",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 1,
+    "min_rank": 658556
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7H",
+    "major_name": "工业机器人技术",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 1,
+    "min_rank": 598650
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7S",
+    "major_name": "绿色低碳技术",
+    "school_code": "E557",
+    "school_name": "重庆资源与环境保护职业学院",
+    "plan_count": 2,
+    "min_rank": 568404
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0C",
+    "major_name": "护理",
+    "school_code": "E559",
+    "school_name": "贵州工贸职业学院",
+    "plan_count": 3,
+    "min_rank": 678418
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0D",
+    "major_name": "药学",
+    "school_code": "E559",
+    "school_name": "贵州工贸职业学院",
+    "plan_count": 2,
+    "min_rank": 623435
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0K",
+    "major_name": "跨境电子商务",
+    "school_code": "E559",
+    "school_name": "贵州工贸职业学院",
+    "plan_count": 2,
+    "min_rank": 587754
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6B",
+    "major_name": "测绘工程技术",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 10,
+    "min_rank": 602427
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6D",
+    "major_name": "矿产地质勘查",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 43,
+    "min_rank": 614194
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6E",
+    "major_name": "工程造价",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 15,
+    "min_rank": 609429
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6F",
+    "major_name": "矿山智能开采技术",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 3,
+    "min_rank": 579015
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6J",
+    "major_name": "矿物加工技术",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 41,
+    "min_rank": 616731
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6K",
+    "major_name": "安全技术与管理",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 5,
+    "min_rank": 582526
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6L",
+    "major_name": "职业健康安全技术",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 12,
+    "min_rank": 662474
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "6P",
+    "major_name": "艺术设计",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 7,
+    "min_rank": 609156
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7A",
+    "major_name": "虚拟现实技术应用",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 36,
+    "min_rank": 680953
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7C",
+    "major_name": "云计算技术应用",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 72,
+    "min_rank": 680450
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7D",
+    "major_name": "信息安全技术应用",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 6,
+    "min_rank": 632392
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7E",
+    "major_name": "电子商务",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 9,
+    "min_rank": 605787
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7G",
+    "major_name": "市场营销",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 62,
+    "min_rank": 672005
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7H",
+    "major_name": "金融服务与管理",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 26,
+    "min_rank": 592612
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7J",
+    "major_name": "跨境电子商务",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 12,
+    "min_rank": 635599
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7K",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 22,
+    "min_rank": 665547
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7L",
+    "major_name": "表演艺术",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 19,
+    "min_rank": 680930
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7M",
+    "major_name": "运动健康指导",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 13,
+    "min_rank": 670442
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "7N",
+    "major_name": "运动训练",
+    "school_code": "E570",
+    "school_name": "烟台黄金职业学院",
+    "plan_count": 24,
+    "min_rank": 675122
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "A2",
+    "major_name": "护理",
+    "school_code": "E579",
+    "school_name": "贵州应用技术职业学院",
+    "plan_count": 3,
+    "min_rank": 603341
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "M2",
+    "major_name": "电子商务",
+    "school_code": "E579",
+    "school_name": "贵州应用技术职业学院",
+    "plan_count": 11,
+    "min_rank": 633956
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "N2",
+    "major_name": "建设工程管理",
+    "school_code": "E579",
+    "school_name": "贵州应用技术职业学院",
+    "plan_count": 8,
+    "min_rank": 663600
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "Q2",
+    "major_name": "工程造价",
+    "school_code": "E579",
+    "school_name": "贵州应用技术职业学院",
+    "plan_count": 9,
+    "min_rank": 676375
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R2",
+    "major_name": "建筑室内设计",
+    "school_code": "E579",
+    "school_name": "贵州应用技术职业学院",
+    "plan_count": 10,
+    "min_rank": 638542
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "V2",
+    "major_name": "网络营销与直播电商",
+    "school_code": "E579",
+    "school_name": "贵州应用技术职业学院",
+    "plan_count": 11,
+    "min_rank": 659927
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "38",
+    "major_name": "护理(康复护理)",
+    "school_code": "E600",
+    "school_name": "天津滨海汽车工程职业学院",
+    "plan_count": 2,
+    "min_rank": 551001
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0G",
+    "major_name": "会计信息管理",
+    "school_code": "E601",
+    "school_name": "曹妃甸职业技术学院",
+    "plan_count": 2,
+    "min_rank": 607742
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "生物信息技术",
+    "school_code": "E603",
+    "school_name": "长春健康职业学院",
+    "plan_count": 1,
+    "min_rank": 679438
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "药品经营与管理",
+    "school_code": "E603",
+    "school_name": "长春健康职业学院",
+    "plan_count": 5,
+    "min_rank": 639497
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "护理",
+    "school_code": "E603",
+    "school_name": "长春健康职业学院",
+    "plan_count": 17,
+    "min_rank": 679807
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "药学",
+    "school_code": "E603",
+    "school_name": "长春健康职业学院",
+    "plan_count": 1,
+    "min_rank": 573509
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "康复治疗技术",
+    "school_code": "E603",
+    "school_name": "长春健康职业学院",
+    "plan_count": 2,
+    "min_rank": 614620
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "学前教育",
+    "school_code": "E603",
+    "school_name": "长春健康职业学院",
+    "plan_count": 7,
+    "min_rank": 671959
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "71",
+    "major_name": "航海技术",
+    "school_code": "E605",
+    "school_name": "日照航海工程职业学院",
+    "plan_count": 1,
+    "min_rank": 283793
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "B3",
+    "major_name": "民航空中安全保卫",
+    "school_code": "E612",
+    "school_name": "三亚中瑞酒店管理职业学院",
+    "plan_count": 3,
+    "min_rank": 678873
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "D3",
+    "major_name": "市场营销(奢侈品营销方向)",
+    "school_code": "E612",
+    "school_name": "三亚中瑞酒店管理职业学院",
+    "plan_count": 2,
+    "min_rank": 652558
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "数控技术",
+    "school_code": "E633",
+    "school_name": "哈尔滨北方航空职业技术学院",
+    "plan_count": 5,
+    "min_rank": 678837
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "空中乘务",
+    "school_code": "E633",
+    "school_name": "哈尔滨北方航空职业技术学院",
+    "plan_count": 4,
+    "min_rank": 675069
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "机场运行服务与管理",
+    "school_code": "E633",
+    "school_name": "哈尔滨北方航空职业技术学院",
+    "plan_count": 8,
+    "min_rank": 674916
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "飞机电子设备维修",
+    "school_code": "E634",
+    "school_name": "信阳航空职业学院",
+    "plan_count": 3,
+    "min_rank": 650163
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0A",
+    "major_name": "空中乘务",
+    "school_code": "E634",
+    "school_name": "信阳航空职业学院",
+    "plan_count": 2,
+    "min_rank": 639779
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0C",
+    "major_name": "高速铁路客运服务",
+    "school_code": "E634",
+    "school_name": "信阳航空职业学院",
+    "plan_count": 2,
+    "min_rank": 674209
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "无人机应用技术",
+    "school_code": "E634",
+    "school_name": "信阳航空职业学院",
+    "plan_count": 2,
+    "min_rank": 658990
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "安全技术与管理",
+    "school_code": "E634",
+    "school_name": "信阳航空职业学院",
+    "plan_count": 1,
+    "min_rank": 589426
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "护理",
+    "school_code": "E640",
+    "school_name": "眉山药科职业学院",
+    "plan_count": 4,
+    "min_rank": 669944
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "药学",
+    "school_code": "E640",
+    "school_name": "眉山药科职业学院",
+    "plan_count": 5,
+    "min_rank": 676913
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "21",
+    "major_name": "中药学",
+    "school_code": "E640",
+    "school_name": "眉山药科职业学院",
+    "plan_count": 3,
+    "min_rank": 667847
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "51",
+    "major_name": "中医康复技术",
+    "school_code": "E640",
+    "school_name": "眉山药科职业学院",
+    "plan_count": 1,
+    "min_rank": 638072
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "M1",
+    "major_name": "口腔医学技术",
+    "school_code": "E640",
+    "school_name": "眉山药科职业学院",
+    "plan_count": 2,
+    "min_rank": 678799
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "S1",
+    "major_name": "体育保健与康复",
+    "school_code": "E640",
+    "school_name": "眉山药科职业学院",
+    "plan_count": 4,
+    "min_rank": 659616
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "软件技术",
+    "school_code": "E641",
+    "school_name": "天府新区信息职业学院",
+    "plan_count": 12,
+    "min_rank": 677913
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "集成电路技术",
+    "school_code": "E641",
+    "school_name": "天府新区信息职业学院",
+    "plan_count": 7,
+    "min_rank": 656830
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "37",
+    "major_name": "现代物流管理",
+    "school_code": "E641",
+    "school_name": "天府新区信息职业学院",
+    "plan_count": 13,
+    "min_rank": 673889
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "38",
+    "major_name": "学前教育",
+    "school_code": "E641",
+    "school_name": "天府新区信息职业学院",
+    "plan_count": 18,
+    "min_rank": 673788
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "KM",
+    "major_name": "机电一体化技术",
+    "school_code": "E641",
+    "school_name": "天府新区信息职业学院",
+    "plan_count": 9,
+    "min_rank": 658953
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "城市轨道交通供配电技术",
+    "school_code": "E642",
+    "school_name": "德阳城市轨道交通职业学院",
+    "plan_count": 4,
+    "min_rank": 678304
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "城市轨道交通工程技术",
+    "school_code": "E642",
+    "school_name": "德阳城市轨道交通职业学院",
+    "plan_count": 4,
+    "min_rank": 670827
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "高速铁路综合维修技术",
+    "school_code": "E642",
+    "school_name": "德阳城市轨道交通职业学院",
+    "plan_count": 2,
+    "min_rank": 651931
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "铁道工程技术",
+    "school_code": "E642",
+    "school_name": "德阳城市轨道交通职业学院",
+    "plan_count": 2,
+    "min_rank": 604197
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "21",
+    "major_name": "铁道交通运营管理",
+    "school_code": "E642",
+    "school_name": "德阳城市轨道交通职业学院",
+    "plan_count": 1,
+    "min_rank": 517507
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "26",
+    "major_name": "城市轨道交通通信信号技术",
+    "school_code": "E642",
+    "school_name": "德阳城市轨道交通职业学院",
+    "plan_count": 5,
+    "min_rank": 662146
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "36",
+    "major_name": "口腔医学技术",
+    "school_code": "E643",
+    "school_name": "德阳科贸职业学院",
+    "plan_count": 2,
+    "min_rank": 625806
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "工程测量技术",
+    "school_code": "E644",
+    "school_name": "江阳城建职业学院",
+    "plan_count": 10,
+    "min_rank": 675431
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0A",
+    "major_name": "机电一体化技术",
+    "school_code": "E644",
+    "school_name": "江阳城建职业学院",
+    "plan_count": 8,
+    "min_rank": 651923
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0C",
+    "major_name": "工业机器人技术",
+    "school_code": "E644",
+    "school_name": "江阳城建职业学院",
+    "plan_count": 5,
+    "min_rank": 653886
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0D",
+    "major_name": "无人机应用技术",
+    "school_code": "E644",
+    "school_name": "江阳城建职业学院",
+    "plan_count": 11,
+    "min_rank": 665590
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "民航安全技术管理",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 1,
+    "min_rank": 578027
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "医学检验技术",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 2,
+    "min_rank": 631272
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0A",
+    "major_name": "康复治疗技术",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 5,
+    "min_rank": 676488
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0C",
+    "major_name": "健康管理",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 5,
+    "min_rank": 678494
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "旅游管理",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 2,
+    "min_rank": 635219
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0K",
+    "major_name": "飞机机电设备维修",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 3,
+    "min_rank": 672867
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0M",
+    "major_name": "无人机应用技术",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 3,
+    "min_rank": 675647
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0S",
+    "major_name": "数字媒体技术",
+    "school_code": "E645",
+    "school_name": "天府新区航空旅游职业学院",
+    "plan_count": 7,
+    "min_rank": 666889
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "中药学",
+    "school_code": "E646",
+    "school_name": "天府新区通用航空职业学院",
+    "plan_count": 2,
+    "min_rank": 671748
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "软件技术",
+    "school_code": "E646",
+    "school_name": "天府新区通用航空职业学院",
+    "plan_count": 2,
+    "min_rank": 642757
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "医学影像技术",
+    "school_code": "E649",
+    "school_name": "云南医药健康职业学院",
+    "plan_count": 1,
+    "min_rank": 522116
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "药学",
+    "school_code": "E649",
+    "school_name": "云南医药健康职业学院",
+    "plan_count": 1,
+    "min_rank": 619761
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "新能源汽车技术",
+    "school_code": "E672",
+    "school_name": "攀枝花攀西职业学院",
+    "plan_count": 4,
+    "min_rank": 664657
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "消防救援技术",
+    "school_code": "E672",
+    "school_name": "攀枝花攀西职业学院",
+    "plan_count": 3,
+    "min_rank": 673512
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0G",
+    "major_name": "社会体育",
+    "school_code": "E672",
+    "school_name": "攀枝花攀西职业学院",
+    "plan_count": 2,
+    "min_rank": 671730
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "行政管理",
+    "school_code": "E672",
+    "school_name": "攀枝花攀西职业学院",
+    "plan_count": 1,
+    "min_rank": 653028
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "口腔医学技术",
+    "school_code": "E673",
+    "school_name": "资阳口腔职业学院",
+    "plan_count": 2,
+    "min_rank": 567056
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "口腔卫生保健",
+    "school_code": "E673",
+    "school_name": "资阳口腔职业学院",
+    "plan_count": 6,
+    "min_rank": 655947
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "环境工程技术",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 8,
+    "min_rank": 665041
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "生态环境大数据技术",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 4,
+    "min_rank": 628687
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "现代物流管理",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 8,
+    "min_rank": 644332
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "电子商务",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 4,
+    "min_rank": 604119
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "机电一体化技术",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 7,
+    "min_rank": 594964
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "工业机器人技术",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 2,
+    "min_rank": 635644
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "建筑消防技术",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 4,
+    "min_rank": 615433
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "12",
+    "major_name": "食品质量与安全",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 2,
+    "min_rank": 673952
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "旅游管理",
+    "school_code": "E674",
+    "school_name": "资阳环境科技职业学院",
+    "plan_count": 3,
+    "min_rank": 673594
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "23",
+    "major_name": "大数据技术",
+    "school_code": "E675",
+    "school_name": "云南理工职业学院",
+    "plan_count": 2,
+    "min_rank": 668057
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "G1",
+    "major_name": "护理",
+    "school_code": "E677",
+    "school_name": "喀什职业技术学院",
+    "plan_count": 1,
+    "min_rank": 363322
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0P",
+    "major_name": "会计信息管理",
+    "school_code": "E696",
+    "school_name": "唐山海运职业学院",
+    "plan_count": 2,
+    "min_rank": 596228
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Z",
+    "major_name": "大数据技术",
+    "school_code": "E696",
+    "school_name": "唐山海运职业学院",
+    "plan_count": 1,
+    "min_rank": 674135
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "学前教育(师范类)",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 42,
+    "min_rank": 658465
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "体育教育(师范类)",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 9,
+    "min_rank": 675571
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "舞蹈教育(师范类)",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 15,
+    "min_rank": 639597
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "特殊教育(师范类)",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 8,
+    "min_rank": 651824
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "音乐教育(师范类)",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 15,
+    "min_rank": 606401
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 14,
+    "min_rank": 610624
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "康复治疗技术",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 20,
+    "min_rank": 680224
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "口腔医学技术",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 17,
+    "min_rank": 670482
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0A",
+    "major_name": "医学营养",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 6,
+    "min_rank": 667726
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0B",
+    "major_name": "眼视光技术",
+    "school_code": "E701",
+    "school_name": "长春早期教育职业学院",
+    "plan_count": 16,
+    "min_rank": 545083
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "2L",
+    "major_name": "广播影视节目制作(中外合作办学)",
+    "school_code": "E707",
+    "school_name": "烟台文化旅游职业学院",
+    "plan_count": 37,
+    "min_rank": 622212
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "57",
+    "major_name": "网络直播与运营",
+    "school_code": "E709",
+    "school_name": "青岛航空科技职业学院",
+    "plan_count": 20,
+    "min_rank": 679332
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "建筑工程技术",
+    "school_code": "E717",
+    "school_name": "林州建筑职业技术学院",
+    "plan_count": 5,
+    "min_rank": 676903
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "新能源汽车技术",
+    "school_code": "E717",
+    "school_name": "林州建筑职业技术学院",
+    "plan_count": 5,
+    "min_rank": 648719
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0J",
+    "major_name": "计算机应用技术",
+    "school_code": "E717",
+    "school_name": "林州建筑职业技术学院",
+    "plan_count": 4,
+    "min_rank": 665461
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "护理",
+    "school_code": "E721",
+    "school_name": "湖北健康职业学院",
+    "plan_count": 5,
+    "min_rank": 648842
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0K",
+    "major_name": "工业互联网技术",
+    "school_code": "E725",
+    "school_name": "重庆理工职业学院",
+    "plan_count": 1,
+    "min_rank": 494815
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "59",
+    "major_name": "物联网应用技术",
+    "school_code": "E727",
+    "school_name": "重庆健康职业学院",
+    "plan_count": 5,
+    "min_rank": 655532
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "60",
+    "major_name": "人工智能技术应用",
+    "school_code": "E727",
+    "school_name": "重庆健康职业学院",
+    "plan_count": 7,
+    "min_rank": 660090
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "63",
+    "major_name": "药学",
+    "school_code": "E727",
+    "school_name": "重庆健康职业学院",
+    "plan_count": 1,
+    "min_rank": 583694
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "数字媒体技术",
+    "school_code": "E729",
+    "school_name": "南充电影工业职业学院",
+    "plan_count": 11,
+    "min_rank": 655705
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "18",
+    "major_name": "摄影摄像技术",
+    "school_code": "E729",
+    "school_name": "南充电影工业职业学院",
+    "plan_count": 1,
+    "min_rank": 625113
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "19",
+    "major_name": "影视制片管理",
+    "school_code": "E729",
+    "school_name": "南充电影工业职业学院",
+    "plan_count": 1,
+    "min_rank": 578206
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "电子商务",
+    "school_code": "E729",
+    "school_name": "南充电影工业职业学院",
+    "plan_count": 5,
+    "min_rank": 674494
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "休闲体育",
+    "school_code": "E730",
+    "school_name": "绵阳飞行职业学院",
+    "plan_count": 6,
+    "min_rank": 637591
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "新能源汽车技术",
+    "school_code": "E730",
+    "school_name": "绵阳飞行职业学院",
+    "plan_count": 6,
+    "min_rank": 681126
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "76",
+    "major_name": "供用电技术",
+    "school_code": "E731",
+    "school_name": "德阳农业科技职业学院",
+    "plan_count": 7,
+    "min_rank": 670909
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "H2",
+    "major_name": "烹饪工艺与营养",
+    "school_code": "E731",
+    "school_name": "德阳农业科技职业学院",
+    "plan_count": 5,
+    "min_rank": 674058
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "医用材料与应用",
+    "school_code": "E732",
+    "school_name": "泸州医疗器械职业学院",
+    "plan_count": 3,
+    "min_rank": 606010
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "康复工程技术",
+    "school_code": "E732",
+    "school_name": "泸州医疗器械职业学院",
+    "plan_count": 3,
+    "min_rank": 653262
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "移动应用开发",
+    "school_code": "E732",
+    "school_name": "泸州医疗器械职业学院",
+    "plan_count": 2,
+    "min_rank": 639822
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0A",
+    "major_name": "计算机网络技术",
+    "school_code": "E735",
+    "school_name": "贵州民用航空职业学院",
+    "plan_count": 14,
+    "min_rank": 660405
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0B",
+    "major_name": "软件技术",
+    "school_code": "E735",
+    "school_name": "贵州民用航空职业学院",
+    "plan_count": 2,
+    "min_rank": 589048
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0C",
+    "major_name": "数字媒体技术",
+    "school_code": "E735",
+    "school_name": "贵州民用航空职业学院",
+    "plan_count": 11,
+    "min_rank": 680763
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "无人机应用技术",
+    "school_code": "E742",
+    "school_name": "邢台应用技术职业学院",
+    "plan_count": 3,
+    "min_rank": 618944
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "新能源汽车检测与维修技术",
+    "school_code": "E742",
+    "school_name": "邢台应用技术职业学院",
+    "plan_count": 2,
+    "min_rank": 596638
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "城市轨道交通运营管理",
+    "school_code": "E742",
+    "school_name": "邢台应用技术职业学院",
+    "plan_count": 1,
+    "min_rank": 586299
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "会计信息管理",
+    "school_code": "E742",
+    "school_name": "邢台应用技术职业学院",
+    "plan_count": 3,
+    "min_rank": 660631
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "12",
+    "major_name": "婴幼儿托育服务与管理",
+    "school_code": "E744",
+    "school_name": "通化医药健康职业学院",
+    "plan_count": 6,
+    "min_rank": 486560
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0M",
+    "major_name": "智慧健康养老服务与管理",
+    "school_code": "E747",
+    "school_name": "宿州航空职业学院",
+    "plan_count": 1,
+    "min_rank": 329144
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "消防救援技术(特种工业方向)",
+    "school_code": "E748",
+    "school_name": "和君职业学院",
+    "plan_count": 3,
+    "min_rank": 617072
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "无人机应用技术(eVTOL方向)",
+    "school_code": "E748",
+    "school_name": "和君职业学院",
+    "plan_count": 2,
+    "min_rank": 608032
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "17",
+    "major_name": "飞机机电设备维修(eVTOL方向)",
+    "school_code": "E748",
+    "school_name": "和君职业学院",
+    "plan_count": 4,
+    "min_rank": 659453
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0D",
+    "major_name": "数字化设计与制造技术",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 46,
+    "min_rank": 616875
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0N",
+    "major_name": "动漫制作技术",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 7,
+    "min_rank": 574337
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0P",
+    "major_name": "空中乘务",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 8,
+    "min_rank": 600842
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Q",
+    "major_name": "文化创意与策划",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 49,
+    "min_rank": 644224
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0Y",
+    "major_name": "旅游管理",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 39,
+    "min_rank": 642372
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1A",
+    "major_name": "分析检验技术",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 44,
+    "min_rank": 636652
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1B",
+    "major_name": "应用化工技术",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 18,
+    "min_rank": 589498
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "30",
+    "major_name": "大数据技术",
+    "school_code": "E749",
+    "school_name": "滨州科技职业学院",
+    "plan_count": 45,
+    "min_rank": 608416
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3K",
+    "major_name": "护理",
+    "school_code": "E755",
+    "school_name": "湖北孝感美珈职业学院",
+    "plan_count": 10,
+    "min_rank": 653560
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "3L",
+    "major_name": "中医康复技术",
+    "school_code": "E755",
+    "school_name": "湖北孝感美珈职业学院",
+    "plan_count": 3,
+    "min_rank": 673463
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "无人机应用技术",
+    "school_code": "E761",
+    "school_name": "广东肇庆航空职业学院",
+    "plan_count": 20,
+    "min_rank": 673695
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "空中乘务",
+    "school_code": "E761",
+    "school_name": "广东肇庆航空职业学院",
+    "plan_count": 8,
+    "min_rank": 579657
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "26",
+    "major_name": "护理",
+    "school_code": "E761",
+    "school_name": "广东肇庆航空职业学院",
+    "plan_count": 7,
+    "min_rank": 654160
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "口腔医学技术",
+    "school_code": "E765",
+    "school_name": "北海康养职业学院",
+    "plan_count": 6,
+    "min_rank": 678712
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "智能光电制造技术",
+    "school_code": "E770",
+    "school_name": "宝鸡中北职业学院",
+    "plan_count": 7,
+    "min_rank": 635990
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "网络营销与直播电商",
+    "school_code": "E770",
+    "school_name": "宝鸡中北职业学院",
+    "plan_count": 6,
+    "min_rank": 633355
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "网络新闻与传播",
+    "school_code": "E770",
+    "school_name": "宝鸡中北职业学院",
+    "plan_count": 4,
+    "min_rank": 642766
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "融媒体技术与运营",
+    "school_code": "E770",
+    "school_name": "宝鸡中北职业学院",
+    "plan_count": 8,
+    "min_rank": 661173
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "学前教育(师范类)",
+    "school_code": "E770",
+    "school_name": "宝鸡中北职业学院",
+    "plan_count": 8,
+    "min_rank": 661724
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "11",
+    "major_name": "大数据与会计",
+    "school_code": "E772",
+    "school_name": "白银希望职业技术学院",
+    "plan_count": 2,
+    "min_rank": 615662
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "中医康复技术",
+    "school_code": "E772",
+    "school_name": "白银希望职业技术学院",
+    "plan_count": 7,
+    "min_rank": 659750
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "无人机应用技术",
+    "school_code": "E786",
+    "school_name": "沧州航空职业学院",
+    "plan_count": 1,
+    "min_rank": 486916
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "21",
+    "major_name": "机电设备技术",
+    "school_code": "E786",
+    "school_name": "沧州航空职业学院",
+    "plan_count": 1,
+    "min_rank": 571058
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "社会体育",
+    "school_code": "E800",
+    "school_name": "贵州铜仁数据职业学院",
+    "plan_count": 4,
+    "min_rank": 583043
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0F",
+    "major_name": "大数据与会计",
+    "school_code": "E800",
+    "school_name": "贵州铜仁数据职业学院",
+    "plan_count": 5,
+    "min_rank": 582055
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0G",
+    "major_name": "数字媒体技术",
+    "school_code": "E800",
+    "school_name": "贵州铜仁数据职业学院",
+    "plan_count": 7,
+    "min_rank": 607569
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0H",
+    "major_name": "无人机应用技术",
+    "school_code": "E800",
+    "school_name": "贵州铜仁数据职业学院",
+    "plan_count": 4,
+    "min_rank": 606907
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "2A",
+    "major_name": "刑事执行",
+    "school_code": "E805",
+    "school_name": "新疆司法警官职业学院",
+    "plan_count": 2,
+    "min_rank": 276893
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "2B",
+    "major_name": "行政执行",
+    "school_code": "E805",
+    "school_name": "新疆司法警官职业学院",
+    "plan_count": 1,
+    "min_rank": 270128
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "19",
+    "major_name": "绿色生物制造技术",
+    "school_code": "E810",
+    "school_name": "潍坊食品科技职业学院",
+    "plan_count": 29,
+    "min_rank": 579306
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "17",
+    "major_name": "智能网联汽车技术",
+    "school_code": "E811",
+    "school_name": "烟台城市科技职业学院",
+    "plan_count": 9,
+    "min_rank": 575473
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "22",
+    "major_name": "现代通信技术",
+    "school_code": "E811",
+    "school_name": "烟台城市科技职业学院",
+    "plan_count": 12,
+    "min_rank": 580980
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "食品智能加工技术",
+    "school_code": "E812",
+    "school_name": "郑州食品工程职业学院",
+    "plan_count": 2,
+    "min_rank": 671185
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "大数据与财务管理",
+    "school_code": "E812",
+    "school_name": "郑州食品工程职业学院",
+    "plan_count": 2,
+    "min_rank": 607409
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0J",
+    "major_name": "计算机网络技术",
+    "school_code": "E812",
+    "school_name": "郑州食品工程职业学院",
+    "plan_count": 1,
+    "min_rank": 625075
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "0K",
+    "major_name": "大数据技术",
+    "school_code": "E812",
+    "school_name": "郑州食品工程职业学院",
+    "plan_count": 1,
+    "min_rank": 647143
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "人工智能技术应用",
+    "school_code": "E820",
+    "school_name": "衡阳科技职业学院",
+    "plan_count": 1,
+    "min_rank": 641271
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "智能制造装备技术",
+    "school_code": "E822",
+    "school_name": "桂林信息工程职业学院",
+    "plan_count": 4,
+    "min_rank": 673271
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "应急救援技术",
+    "school_code": "E835",
+    "school_name": "遂宁工程职业学院",
+    "plan_count": 5,
+    "min_rank": 673726
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "建筑消防技术",
+    "school_code": "E835",
+    "school_name": "遂宁工程职业学院",
+    "plan_count": 2,
+    "min_rank": 680819
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "软件技术",
+    "school_code": "E836",
+    "school_name": "遂宁职业学院",
+    "plan_count": 11,
+    "min_rank": 670599
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "人工智能技术应用",
+    "school_code": "E836",
+    "school_name": "遂宁职业学院",
+    "plan_count": 7,
+    "min_rank": 663471
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "16",
+    "major_name": "无人机应用技术",
+    "school_code": "E836",
+    "school_name": "遂宁职业学院",
+    "plan_count": 16,
+    "min_rank": 671034
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "数字化设计与制造技术",
+    "school_code": "E839",
+    "school_name": "长春数字科技职业学院",
+    "plan_count": 4,
+    "min_rank": 661230
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "机电一体化技术",
+    "school_code": "E846",
+    "school_name": "海南东方新丝路职业学院",
+    "plan_count": 4,
+    "min_rank": 598767
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "新能源汽车技术",
+    "school_code": "E846",
+    "school_name": "海南东方新丝路职业学院",
+    "plan_count": 8,
+    "min_rank": 675841
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "软件技术",
+    "school_code": "E846",
+    "school_name": "海南东方新丝路职业学院",
+    "plan_count": 1,
+    "min_rank": 644909
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "康复治疗技术",
+    "school_code": "E846",
+    "school_name": "海南东方新丝路职业学院",
+    "plan_count": 6,
+    "min_rank": 657162
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "电子商务",
+    "school_code": "E846",
+    "school_name": "海南东方新丝路职业学院",
+    "plan_count": 2,
+    "min_rank": 675620
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "数字媒体技术",
+    "school_code": "E857",
+    "school_name": "德州工程职业学院",
+    "plan_count": 15,
+    "min_rank": 597259
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "跨境电子商务",
+    "school_code": "E857",
+    "school_name": "德州工程职业学院",
+    "plan_count": 44,
+    "min_rank": 645922
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "14",
+    "major_name": "供应链运营",
+    "school_code": "E857",
+    "school_name": "德州工程职业学院",
+    "plan_count": 8,
+    "min_rank": 599745
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "20",
+    "major_name": "动漫制作技术",
+    "school_code": "E857",
+    "school_name": "德州工程职业学院",
+    "plan_count": 89,
+    "min_rank": 680122
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "24",
+    "major_name": "艺术设计",
+    "school_code": "E857",
+    "school_name": "德州工程职业学院",
+    "plan_count": 39,
+    "min_rank": 676016
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "25",
+    "major_name": "环境艺术设计",
+    "school_code": "E857",
+    "school_name": "德州工程职业学院",
+    "plan_count": 55,
+    "min_rank": 681071
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "社会体育",
+    "school_code": "E858",
+    "school_name": "日照康养职业学院",
+    "plan_count": 31,
+    "min_rank": 590675
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "体育保健与康复",
+    "school_code": "E858",
+    "school_name": "日照康养职业学院",
+    "plan_count": 71,
+    "min_rank": 623357
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "运动健康指导",
+    "school_code": "E858",
+    "school_name": "日照康养职业学院",
+    "plan_count": 134,
+    "min_rank": 660732
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "药学",
+    "school_code": "E859",
+    "school_name": "烟台卫生健康职业学院",
+    "plan_count": 2,
+    "min_rank": 292855
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "医学检验技术",
+    "school_code": "E859",
+    "school_name": "烟台卫生健康职业学院",
+    "plan_count": 1,
+    "min_rank": 266588
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "R1",
+    "major_name": "人工智能技术应用",
+    "school_code": "E864",
+    "school_name": "周口城市职业学院",
+    "plan_count": 2,
+    "min_rank": 611047
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "X1",
+    "major_name": "数控技术",
+    "school_code": "E864",
+    "school_name": "周口城市职业学院",
+    "plan_count": 2,
+    "min_rank": 618252
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "X2",
+    "major_name": "模具设计与制造",
+    "school_code": "E864",
+    "school_name": "周口城市职业学院",
+    "plan_count": 1,
+    "min_rank": 535071
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "X4",
+    "major_name": "新能源汽车技术",
+    "school_code": "E864",
+    "school_name": "周口城市职业学院",
+    "plan_count": 4,
+    "min_rank": 668259
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "X5",
+    "major_name": "智能网联汽车技术",
+    "school_code": "E864",
+    "school_name": "周口城市职业学院",
+    "plan_count": 3,
+    "min_rank": 645218
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "1J",
+    "major_name": "物流工程技术",
+    "school_code": "E870",
+    "school_name": "重庆现代制造职业学院",
+    "plan_count": 1,
+    "min_rank": 573928
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "01",
+    "major_name": "护理",
+    "school_code": "E893",
+    "school_name": "三亚护理职业学院",
+    "plan_count": 39,
+    "min_rank": 658606
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "02",
+    "major_name": "助产",
+    "school_code": "E893",
+    "school_name": "三亚护理职业学院",
+    "plan_count": 3,
+    "min_rank": 676115
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "03",
+    "major_name": "药学",
+    "school_code": "E893",
+    "school_name": "三亚护理职业学院",
+    "plan_count": 10,
+    "min_rank": 681107
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "07",
+    "major_name": "医学美容技术",
+    "school_code": "E893",
+    "school_name": "三亚护理职业学院",
+    "plan_count": 2,
+    "min_rank": 605593
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "康复治疗技术",
+    "school_code": "E893",
+    "school_name": "三亚护理职业学院",
+    "plan_count": 2,
+    "min_rank": 673053
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "09",
+    "major_name": "口腔卫生保健",
+    "school_code": "E893",
+    "school_name": "三亚护理职业学院",
+    "plan_count": 2,
+    "min_rank": 666909
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "V4",
+    "major_name": "铁道交通运营管理",
+    "school_code": "E903",
+    "school_name": "株洲科技职业学院",
+    "plan_count": 6,
+    "min_rank": 671842
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "Y1",
+    "major_name": "城市轨道交通机电技术",
+    "school_code": "E903",
+    "school_name": "株洲科技职业学院",
+    "plan_count": 4,
+    "min_rank": 677088
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "口腔医学技术",
+    "school_code": "E904",
+    "school_name": "衡阳理工职业学院",
+    "plan_count": 2,
+    "min_rank": 660737
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "05",
+    "major_name": "跨境电子商务",
+    "school_code": "E924",
+    "school_name": "济宁汽车工程职业学院",
+    "plan_count": 74,
+    "min_rank": 678340
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "06",
+    "major_name": "计算机网络技术",
+    "school_code": "E924",
+    "school_name": "济宁汽车工程职业学院",
+    "plan_count": 26,
+    "min_rank": 625864
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "08",
+    "major_name": "计算机应用技术(中外合作办学)",
+    "school_code": "F411",
+    "school_name": "福州墨尔本理工职业学院",
+    "plan_count": 5,
+    "min_rank": 626756
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "云计算技术应用(中外合作办学)",
+    "school_code": "F411",
+    "school_name": "福州墨尔本理工职业学院",
+    "plan_count": 2,
+    "min_rank": 641257
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "13",
+    "major_name": "移动互联应用技术(中外合作办学)",
+    "school_code": "F411",
+    "school_name": "福州墨尔本理工职业学院",
+    "plan_count": 3,
+    "min_rank": 667320
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "15",
+    "major_name": "休闲服务与管理(中外合作办学)",
+    "school_code": "F411",
+    "school_name": "福州墨尔本理工职业学院",
+    "plan_count": 4,
+    "min_rank": 681100
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "04",
+    "major_name": "中医康复技术",
+    "school_code": "T035",
+    "school_name": "桂林生命与健康职业技术学院",
+    "plan_count": 1,
+    "min_rank": 425615
+  },
+  {
+    "year": 2025,
+    "round": 3,
+    "major_code": "10",
+    "major_name": "学前教育(中外合作办学)(师范类)",
+    "school_code": "T335",
+    "school_name": "长春师范高等专科学校",
+    "plan_count": 12,
+    "min_rank": 607087
+  }
+]

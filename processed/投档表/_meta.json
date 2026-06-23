@@ -1,0 +1,47 @@
+{
+  "dataset": "普通类常规批投档表",
+  "publisher": "山东省教育招生考试院",
+  "official_domain": "sdzk.cn",
+  "source_registry": [
+    "raw/_common/来源索引/官方来源索引.md",
+    "raw/_common/来源索引/补充官方数据来源索引.md"
+  ],
+  "source_file_patterns": [
+    "raw/<year>/常规批第1次投档表.xls",
+    "raw/<year>/常规批第2次投档表/*.xls",
+    "raw/<year>/常规批第3次投档表/*.xls"
+  ],
+  "quality_level": "A",
+  "verification_status": "official_excel_extracted",
+  "extract_script": "scripts/_process_admission.py",
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "rounds": [
+    1,
+    2,
+    3
+  ],
+  "fields": [
+    "year",
+    "round",
+    "major_code",
+    "major_name",
+    "school_code",
+    "school_name",
+    "plan_count",
+    "min_rank"
+  ],
+  "description": "山东夏季高考普通类常规批第 1/2/3 次志愿投档情况",
+  "notes": [
+    "round=1 对应第 1 次志愿（本科计划）",
+    "round=2 对应第 2 次志愿（剩余本科+专科计划）",
+    "round=3 对应第 3 次志愿（剩余计划）",
+    "major_code/school_code 已从原始合并字段拆分",
+    "体育类投档表未纳入此数据集，仅普通类"
+  ]
+}
