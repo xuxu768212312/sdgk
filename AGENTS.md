@@ -2,7 +2,7 @@
 
 > 本文件定义知识库的组织约定、操作流程、以及**国内顶尖、国际专业**的志愿填报决策算法框架。
 > LLM 在每次操作前**必须先读本文件**，所有策略输出必须遵循此框架。
-> 版本：v3.5（2026-06-23 价值捕获与图文双交付版）
+> 版本：v3.6（2026-06-23 受控冲刺概率加固版）
 > - v1.0：初版 schema
 > - v2.0：引入精算/量化金融/运筹学/博弈论/ML 级算法
 > - v3.0：System2 明确化（Kahneman 双系统严格映射）+ 多 Agent 协作框架（8 Agent 辩论式制衡）
@@ -11,12 +11,13 @@
 > - v3.3：引入互联网数据准入分级、策略优化器硬约束、候选志愿组合风险优化
 > - v3.4：策略优化器升级为失败关闭：异常概率、缺效用/来源、重复志愿、保守滑档超限均阻断
 > - v3.5：引入低分高价值捕获模型（Value Capture）与 Excel + Markdown 图文双交付标准
+> - v3.6：引入 Rush Guard 受控冲刺策略，允许高价值深度冲“搏一搏”，但必须满足概率下限、价值证据、数量上限和保底闸门
 
 ---
 
 ## 第零章 · 系统级铁律（不可违反）
 
-> 以下 21 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
+> 以下 22 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
 
 | # | 铁律 | 违反后果 |
 |---|------|---------|
@@ -41,6 +42,7 @@
 | Z19 | **算法失败关闭** | 策略算法遇到缺字段、异常数值、重复志愿、来源不可追溯或保守滑档超限时必须阻断，不得自动补默认值或夹紧异常值后交付 |
 | Z20 | **价值捕获不越过安全闸门** | “低分上好大学/好专业”只能在选科 PASS、来源 S/A/B、保底充足、滑档可控后排序；不得用价值机会覆盖硬风险 |
 | Z21 | **双件图文交付** | 正式志愿方案必须同时输出 Excel 志愿表和 Markdown 详细说明报告；报告必须含图表/结构化可视化、风险结论、证据索引 |
+| Z22 | **冲刺有界可搏** | 冲刺志愿可以搏一搏，但必须由 `strategy_optimizer_v4_rush_guard_fail_closed` 控制概率下限、深度冲价值证据、深度冲数量上限、保/垫和滑档闸门；不得口头放宽 |
 
 ---
 
@@ -78,7 +80,7 @@
 │   ├── utility_function.py        # 个性化效用函数
 │   ├── bias_checker.py            # 行为经济学偏差核查
 │   ├── portfolio_optimizer.py     # 投资组合理论优化
-│   └── strategy_optimizer.py      # 失败关闭策略优化器 + 低分高价值捕获排序
+│   └── strategy_optimizer.py      # 失败关闭策略优化器 + 低分高价值捕获排序 + 受控冲刺
 └── students/              # 学生工作区（不入库）
 ```
 
@@ -204,7 +206,7 @@ students/<姓名>/志愿方案/（96志愿方案）
 Phase 1: 信息采集 → 基本信息.md（必填项 + 选填项）
 Phase 2: 定位分析 → 位次映射 + 分档判定 + 选科可报范围（必须走 SQLite 选科索引）
 Phase 3: 候选池生成 → 先选科 PASS，再算概率/效用/价值捕获，不允许先猜后审
-Phase 4: 策略生成 → System2 六步流程 + 互联网数据准入 + 96志愿梯度优化
+Phase 4: 策略生成 → System2 六步流程 + 互联网数据准入 + 96志愿梯度优化 + Rush Guard 受控冲刺
 Phase 5: 风险评估 → 蒙特卡洛 10000 次模拟 + 8类偏差核查 + 选科硬闸门审核
 Phase 6: 方案交付 → Excel 志愿表 + Markdown 图文说明报告（docx 可选）
 Phase 7: 追踪复盘 → 录取结果回溯，校准概率模型
@@ -777,6 +779,52 @@ strategy_score =
 
 ---
 
+### 5.9ter 受控冲刺策略（Rush Guard）
+
+> 核心目标：在不牺牲安全底座的前提下，提高“低分上好大学/好专业”的上行空间。冲刺可以搏一搏，但只能让算法搏，不能让口头感觉搏。
+
+#### 5.9ter.1 概率分层
+
+`algorithms/strategy_optimizer.py` v4 将冲刺拆成两层：
+
+| 层级 | 概率区间 | 用途 | 硬要求 |
+|---|---|---|---|
+| 普通冲 | `probability >= deep_rush_probability` 且 `< 0.60` | 主要冲刺空间 | 必须 S/A/B 来源、选科 PASS、效用完整 |
+| 深度冲 | `min_rush_probability <= probability < deep_rush_probability` | 少量高价值搏机会 | 必须 `value_capture_score` 达标，且数量不超过风险档上限 |
+| 弃 | `probability < min_rush_probability` | 不进入正式排序 | 除非更新官方证据并重算概率，否则不得人工放行 |
+
+默认分界：
+
+- `conservative`：最低冲刺概率 20%，不允许深度冲
+- `standard`：最低冲刺概率 15%，深度冲上限 4 个/96
+- `aggressive`：最低冲刺概率 12%，深度冲上限 8 个/96
+- `opportunistic`：最低冲刺概率 10%，深度冲上限 10 个/96，仅用于明确接受上行机会且保/垫充足的考生
+
+#### 5.9ter.2 深度冲准入
+
+深度冲必须同时满足：
+
+1. `subject_check_status=PASS` 且有 `evidence_id`
+2. `source_quality` 为 S/A/B，且有 `source_file`
+3. `value_capture_score >= min_deep_rush_value_capture`
+4. 不是保底、不是兜底、不是唯一满意路径
+5. 进入组合后保/垫数量仍达标，`conservative_slip_probability` 不超风险档上限
+
+不满足第 3 条时，优化器必须输出 `LOW_PROBABILITY_WITHOUT_VALUE_CAPTURE`；超过数量上限时，必须输出 `DEEP_RUSH_OVER_PROFILE_CAP` 或 `DEEP_RUSH_TOO_MANY`。
+
+#### 5.9ter.3 填报解释要求
+
+正式报告中，所有 `rush_tier=deep_rush` 的志愿必须单独标注：
+
+- 录取概率和所属风险档
+- 为什么值得搏：院校价值、专业价值、地域错配、计划变化或偏好匹配
+- 为什么可能失败：位次差、计划波动、热度回升、样本不足
+- 它不是保底，失败后由哪些稳/保/垫志愿承接
+
+禁止把深度冲描述为“稳一稳”“大概率能上”或“捡漏确定”。深度冲只能提高上行收益，不能承担安全功能。
+
+---
+
 ### 5.10 行为经济学偏差核查清单（Bias Checklist）
 
 > **强制要求**：正式提交志愿前，必须通过 8 类偏差核查。
@@ -833,7 +881,7 @@ strategy_score =
 
 $$P_{录取} \approx f\left(\frac{r_{考生}}{r_{目标}}\right)$$
 
-- 比值 < 0.9 → 冲刺（概率 20-40%）
+- 比值 < 0.9 → 冲刺候选，必须由概率模型输出；普通冲通常 ≥ 20%，受控深度冲可到 10%-20%，但必须通过 Rush Guard
 - 比值 0.9-1.1 → 稳妥（概率 60-80%）
 - 比值 > 1.1 → 保底（概率 90%+）
 
@@ -866,6 +914,7 @@ $$\Delta_{考生} = S_{考生} - L_{批次}, \quad \Delta_{目标} = \bar{S}_{�
 13. **策略优化器硬约束**：正式 96 志愿候选池必须经 `algorithms/strategy_optimizer.py` 或等价逻辑做数据质量、选科证据、概率、效用、冲稳保垫配额检查
 14. **价值捕获排序**：低分上好大学/好专业必须体现为 `value_capture_score`，并同时给出机会理由和风险反证
 15. **双件图文交付**：正式输出必须含 Excel 志愿表和 Markdown 图文报告，裸表不得视为完整方案
+16. **冲刺受控可搏**：冲刺比例和概率下限由风险档控制；深度冲只允许作为上行机会，不得挤占保/垫安全功能
 
 ---
 
@@ -1095,11 +1144,22 @@ LLM 在单次会话中**串行扮演**各 Agent（通过 prompt 角色切换）�
 - `subject_check_status` 非 `PASS`
 - 缺少 `evidence_id`
 - 院校代码+专业代码重复，或院校名称+专业名称重复
-- 录取概率低于最低阈值并被归为 `弃`
+- 录取概率低于当前风险档 `min_rush_probability` 并被归为 `弃`
+- `probability < deep_rush_probability` 但 `value_capture_score < min_deep_rush_value_capture`
+- 深度冲数量超过当前风险档 `max_deep_rush`
 
 #### 5.15.3 风险偏好与配额
 
-优化器支持 `conservative`、`standard`、`aggressive` 三种风险偏好；默认 `standard` 近似 24:40:26:6。无论风险偏好如何，垫底志愿不足或保守滑档概率超限都会导致 `hard_gate_passed=false`。
+优化器支持 `conservative`、`standard`、`aggressive`、`opportunistic` 四种风险偏好；默认 `standard` 近似 24:40:26:6。无论风险偏好如何，垫底志愿不足或保守滑档概率超限都会导致 `hard_gate_passed=false`。
+
+| 风险档 | 96 志愿目标配额 | 最低冲刺概率 | 深度冲阈值 | 深度冲上限 | 保守滑档上限 |
+|---|---|---:|---:|---:|---:|
+| `conservative` | 14:38:34:10 | 20% | 20% | 0 | 1% |
+| `standard` | 24:40:26:6 | 15% | 20% | 4 | 3% |
+| `aggressive` | 30:38:22:6 | 12% | 20% | 8 | 5% |
+| `opportunistic` | 34:36:20:6 | 10% | 20% | 10 | 6% |
+
+`opportunistic` 不是默认档，只能用于考生明确接受更高上行/波动，且保/垫志愿充足、家庭对结果波动有心理准备的场景。它仍然必须通过选科、来源、证据、保守滑档和深度冲价值证据闸门。
 
 保守滑档概率不假设 96 个志愿独立，而是用最强安全志愿的失败概率作为下限闸门：
 
@@ -1107,7 +1167,7 @@ LLM 在单次会话中**串行扮演**各 Agent（通过 prompt 角色切换）�
 conservative_slip_probability = 1 - max(selected.probability)
 ```
 
-默认上限：保守型 ≤ 1%，标准型 ≤ 3%，激进型 ≤ 5%。
+默认上限：保守型 ≤ 1%，标准型 ≤ 3%，激进型 ≤ 5%，机会冲刺型 ≤ 6%。
 
 #### 5.15.4 输出要求
 
@@ -1118,7 +1178,9 @@ conservative_slip_probability = 1 - max(selected.probability)
 - `violations`
 - `independent_model_slip_probability`
 - `conservative_slip_probability`
+- `rush_counts`
 - `warnings`
+- `rush_tier`
 - `value_capture_score`
 - `value_capture_reasons`
 - `selected`
@@ -1126,7 +1188,7 @@ conservative_slip_probability = 1 - max(selected.probability)
 
 若 `hard_gate_passed=false`，不得交付为正式方案。
 
-当前算法版本标识必须为 `strategy_optimizer_v3_value_capture_fail_closed` 或更高；若版本低于该值，正式方案必须重跑优化器。
+当前算法版本标识必须为 `strategy_optimizer_v4_rush_guard_fail_closed` 或更高；若版本低于该值，正式方案必须重跑优化器。
 
 ---
 
@@ -1372,6 +1434,7 @@ sources: ["raw/路径/文件名", "processed/路径/文件名"]
 | v3.3 | 2026-06-23 | 互联网数据准入与策略优化版：新增 Z18；互联网来源先定级，策略优化器强制拦截非正式来源、选科未 PASS、无 evidence_id 或配额不合格候选 |
 | v3.4 | 2026-06-23 | 策略算法失败关闭版：新增 Z19；异常概率、缺效用/来源、重复志愿、保守滑档超限一律阻断，输出 `strategy_optimizer_v2_fail_closed` 版本标识 |
 | v3.5 | 2026-06-23 | 价值捕获与图文双交付版：新增 Z20/Z21；低分高价值机会纳入 `value_capture_score`，正式方案必须输出 Excel 志愿表 + Markdown 图文报告 |
+| v3.6 | 2026-06-23 | 受控冲刺概率加固版：新增 Z22 与 Rush Guard；新增 `opportunistic` 风险档，深度冲必须满足概率下限、价值证据、数量上限和保/垫闸门 |
 
 ---
 

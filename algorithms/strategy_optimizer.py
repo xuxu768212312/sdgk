@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
 
-ALGORITHM_VERSION = "strategy_optimizer_v3_value_capture_fail_closed"
+ALGORITHM_VERSION = "strategy_optimizer_v4_rush_guard_fail_closed"
 QUALITY_SCORE = {"S": 1.0, "A": 0.95, "B": 0.85, "C": 0.45, "D": 0.0}
 FORMAL_QUALITY = {"S", "A", "B"}
 
@@ -40,6 +40,10 @@ BASE_PROFILES = {
         "mins": {"冲": 0, "稳": 28, "保": 28, "垫": 8},
         "maxs": {"冲": 18, "稳": 44, "保": 42, "垫": 16},
         "max_conservative_slip": 0.01,
+        "min_rush_probability": 0.20,
+        "deep_rush_probability": 0.20,
+        "max_deep_rush": 0,
+        "min_deep_rush_value_capture": 0.70,
     },
     "standard": {
         "risk_aversion": 1.0,
@@ -47,6 +51,10 @@ BASE_PROFILES = {
         "mins": {"冲": 12, "稳": 30, "保": 20, "垫": 6},
         "maxs": {"冲": 28, "稳": 46, "保": 34, "垫": 12},
         "max_conservative_slip": 0.03,
+        "min_rush_probability": 0.15,
+        "deep_rush_probability": 0.20,
+        "max_deep_rush": 4,
+        "min_deep_rush_value_capture": 0.68,
     },
     "aggressive": {
         "risk_aversion": 0.75,
@@ -54,6 +62,21 @@ BASE_PROFILES = {
         "mins": {"冲": 18, "稳": 28, "保": 16, "垫": 4},
         "maxs": {"冲": 36, "稳": 44, "保": 30, "垫": 10},
         "max_conservative_slip": 0.05,
+        "min_rush_probability": 0.12,
+        "deep_rush_probability": 0.20,
+        "max_deep_rush": 8,
+        "min_deep_rush_value_capture": 0.65,
+    },
+    "opportunistic": {
+        "risk_aversion": 0.65,
+        "targets": {"冲": 34, "稳": 36, "保": 20, "垫": 6},
+        "mins": {"冲": 22, "稳": 26, "保": 16, "垫": 4},
+        "maxs": {"冲": 40, "稳": 42, "保": 30, "垫": 10},
+        "max_conservative_slip": 0.06,
+        "min_rush_probability": 0.10,
+        "deep_rush_probability": 0.20,
+        "max_deep_rush": 10,
+        "min_deep_rush_value_capture": 0.65,
     },
 }
 
@@ -219,16 +242,24 @@ def candidate_key(row: Dict[str, Any]) -> Optional[str]:
     return None
 
 
-def classify_bucket(probability: float) -> str:
+def classify_bucket(probability: float, min_rush_probability: float = 0.15) -> str:
     if probability >= 0.98:
         return "垫"
     if probability >= 0.88:
         return "保"
     if probability >= 0.60:
         return "稳"
-    if probability >= 0.15:
+    if probability >= min_rush_probability:
         return "冲"
     return "弃"
+
+
+def rush_tier(probability: float, bucket: str, deep_rush_probability: float) -> str:
+    if bucket != "冲":
+        return ""
+    if probability < deep_rush_probability:
+        return "deep_rush"
+    return "rush"
 
 
 def scaled_profile(profile_name: str, slots: int) -> Dict[str, Any]:
@@ -237,6 +268,10 @@ def scaled_profile(profile_name: str, slots: int) -> Dict[str, Any]:
     scaled: Dict[str, Any] = {
         "risk_aversion": base["risk_aversion"],
         "max_conservative_slip": base["max_conservative_slip"],
+        "min_rush_probability": base["min_rush_probability"],
+        "deep_rush_probability": base["deep_rush_probability"],
+        "min_deep_rush_value_capture": base["min_deep_rush_value_capture"],
+        "max_deep_rush": max(0, int(round(base["max_deep_rush"] * factor))),
         "targets": {},
         "mins": {},
         "maxs": {},
@@ -294,7 +329,12 @@ def gate_candidate(row: Dict[str, Any], duplicate_keys: Set[str]) -> Tuple[bool,
     return len(reasons) == 0, reasons
 
 
-def score_candidate(row: Dict[str, Any], risk_aversion: float) -> Dict[str, Any]:
+def score_candidate(
+    row: Dict[str, Any],
+    risk_aversion: float,
+    min_rush_probability: float = 0.15,
+    deep_rush_probability: float = 0.20,
+) -> Dict[str, Any]:
     p = candidate_probability(row)
     if p is None:
         raise ValueError("candidate probability is required after gating")
@@ -304,8 +344,9 @@ def score_candidate(row: Dict[str, Any], risk_aversion: float) -> Dict[str, Any]
         raise ValueError("candidate utility and rsi are required after gating")
     quality = candidate_quality(row)
     q_score = QUALITY_SCORE[quality]
-    bucket = classify_bucket(p)
+    bucket = classify_bucket(p, min_rush_probability=min_rush_probability)
     value_capture_score, value_reasons = candidate_value_capture(row)
+    tier = rush_tier(p, bucket, deep_rush_probability)
     tail_penalty = risk_aversion * (1.0 - p) * (1.0 - rsi)
     affordability_risk = max(0.0, 0.35 - candidate_optional_unit(row, "affordability", "cost_fit", "学费适配", default=0.5))
     score = (
@@ -325,6 +366,9 @@ def score_candidate(row: Dict[str, Any], risk_aversion: float) -> Dict[str, Any]
             "rsi": round(rsi, 6),
             "source_quality": quality,
             "gradient_bucket": bucket,
+            "rush_tier": tier,
+            "rush_probability_floor": min_rush_probability,
+            "deep_rush_probability": deep_rush_probability,
             "value_capture_score": value_capture_score,
             "value_capture_reasons": value_reasons,
             "strategy_score": round(score, 6),
@@ -383,6 +427,50 @@ def candidate_sort_key(row: Dict[str, Any]) -> Tuple[float, float, float, float,
     )
 
 
+def rush_cap_reason(row: Dict[str, Any], selected: Iterable[Dict[str, Any]], profile: Dict[str, Any]) -> Optional[str]:
+    if row.get("rush_tier") != "deep_rush":
+        return None
+    current = sum(1 for item in selected if item.get("rush_tier") == "deep_rush")
+    cap = int(profile.get("max_deep_rush", 0))
+    if current >= cap:
+        return f"DEEP_RUSH_OVER_PROFILE_CAP: expected <= {cap}"
+    return None
+
+
+def rush_metrics(selected: Iterable[Dict[str, Any]], profile: Dict[str, Any]) -> Dict[str, Any]:
+    selected_list = list(selected)
+    rush_rows = [row for row in selected_list if row.get("gradient_bucket") == "冲"]
+    deep_rows = [row for row in selected_list if row.get("rush_tier") == "deep_rush"]
+    probabilities = [float(row.get("probability", 0.0)) for row in rush_rows]
+    return {
+        "rush_count": len(rush_rows),
+        "deep_rush_count": len(deep_rows),
+        "ordinary_rush_count": len(rush_rows) - len(deep_rows),
+        "min_selected_rush_probability": round(min(probabilities), 6) if probabilities else None,
+        "rush_probability_floor": profile["min_rush_probability"],
+        "deep_rush_probability": profile["deep_rush_probability"],
+        "deep_rush_cap": profile["max_deep_rush"],
+        "min_deep_rush_value_capture": profile["min_deep_rush_value_capture"],
+    }
+
+
+def rush_warnings(metrics: Dict[str, Any], risk_profile: str) -> List[str]:
+    warnings: List[str] = []
+    if metrics["rush_count"]:
+        warnings.append(
+            "RUSH_SELECTED: "
+            f"profile={risk_profile}, count={metrics['rush_count']}, "
+            f"min_probability={metrics['min_selected_rush_probability']}"
+        )
+    if metrics["deep_rush_count"]:
+        warnings.append(
+            "DEEP_RUSH_SELECTED: "
+            f"{metrics['deep_rush_count']}<={metrics['deep_rush_cap']}, "
+            f"value_capture_floor={metrics['min_deep_rush_value_capture']}"
+        )
+    return warnings
+
+
 def optimize_candidates(candidates: List[Dict[str, Any]], slots: int = 96, risk_profile: str = "standard") -> Dict[str, Any]:
     if risk_profile not in BASE_PROFILES:
         raise ValueError("risk_profile must be one of: " + ", ".join(sorted(BASE_PROFILES)))
@@ -402,10 +490,25 @@ def optimize_candidates(candidates: List[Dict[str, Any]], slots: int = 96, risk_
             blocked_row["input_index"] = index
             blocked.append(blocked_row)
             continue
-        scored = score_candidate(row, profile["risk_aversion"])
+        scored = score_candidate(
+            row,
+            profile["risk_aversion"],
+            min_rush_probability=profile["min_rush_probability"],
+            deep_rush_probability=profile["deep_rush_probability"],
+        )
         scored["input_index"] = index
         if scored["gradient_bucket"] == "弃":
             scored["blocked_reasons"] = ["PROBABILITY_TOO_LOW"]
+            blocked.append(scored)
+        elif (
+            scored["rush_tier"] == "deep_rush"
+            and scored["value_capture_score"] < profile["min_deep_rush_value_capture"]
+        ):
+            scored["blocked_reasons"] = [
+                "LOW_PROBABILITY_WITHOUT_VALUE_CAPTURE: "
+                f"expected >= {profile['min_deep_rush_value_capture']}, "
+                f"got {scored['value_capture_score']}"
+            ]
             blocked.append(scored)
         else:
             eligible.append(scored)
@@ -418,11 +521,33 @@ def optimize_candidates(candidates: List[Dict[str, Any]], slots: int = 96, risk_
 
     selected: List[Dict[str, Any]] = []
     selected_ids = set()
+    risk_capped: List[Dict[str, Any]] = []
+    risk_capped_ids = set()
+
+    def try_select(row: Dict[str, Any]) -> bool:
+        if len(selected) >= slots:
+            return False
+        reason = rush_cap_reason(row, selected, profile)
+        if reason:
+            row_id = id(row)
+            if row_id not in risk_capped_ids:
+                capped_row = dict(row)
+                capped_row["blocked_reasons"] = [reason]
+                risk_capped.append(capped_row)
+                risk_capped_ids.add(row_id)
+            return False
+        selected.append(row)
+        selected_ids.add(id(row))
+        return True
+
     for bucket in ("冲", "稳", "保", "垫"):
         target = profile["targets"].get(bucket, 0)
-        for row in by_bucket.get(bucket, [])[:target]:
-            selected.append(row)
-            selected_ids.add(id(row))
+        added = 0
+        for row in by_bucket.get(bucket, []):
+            if added >= target:
+                break
+            if try_select(row):
+                added += 1
 
     leftovers = [row for row in eligible if id(row) not in selected_ids]
     leftovers.sort(key=candidate_sort_key)
@@ -432,17 +557,23 @@ def optimize_candidates(candidates: List[Dict[str, Any]], slots: int = 96, risk_
         bucket = row["gradient_bucket"]
         current = sum(1 for item in selected if item["gradient_bucket"] == bucket)
         if current < profile["maxs"].get(bucket, slots):
-            selected.append(row)
-            selected_ids.add(id(row))
+            try_select(row)
 
     selected.sort(key=lambda x: (bucket_order(x["gradient_bucket"]), -x["strategy_score"], x.get("input_index", 0)))
     selected = selected[:slots]
+    blocked.extend(risk_capped)
 
     counts = Counter(row["gradient_bucket"] for row in selected)
+    rush_info = rush_metrics(selected, profile)
     violations: List[str] = []
     for bucket, min_count in profile["mins"].items():
         if counts.get(bucket, 0) < min_count:
             violations.append(f"INSUFFICIENT_{bucket}: expected >= {min_count}, got {counts.get(bucket, 0)}")
+    if rush_info["deep_rush_count"] > profile["max_deep_rush"]:
+        violations.append(
+            "DEEP_RUSH_TOO_MANY: "
+            f"expected <= {profile['max_deep_rush']}, got {rush_info['deep_rush_count']}"
+        )
     if len(selected) < slots:
         violations.append(f"INSUFFICIENT_ELIGIBLE_CANDIDATES: expected {slots}, got {len(selected)}")
     conservative_slip = conservative_slip_probability(selected)
@@ -464,9 +595,10 @@ def optimize_candidates(candidates: List[Dict[str, Any]], slots: int = 96, risk_
         "selected_count": len(selected),
         "blocked_count": len(blocked),
         "gradient_counts": dict(counts),
+        "rush_counts": rush_info,
         "quota_profile": profile,
         "violations": violations,
-        "warnings": concentration_warnings(selected, slots),
+        "warnings": concentration_warnings(selected, slots) + rush_warnings(rush_info, risk_profile),
         "independent_model_slip_probability": independent_slip_probability(selected),
         "conservative_slip_probability": conservative_slip,
         "selected": selected,
@@ -521,6 +653,7 @@ def main() -> int:
                     "selected_count",
                     "blocked_count",
                     "gradient_counts",
+                    "rush_counts",
                     "conservative_slip_probability",
                     "violations",
                 )

@@ -72,7 +72,7 @@ def test_standard_optimizer() -> None:
 
     result = optimize_candidates(candidates, slots=24, risk_profile="standard")
     require(result["hard_gate_passed"], "balanced official candidates should pass")
-    require(result["algorithm_version"] == "strategy_optimizer_v3_value_capture_fail_closed", "algorithm version should be explicit")
+    require(result["algorithm_version"] == "strategy_optimizer_v4_rush_guard_fail_closed", "algorithm version should be explicit")
     require(result["selected_count"] == 24, "should select requested slots")
     require(result["gradient_counts"].get("垫", 0) >= 2, "scaled profile should keep cushion volunteers")
     require(result["conservative_slip_probability"] <= 0.03, "standard profile should pass conservative slip gate")
@@ -128,11 +128,56 @@ def test_value_capture_priority() -> None:
     require("LOW_RANK_VALUE_GAP" in premium_scored["value_capture_reasons"], "value-capture reasons should be explainable")
 
 
+def add_high_value_fields(candidate: dict) -> dict:
+    candidate["school_tier"] = "双一流"
+    candidate["major_value"] = 0.95
+    candidate["preference_fit"] = 0.90
+    candidate["location_fit"] = 0.80
+    candidate["value_opportunity"] = 0.95
+    candidate["affordability"] = 0.80
+    candidate["plan_stability"] = 0.80
+    return candidate
+
+
+def test_opportunistic_rush_profile() -> None:
+    candidates = []
+    for i in range(1, 5):
+        candidates.append(add_high_value_fields(make_candidate(i, 0.11 + i * 0.015, 0.92)))
+    for i in range(5, 15):
+        candidates.append(make_candidate(i, 0.25 + (i % 4) * 0.03, 0.82))
+    for i in range(15, 29):
+        candidates.append(make_candidate(i, 0.66 + (i % 4) * 0.03, 0.78))
+    for i in range(29, 43):
+        candidates.append(make_candidate(i, 0.90 + (i % 4) * 0.015, 0.70))
+    for i in range(43, 51):
+        candidates.append(make_candidate(i, 0.99, 0.62))
+
+    result = optimize_candidates(candidates, slots=24, risk_profile="opportunistic")
+    require(result["hard_gate_passed"], "opportunistic profile should pass when safety buckets are sufficient")
+    require(result["selected_count"] == 24, "opportunistic profile should fill all slots")
+    require(result["rush_counts"]["deep_rush_count"] == 2, "scaled deep-rush cap should be enforced")
+    require(result["rush_counts"]["min_selected_rush_probability"] < 0.20, "high-value deep rush can be selected")
+    reasons = {reason for row in result["blocked"] for reason in row.get("blocked_reasons", [])}
+    require(any(reason.startswith("DEEP_RUSH_OVER_PROFILE_CAP") for reason in reasons), "extra deep rush should be capped")
+
+
+def test_deep_rush_requires_value_capture() -> None:
+    weak_deep_rush = make_candidate(201, 0.11, 0.95)
+    result = optimize_candidates([weak_deep_rush], slots=1, risk_profile="opportunistic")
+    reasons = {reason for row in result["blocked"] for reason in row.get("blocked_reasons", [])}
+    require(
+        any(reason.startswith("LOW_PROBABILITY_WITHOUT_VALUE_CAPTURE") for reason in reasons),
+        "deep rush below 20% needs high value-capture evidence",
+    )
+
+
 def main() -> int:
     test_standard_optimizer()
     test_insufficient_cushion()
     test_conservative_slip_gate()
     test_value_capture_priority()
+    test_opportunistic_rush_profile()
+    test_deep_rush_requires_value_capture()
     print(
         json.dumps(
             {
@@ -142,6 +187,8 @@ def main() -> int:
                     "insufficient_cushion",
                     "conservative_slip_gate",
                     "value_capture_priority",
+                    "opportunistic_rush_profile",
+                    "deep_rush_requires_value_capture",
                 ],
             },
             ensure_ascii=False,

@@ -275,3 +275,14 @@ updated: 2026-06-22
 
 - `[new]` 新增 `README.md`，说明项目定位、数据原则、SQLite 选科索引、策略优化器、正式咨询工作流、交付物标准和隐私边界
 - `[new]` 新增 `.gitignore`，默认排除 `students/`、`node_modules/`、缓存、根目录生成志愿表和本地环境文件，避免学生隐私数据进入 GitHub
+
+## [2026-06-23] strategy | 受控冲刺概率加固
+
+- `[update]` `algorithms/strategy_optimizer.py` 升级为 `strategy_optimizer_v4_rush_guard_fail_closed`
+- `[new]` 新增 `opportunistic` 机会冲刺风险档：96 志愿目标配额 34:36:20:6，最低冲刺概率 10%，保守滑档上限 6%
+- `[new]` 新增 Rush Guard：普通冲与深度冲分层，深度冲必须满足 `value_capture_score` 阈值，且受 `max_deep_rush` 数量上限约束
+- `[new]` 新增阻断原因：`LOW_PROBABILITY_WITHOUT_VALUE_CAPTURE`、`DEEP_RUSH_OVER_PROFILE_CAP`、`DEEP_RUSH_TOO_MANY`
+- `[update]` 优化器输出新增 `rush_counts`、`rush_tier`、`rush_probability_floor`、`deep_rush_probability`，用于 Excel/Markdown 报告追踪“搏一搏”依据
+- `[update]` `scripts/test_strategy_optimizer.py` 增加 `opportunistic_rush_profile` 与 `deep_rush_requires_value_capture` 测试
+- `[update]` `AGENTS.md` 与 `CLAUDE.md` 升级至 v3.6，新增 Z22 冲刺有界可搏、5.9ter Rush Guard、5.15 v4 策略优化器硬要求
+- `[audit]` 重跑 `scripts/audit_data_accuracy.py`：`FAIL=0`，`WARN=4`，更新 `wiki/lint_2026-06-23_数据准确性审计.md`
