@@ -4,6 +4,12 @@
 
 > 高考志愿属于高风险、不可逆决策。本项目的目标不是“替人拍脑袋选学校”，而是把每一个判断落到数据、证据、概率、风险和复核流程上。
 
+## 维护者
+
+- 维护者邮箱：`768212312@qq.com`
+- 数据主源：山东省教育招生考试院及其官方附件
+- 适用范围：山东省普通高考志愿填报数据整理、选科审核、风险评估与方案生成
+
 ## 核心能力
 
 - **官方数据治理**：`raw/` 保留原始材料，`processed/` 存放脚本生成的标准数据，`wiki/` 维护结构化知识。
@@ -116,6 +122,62 @@ python algorithms/strategy_optimizer.py \
 
 ```text
 strategy_optimizer_v3_value_capture_fail_closed
+```
+
+## 使用说明
+
+### 日常查询
+
+适合快速回答“某个专业能不能报”“某个年份位次怎么定位”“某类数据在哪”这类问题。
+
+1. 先查 `wiki/index.md` 定位知识页面。
+2. 涉及数值时回到 `processed/` 标准数据，不直接引用记忆。
+3. 涉及选科可报性时必须运行 `scripts/check_subject_eligibility.py`。
+4. 回答中标注 `source_file`、`evidence_id` 或对应数据文件路径。
+
+### 生成候选池
+
+正式候选池必须按以下顺序生成：
+
+1. 根据考生成绩换算位次，跨年比较只使用位次。
+2. 按批次、层次、地域、专业方向和体检/单科限制做初筛。
+3. 对每条候选调用 SQLite 选科索引，只保留 `PASS`。
+4. 为候选补齐 `probability`、`utility`、`rsi`、`source_quality`、`source_file`、`evidence_id`。
+5. 若要识别低分高价值机会，再补充 `school_tier`、`major_value`、`preference_fit`、`location_fit`、`value_opportunity` 等字段。
+
+### 生成正式志愿方案
+
+1. 使用 `algorithms/strategy_optimizer.py` 对候选池排序和风险检查。
+2. 生成 96 志愿 Excel 表，保留选科证据、数据来源、概率、效用和价值捕获字段。
+3. 使用 `scripts/audit_volunteer_subjects.py` 对 Excel/CSV/JSON 方案做独立选科审核。
+4. 生成 Markdown 图文说明报告，包含定位、梯度、风险、低分高价值机会、选科审核、System2 记录和红队结论。
+5. 只有 `hard_gate_passed=true` 且选科审核全部 `PASS` 时，才可标记为正式方案。
+
+### 失败处理
+
+出现以下任一情况，必须阻断正式交付：
+
+- 选科审核存在 `BLOCK` 或 `REVIEW`
+- 候选不足 96 条
+- `保/垫` 数量不足
+- `conservative_slip_probability` 超过风险偏好上限
+- 来源质量不是 S/A/B
+- 缺少 `source_file` 或 `evidence_id`
+- 当年招生计划尚未发布，却试图输出正式 2026 方案
+
+失败时只能输出“模拟候选表/问题清单/人工复核清单”，不得口头解释成“应该可以报”。
+
+### GitHub 使用边界
+
+本仓库可以提交知识库、脚本、标准化公开数据和文档；不要提交学生隐私材料。`students/` 已在 `.gitignore` 中默认排除。
+
+推荐提交前运行：
+
+```bash
+git status --short
+git check-ignore -v students/
+python scripts/test_subject_index.py
+python scripts/test_strategy_optimizer.py
 ```
 
 ## 正式咨询工作流
