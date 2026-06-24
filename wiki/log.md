@@ -286,3 +286,13 @@ updated: 2026-06-22
 - `[update]` `scripts/test_strategy_optimizer.py` 增加 `opportunistic_rush_profile` 与 `deep_rush_requires_value_capture` 测试
 - `[update]` `AGENTS.md` 与 `CLAUDE.md` 升级至 v3.6，新增 Z22 冲刺有界可搏、5.9ter Rush Guard、5.15 v4 策略优化器硬要求
 - `[audit]` 重跑 `scripts/audit_data_accuracy.py`：`FAIL=0`，`WARN=4`，更新 `wiki/lint_2026-06-23_数据准确性审计.md`
+
+## [2026-06-24] safety | 院校地区索引与地域匹配加固
+
+- `[new]` 新增 `scripts/school_region.py`，提供院校地区索引构建、地区解析与 MATCH/NO_MATCH/REVIEW 判定
+- `[new]` 新增 `scripts/build_school_region_index.py`，从 `processed/选科要求/*.json` 的 `province` 字段构建 `processed/院校地区/school_region_index.sqlite`
+- `[new]` 新增 `scripts/check_school_region.py`，用于单校地区偏好确定性查询；“山东的学校”走 `province=山东`，不再使用院校名关键词
+- `[new]` 新增 `scripts/test_school_region.py`，覆盖青岛大学/济南大学/烟台大学命中山东、西交利物浦大学命中苏州、山东大学按青岛查询返回 REVIEW
+- `[new]` 生成 `processed/院校地区/school_region_index.sqlite` 与 `school_region_index_meta.json`，当前覆盖 2534 所唯一院校
+- `[update]` `AGENTS.md` 与 `CLAUDE.md` 升级至 v3.7，新增 Z23 地区查询走索引；城市/多校区不确定必须 REVIEW
+- `[update]` `processed/README.md` 与 [[source_标准数据字典]] 纳入院校地区索引说明

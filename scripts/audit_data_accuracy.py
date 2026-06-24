@@ -30,6 +30,12 @@ from typing import Any, Optional, Union
 import pdfplumber
 import xlrd
 
+from school_region import (
+    DEFAULT_REGION_DB_PATH,
+    DEFAULT_REGION_META_PATH,
+    connect_region_index,
+    location_evidence_id,
+)
 from subject_eligibility import DEFAULT_DB_PATH, DEFAULT_META_PATH, connect_index, make_evidence_id, parse_subject_requirement
 
 
@@ -666,6 +672,69 @@ def audit_subject_index(audit: Audit) -> None:
     audit.info("SUBJECT_INDEX", "选科 SQLite 索引完整性检查完成", rel(DEFAULT_DB_PATH), {"rows": actual_total})
 
 
+def audit_school_region_index(audit: Audit) -> None:
+    files = ["2024版本科", "2024版专科", "2027版本科", "2027版专科"]
+    expected_schools = {
+        str(row.get("school_name", "")).strip().replace("（", "(").replace("）", ")").replace("　", "").replace(" ", "")
+        for name in files
+        for row in load_json(ROOT / f"processed/选科要求/{name}.json")
+        if str(row.get("school_name", "")).strip()
+    }
+    expected_total = len(expected_schools)
+
+    if not DEFAULT_REGION_DB_PATH.exists():
+        audit.fail("SCHOOL_REGION_INDEX_MISSING", "院校地区 SQLite 索引不存在", rel(DEFAULT_REGION_DB_PATH))
+        return
+    if not DEFAULT_REGION_META_PATH.exists():
+        audit.fail("SCHOOL_REGION_META_MISSING", "院校地区 SQLite 索引元数据不存在", rel(DEFAULT_REGION_META_PATH))
+        return
+
+    try:
+        meta = load_json(DEFAULT_REGION_META_PATH)
+        with connect_region_index(DEFAULT_REGION_DB_PATH) as conn:
+            actual_total = conn.execute("SELECT COUNT(*) FROM schools").fetchone()[0]
+            sample = conn.execute("SELECT * FROM schools ORDER BY row_id LIMIT 1").fetchone()
+    except Exception as exc:
+        audit.fail("SCHOOL_REGION_INDEX_READ_ERROR", "院校地区 SQLite 索引读取失败", rel(DEFAULT_REGION_DB_PATH), str(exc))
+        return
+
+    if actual_total != expected_total:
+        audit.fail(
+            "SCHOOL_REGION_INDEX_COUNT",
+            "院校地区 SQLite 索引行数与唯一院校数不一致",
+            rel(DEFAULT_REGION_DB_PATH),
+            {"expected": expected_total, "actual": actual_total},
+        )
+    if meta.get("row_count") != expected_total:
+        audit.fail(
+            "SCHOOL_REGION_META_COUNT",
+            "院校地区 SQLite 索引元数据行数与唯一院校数不一致",
+            rel(DEFAULT_REGION_META_PATH),
+            {"expected": expected_total, "actual": meta.get("row_count")},
+        )
+    if sample is None:
+        audit.fail("SCHOOL_REGION_INDEX_EMPTY", "院校地区 SQLite 索引为空", rel(DEFAULT_REGION_DB_PATH))
+        return
+
+    sample_dict = {key: sample[key] for key in sample.keys()}
+    expected_evidence_id = location_evidence_id(
+        sample_dict.get("school_name", ""),
+        sample_dict.get("province", ""),
+        sample_dict.get("city", ""),
+        sample_dict.get("city_status", ""),
+    )
+    if sample_dict.get("evidence_id") != expected_evidence_id:
+        audit.fail(
+            "SCHOOL_REGION_EVIDENCE_ID",
+            "院校地区 SQLite 索引 evidence_id 与约定公式不一致",
+            rel(DEFAULT_REGION_DB_PATH),
+            {"expected": expected_evidence_id, "actual": sample_dict.get("evidence_id")},
+        )
+
+    audit.stats["school_region_index_rows"] = actual_total
+    audit.info("SCHOOL_REGION_INDEX", "院校地区 SQLite 索引完整性检查完成", rel(DEFAULT_REGION_DB_PATH), {"rows": actual_total})
+
+
 def audit_scorelines(audit: Audit) -> None:
     data_2025 = load_json(ROOT / "processed/分数线/2025.json")
     expected = {
@@ -762,6 +831,7 @@ def render_report(audit: Audit, full_subject_reextract: bool) -> str:
         "- 投档表：从 `raw/<year>/常规批第N次投档表` 全量重抽取比对",
         "- 志愿计划：从 `raw/<year>/*志愿计划` 全量重抽取比对",
         "- 选科要求：结构化字段自洽检查；如启用则从 4 个官方 PDF 全量重抽取比对",
+        "- 院校地区索引：从选科要求唯一院校和 province 字段派生，检查 SQLite 行数与 evidence_id",
         "- 分数线：2025 官方 PDF 文本核查；2020-2024 历史汇总质量等级核查",
         "- `_meta.json` 来源等级与核验状态字段",
         "",
@@ -816,6 +886,7 @@ def main() -> int:
     audit_plans(audit)
     audit_subject_requirements(audit, args.full_subject_reextract)
     audit_subject_index(audit)
+    audit_school_region_index(audit)
     audit_scorelines(audit)
     audit_metadata_and_sources(audit)
 

@@ -2,7 +2,7 @@
 
 > 本文件定义知识库的组织约定、操作流程、以及**国内顶尖、国际专业**的志愿填报决策算法框架。
 > LLM 在每次操作前**必须先读本文件**，所有策略输出必须遵循此框架。
-> 版本：v3.6（2026-06-23 受控冲刺概率加固版）
+> 版本：v3.7（2026-06-24 院校地区索引加固版）
 > - v1.0：初版 schema
 > - v2.0：引入精算/量化金融/运筹学/博弈论/ML 级算法
 > - v3.0：System2 明确化（Kahneman 双系统严格映射）+ 多 Agent 协作框架（8 Agent 辩论式制衡）
@@ -12,12 +12,13 @@
 > - v3.4：策略优化器升级为失败关闭：异常概率、缺效用/来源、重复志愿、保守滑档超限均阻断
 > - v3.5：引入低分高价值捕获模型（Value Capture）与 Excel + Markdown 图文双交付标准
 > - v3.6：引入 Rush Guard 受控冲刺策略，允许高价值深度冲“搏一搏”，但必须满足概率下限、价值证据、数量上限和保底闸门
+> - v3.7：引入院校地区 SQLite 索引，省份查询禁止学校名 contains，城市/多校区不确定必须 REVIEW
 
 ---
 
 ## 第零章 · 系统级铁律（不可违反）
 
-> 以下 22 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
+> 以下 23 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
 
 | # | 铁律 | 违反后果 |
 |---|------|---------|
@@ -43,6 +44,7 @@
 | Z20 | **价值捕获不越过安全闸门** | “低分上好大学/好专业”只能在选科 PASS、来源 S/A/B、保底充足、滑档可控后排序；不得用价值机会覆盖硬风险 |
 | Z21 | **双件图文交付** | 正式志愿方案必须同时输出 Excel 志愿表和 Markdown 详细说明报告；报告必须含图表/结构化可视化、风险结论、证据索引 |
 | Z22 | **冲刺有界可搏** | 冲刺志愿可以搏一搏，但必须由 `strategy_optimizer_v4_rush_guard_fail_closed` 控制概率下限、深度冲价值证据、深度冲数量上限、保/垫和滑档闸门；不得口头放宽 |
+| Z23 | **地区查询走索引** | “山东/江苏/苏州/青岛”等地区偏好必须经 `scripts/check_school_region.py` 或等价索引结果；省份用 `province` 字段，禁止 `school_name contains 山东`；城市不确定或多校区必须 `REVIEW` |
 
 ---
 
@@ -110,6 +112,7 @@ students/<姓名>/志愿方案/（96志愿方案）
 | 分数线 | `processed/分数线/` | 普通类/艺术类/体育类各线 | 2020-2025 |
 | 志愿计划 | `processed/志愿计划/` | year, batch, category, school/major, subject_requirement, plan_count | 约 1.1 万条 |
 | 选科要求 | `processed/选科要求/` | school/major, subject_requirement, version(2024/2027), evidence_id | 全省覆盖（SQLite 索引 180788 条） |
+| 院校地区 | `processed/院校地区/` | school_name, province, city, city_status, evidence_id | 院校覆盖（SQLite 索引 2534 所） |
 
 ### 2.3 数据质量分级
 
@@ -158,6 +161,28 @@ students/<姓名>/志愿方案/（96志愿方案）
 9. **证据粒度**：每条候选必须保存 `match_type`、`reason_code`、`subject_requirement_raw`、`evidence_id`、`source_file`；最终 Excel 和 Markdown 报告均必须能反查到这些字段。
 10. **代码/名称错位处理**：若投档表院校代码与选科索引 5 位代码体系不一致，只允许在 `school_name + major_name` 唯一命中时回退；名称含“师范类/实验班/中外合作/校区”等后缀不一致时默认 `REVIEW`，不得模糊放行。
 
+### 2.5bis 院校地区索引与地域偏好硬闸门
+
+> 地区偏好会直接影响候选池，不得用院校名称关键词代替真实地区判断。
+
+1. **唯一机器判定入口**：
+   - 构建索引：`python scripts/build_school_region_index.py --rebuild`
+   - 单校查询：`python scripts/check_school_region.py --regions 山东,苏州 --school-name 青岛大学 --json`
+2. **索引来源**：`processed/院校地区/school_region_index.sqlite` 由 `processed/选科要求/*.json` 的 `province` 字段派生，覆盖 2534 所唯一院校；不得人工编辑 SQLite。
+3. **省份规则**：
+   - “山东的学校”必须匹配索引中的 `province=山东`
+   - 禁止使用 `school_name contains 山东`，否则会漏掉青岛大学、济南大学、烟台大学等院校
+   - 省份匹配输出 `PROVINCE_MATCH`、`province_exact` 和 `evidence_id`
+4. **城市规则**：
+   - 城市只在院校名称显式包含城市、县级别名可审计映射、或 reviewed override 时返回 `MATCH`
+   - 多校区或城市不确定必须 `REVIEW`，例如山东大学按“青岛”查询不得直接放行，必须结合具体校区/专业原文复核
+   - 城市查询不能扩大为整省查询；“苏州”不等于“江苏”
+5. **候选池前置过滤**：
+   - 地区偏好为硬约束时，只允许 `MATCH` 候选进入正式候选池
+   - 地区偏好为软偏好时，`MATCH` 可提高 `location_fit`，`NO_MATCH` 降权，`REVIEW` 进入人工复核清单
+6. **正式方案字段**：最终 Excel/Markdown 必须保留 `region_check_status`、`region_reason_code`、`region_match_type`、`region_evidence_id`、`province`、`city`。
+7. **不确定性处理**：地区 `REVIEW` 不得口头解释为“应该算目标地区”；必须回查招生章程、校区说明或当年招生计划原文。
+
 ### 2.6 互联网数据准入与隔离
 
 > 互联网数据只能在“来源准入 → 官方回查 → raw 快照/附件 → processed 生成 → 策略算法”的链路中使用，禁止直接把网页内容喂给最终方案。
@@ -205,7 +230,7 @@ students/<姓名>/志愿方案/（96志愿方案）
 ```
 Phase 1: 信息采集 → 基本信息.md（必填项 + 选填项）
 Phase 2: 定位分析 → 位次映射 + 分档判定 + 选科可报范围（必须走 SQLite 选科索引）
-Phase 3: 候选池生成 → 先选科 PASS，再算概率/效用/价值捕获，不允许先猜后审
+Phase 3: 候选池生成 → 先选科 PASS + 地区 MATCH/软偏好标注，再算概率/效用/价值捕获，不允许先猜后审
 Phase 4: 策略生成 → System2 六步流程 + 互联网数据准入 + 96志愿梯度优化 + Rush Guard 受控冲刺
 Phase 5: 风险评估 → 蒙特卡洛 10000 次模拟 + 8类偏差核查 + 选科硬闸门审核
 Phase 6: 方案交付 → Excel 志愿表 + Markdown 图文说明报告（docx 可选）
@@ -915,6 +940,7 @@ $$\Delta_{考生} = S_{考生} - L_{批次}, \quad \Delta_{目标} = \bar{S}_{�
 14. **价值捕获排序**：低分上好大学/好专业必须体现为 `value_capture_score`，并同时给出机会理由和风险反证
 15. **双件图文交付**：正式输出必须含 Excel 志愿表和 Markdown 图文报告，裸表不得视为完整方案
 16. **冲刺受控可搏**：冲刺比例和概率下限由风险档控制；深度冲只允许作为上行机会，不得挤占保/垫安全功能
+17. **地区索引优先**：省份/城市偏好必须先查 `school_region_index.sqlite`，不能靠院校名关键词筛选
 
 ---
 
@@ -1284,7 +1310,7 @@ students/
 地区/城市, 2026计划数, 近年最低位次, 加权参考位次, RSI,
 模拟录取概率, 效用分, value_capture_score, value_capture_reasons,
 低分高价值解释, 主要风险, 选科审核状态, 选科要求,
-选科证据ID, 数据来源, 数据质量, 备注
+选科证据ID, 地区审核状态, 地区证据ID, 数据来源, 数据质量, 备注
 ```
 
 #### 6.4.2 Markdown 图文说明报告
@@ -1292,7 +1318,7 @@ students/
 正式 Markdown 报告必须专业、可读、可审计，至少包含：
 
 1. **封面摘要**：考生位次、选科、批次、目标、结论状态（通过/未通过）
-2. **数据依据**：一分一段、投档表、招生计划、选科 SQLite 索引、互联网来源准入结果
+2. **数据依据**：一分一段、投档表、招生计划、选科 SQLite 索引、院校地区 SQLite 索引、互联网来源准入结果
 3. **定位图表**：位次区间、同位次等效分、目标梯度分布
 4. **志愿梯度图**：冲/稳/保/垫数量条形图或 Mermaid 图
 5. **低分高价值机会图**：高 `value_capture_score` 志愿清单 + 机会原因 + 反证风险
@@ -1368,6 +1394,9 @@ sources: ["raw/路径/文件名", "processed/路径/文件名"]
 | `check_subject_eligibility.py` | 年份/层次/三科 + 院校代码/专业代码 | 单条选科可报性 JSON（PASS/BLOCK/REVIEW + evidence_id） |
 | `audit_volunteer_subjects.py` | CSV/JSON/XLSX 志愿表 + 年份/层次/三科 | 选科硬闸门审核报告 JSON |
 | `test_subject_index.py` | `subject_index.sqlite` | 索引行数、单条查询、整表闸门 smoke test |
+| `build_school_region_index.py` | `processed/选科要求/*.json` 的院校与 province 字段 | `processed/院校地区/school_region_index.sqlite` + meta |
+| `check_school_region.py` | 地区偏好 + 院校名称/选科院校代码 | MATCH/NO_MATCH/REVIEW JSON |
+| `test_school_region.py` | `school_region_index.sqlite` | 省份非名称匹配、苏州别名、多校区 REVIEW smoke test |
 | `internet_source_policy.py` | URL 或 URL 列表 | 互联网来源质量上限与正式使用准入报告 |
 | `test_strategy_optimizer.py` | 内置模拟候选池 | 策略优化器 smoke test |
 
@@ -1435,6 +1464,7 @@ sources: ["raw/路径/文件名", "processed/路径/文件名"]
 | v3.4 | 2026-06-23 | 策略算法失败关闭版：新增 Z19；异常概率、缺效用/来源、重复志愿、保守滑档超限一律阻断，输出 `strategy_optimizer_v2_fail_closed` 版本标识 |
 | v3.5 | 2026-06-23 | 价值捕获与图文双交付版：新增 Z20/Z21；低分高价值机会纳入 `value_capture_score`，正式方案必须输出 Excel 志愿表 + Markdown 图文报告 |
 | v3.6 | 2026-06-23 | 受控冲刺概率加固版：新增 Z22 与 Rush Guard；新增 `opportunistic` 风险档，深度冲必须满足概率下限、价值证据、数量上限和保/垫闸门 |
+| v3.7 | 2026-06-24 | 院校地区索引加固版：新增 Z23；省份查询走 `province` 字段，城市/多校区走 MATCH/NO_MATCH/REVIEW，禁止 `school_name contains 省名` |
 
 ---
 

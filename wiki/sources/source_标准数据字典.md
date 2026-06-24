@@ -2,7 +2,7 @@
 title: 标准数据字典
 tags: [数据字典, processed, AI可读]
 created: 2026-06-22
-updated: 2026-06-23
+updated: 2026-06-24
 sources: ["processed/"]
 ---
 
@@ -19,6 +19,7 @@ sources: ["processed/"]
 | 分数线 | `processed/分数线/` | 2020-2025 | 6 年 | 2025 为考试院 PDF 提取；2020-2024 为待官方回查的历史汇总 |
 | 志愿计划 | `processed/志愿计划/` | 2021-2025 | 约 1.1 万条 | ✓ 完整 |
 | 选科要求 | `processed/选科要求/` | 2024/2027 版 | 约 18.1 万条 | ✓ 完整 |
+| 院校地区 | `processed/院校地区/` | 2024/2027 版派生 | 2534 所院校 | ✓ 省份完整；城市不确定返回 REVIEW |
 
 ## 数据集详情
 
@@ -70,6 +71,23 @@ sources: ["processed/"]
 - 高职注册入学
 
 **category 取值**：普通类、艺术类、体育类、春季高考
+
+### 院校地区
+
+**位置**：`processed/院校地区/school_region_index.sqlite`
+
+**来源**：由 `processed/选科要求/*.json` 的 `school_name`、`school_code`、`province` 字段派生。
+
+**用途**：
+- 省份偏好：用 `province` 精确判断，如“山东的学校”不再依赖学校名是否包含“山东”。
+- 城市偏好：用 `city`、`city_aliases` 和 reviewed override 判断；多校区或不确定返回 `REVIEW`。
+- 正式候选池：地区硬约束只允许 `MATCH`，`REVIEW` 进入人工复核清单。
+
+**查询入口**：
+
+```bash
+python scripts/check_school_region.py --regions 山东,苏州 --school-name 青岛大学 --json
+```
 
 ## 使用示例
 

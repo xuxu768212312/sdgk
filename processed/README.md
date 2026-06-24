@@ -22,6 +22,7 @@ processed/
 ├── 分数线/           # 各类别分数线（2020-2025）
 ├── 志愿计划/         # 常规批 2/3 次、提前批 2 次、高职注册入学计划
 ├── 选科要求/         # 2024 版+2027 版，本/专科，约 18 万条
+├── 院校地区/         # 从选科要求 province 派生的院校地区索引
 └── README.md         # 本文件
 ```
 
@@ -218,6 +219,35 @@ processed/
 - 2026 届使用 2024 版，2027 届起使用 2027 版
 - 选科要求只做初筛，不能替代招生章程核查
 - 最终以当年招生计划为准
+
+### 6. 院校地区
+
+**位置**：`processed/院校地区/`
+
+**文件**：
+- `school_region_index.sqlite` — 院校地区 SQLite 索引，2534 所唯一院校
+- `school_region_index_meta.json` — 元数据
+
+**字段**：
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| evidence_id | string | 地区证据 ID |
+| school_name | string | 院校名称 |
+| subject_school_codes | string | 选科索引中的 5 位院校代码，多个用 `\|` 分隔 |
+| province | string | 院校所在省份，来自 `processed/选科要求/*.json` 的 `province` 字段 |
+| province_source | string | 省份来源说明 |
+| city | string | 城市；仅在可确定时填写 |
+| city_status | string | PASS / REVIEW / UNKNOWN |
+| city_match_type | string | override_reviewed / alias_in_school_name / review_multi_city / unknown |
+| city_aliases | string | 城市别名或需复核城市，用 `\|` 分隔 |
+| source_files | string | 派生来源文件 |
+| quality_level | string | 省份字段质量等级 |
+
+**使用规则**：
+- 查询“山东的学校”必须使用 `province=山东`，不得用学校名包含“山东”判断。
+- 查询“苏州/青岛”等城市时，`MATCH` 才可直接进入硬约束候选池；`REVIEW` 必须人工核查校区或招生计划原文。
+- 例：青岛大学、济南大学、烟台大学均通过 `province=山东` 命中山东；西交利物浦大学通过 reviewed override 命中苏州；山东大学按“青岛”查询返回 `REVIEW`。
 
 **数据量**：4 个 PDF 合计 180788 条
 

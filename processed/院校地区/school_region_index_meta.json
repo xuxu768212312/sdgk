@@ -1,0 +1,16 @@
+{
+  "dataset": "院校地区 SQLite 索引",
+  "generated_at": "2026-06-24T09:27:30",
+  "db_file": "processed/院校地区/school_region_index.sqlite",
+  "row_count": 2534,
+  "source_files": [
+    "processed/选科要求/2024版本科.json",
+    "processed/选科要求/2024版专科.json",
+    "processed/选科要求/2027版本科.json",
+    "processed/选科要求/2027版专科.json"
+  ],
+  "province_source": "processed/选科要求/*.json province 字段",
+  "province_quality_level": "A",
+  "city_policy": "城市仅在学校名显式地名或 reviewed override 时 PASS；多校区/不确定返回 REVIEW",
+  "hard_gate_policy": "地区筛选不得使用 school_name contains 省名；省份必须查 province，城市不确定必须 REVIEW。"
+}
