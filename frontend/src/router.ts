@@ -11,13 +11,13 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', redirect: '/dashboard' },
-    { path: '/dashboard', component: Dashboard, meta: { title: 'Dashboard' } },
-    { path: '/profile', component: StudentProfile, meta: { title: 'Student Profile' } },
-    { path: '/query', component: IndexQuery, meta: { title: 'Index Query' } },
-    { path: '/candidates', component: CandidatePool, meta: { title: 'Candidate Pool' } },
-    { path: '/generate', component: PlanGenerator, meta: { title: 'Plan Generator' } },
-    { path: '/review', component: PlanReview, meta: { title: 'Plan Review' } },
-    { path: '/reports', component: Reports, meta: { title: 'Reports' } }
+    { path: '/dashboard', component: Dashboard, meta: { title: '数据看板' } },
+    { path: '/profile', component: StudentProfile, meta: { title: '学生画像' } },
+    { path: '/query', component: IndexQuery, meta: { title: '索引查询' } },
+    { path: '/candidates', component: CandidatePool, meta: { title: '候选池' } },
+    { path: '/generate', component: PlanGenerator, meta: { title: '方案生成' } },
+    { path: '/review', component: PlanReview, meta: { title: '方案复核' } },
+    { path: '/reports', component: Reports, meta: { title: '报告下载' } }
   ]
 })
 

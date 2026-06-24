@@ -2,7 +2,7 @@
   <section class="page">
     <div class="page-header">
       <div>
-        <h1 class="page-title">Plan Review</h1>
+        <h1 class="page-title">方案复核</h1>
         <p class="page-subtitle">梯度、概率、证据、闸门</p>
       </div>
       <StatusTag :value="job?.result?.hard_gate_passed" />
@@ -18,42 +18,46 @@
     <template v-else>
       <div class="metrics">
         <div class="metric">
-          <div class="metric-label">Selected</div>
+          <div class="metric-label">入选数量</div>
           <div class="metric-value">{{ strategy?.selected_count ?? '-' }}</div>
         </div>
         <div class="metric">
-          <div class="metric-label">Conservative Slip</div>
+          <div class="metric-label">保守滑档率</div>
           <div class="metric-value">{{ strategy?.conservative_slip_probability ?? '-' }}</div>
         </div>
         <div class="metric">
-          <div class="metric-label">Blocked</div>
+          <div class="metric-label">阻断数量</div>
           <div class="metric-value risk-block">{{ strategy?.blocked_count ?? '-' }}</div>
         </div>
         <div class="metric">
-          <div class="metric-label">Formal</div>
+          <div class="metric-label">正式状态</div>
           <div class="metric-value"><StatusTag :value="job.result?.hard_gate_passed" /></div>
         </div>
       </div>
 
       <div class="grid-2">
         <div class="panel">
-          <h2 class="panel-title">Gradient</h2>
+          <h2 class="panel-title">梯度结构</h2>
           <div ref="chartEl" class="chart"></div>
         </div>
         <div class="panel">
-          <h2 class="panel-title">Violations</h2>
+          <h2 class="panel-title">闸门问题</h2>
           <el-table :data="failures" height="280">
-            <el-table-column prop="reason_code" label="reason_code" min-width="220" />
-            <el-table-column prop="row" label="row" width="80" />
-            <el-table-column prop="status" label="status" width="100" />
+            <el-table-column label="原因" min-width="220">
+              <template #default="{ row }">{{ reasonText(row.reason_code) }}</template>
+            </el-table-column>
+            <el-table-column prop="row" label="行号" width="80" />
+            <el-table-column label="状态" width="100">
+              <template #default="{ row }"><StatusTag :value="row.status" /></template>
+            </el-table-column>
           </el-table>
         </div>
       </div>
 
       <div class="panel">
-        <h2 class="panel-title">Selected Volunteers</h2>
+        <h2 class="panel-title">入选志愿</h2>
         <el-table :data="strategy?.selected || []" height="560">
-          <el-table-column prop="strategy_order" label="#" width="64" />
+          <el-table-column prop="strategy_order" label="序号" width="64" />
           <el-table-column prop="gradient_bucket" label="梯度" width="80" />
           <el-table-column prop="probability" label="概率" width="90" />
           <el-table-column prop="school_name" label="院校" min-width="160" />
@@ -64,9 +68,9 @@
           <el-table-column prop="region_check_status" label="地区" width="90">
             <template #default="{ row }"><StatusTag :value="row.region_check_status" /></template>
           </el-table-column>
-          <el-table-column prop="program_id" label="program_id" min-width="170" show-overflow-tooltip />
-          <el-table-column prop="evidence_id" label="evidence_id" min-width="170" show-overflow-tooltip />
-          <el-table-column prop="source_file" label="source_file" min-width="220" show-overflow-tooltip />
+          <el-table-column prop="program_id" label="招生单元编号" min-width="170" show-overflow-tooltip />
+          <el-table-column prop="evidence_id" label="证据编号" min-width="170" show-overflow-tooltip />
+          <el-table-column prop="source_file" label="来源文件" min-width="220" show-overflow-tooltip />
         </el-table>
       </div>
     </template>
@@ -84,6 +88,21 @@ const job = computed(() => store.planJob)
 const strategy = computed(() => job.value?.result?.strategy_result || null)
 const failures = computed(() => job.value?.result?.final_audit?.failures || [])
 const chartEl = ref<HTMLDivElement | null>(null)
+const reasonLabels: Record<string, string> = {
+  STRATEGY_HARD_GATE_FAILED: '策略硬闸门未通过',
+  VOLUNTEER_COUNT_NOT_96: '志愿数量不足 96',
+  SUBJECT_NOT_PASS: '选科未全部通过',
+  REGION_NOT_RESOLVED: '地区偏好未全部确认',
+  MISSING_REQUIRED_FIELDS: '缺少必填字段',
+  DUPLICATE_VOLUNTEER: '存在重复志愿',
+  MISSING_EVIDENCE: '缺少证据链',
+  SLIP_PROBABILITY_TOO_HIGH: '滑档概率超限'
+}
+
+function reasonText(value?: string) {
+  if (!value) return '无'
+  return reasonLabels[value] || '未分类问题'
+}
 
 function draw() {
   if (!chartEl.value || !strategy.value?.gradient_counts) return

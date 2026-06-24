@@ -2,7 +2,7 @@
   <section class="page">
     <div class="page-header">
       <div>
-        <h1 class="page-title">Student Profile</h1>
+        <h1 class="page-title">学生画像</h1>
         <p class="page-subtitle">画像输入</p>
       </div>
       <el-button type="primary" :icon="Check" @click="saved = true">保存</el-button>

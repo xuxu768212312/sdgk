@@ -2,8 +2,8 @@
   <section class="page">
     <div class="page-header">
       <div>
-        <h1 class="page-title">Candidate Pool</h1>
-        <p class="page-subtitle">PASS 候选与复核清单</p>
+        <h1 class="page-title">候选池</h1>
+        <p class="page-subtitle">通过候选与复核清单</p>
       </div>
       <div class="toolbar">
         <el-switch v-model="hardRegion" active-text="硬地区" inactive-text="软地区" />
@@ -13,25 +13,25 @@
 
     <div class="metrics">
       <div class="metric">
-        <div class="metric-label">PASS</div>
+        <div class="metric-label">通过候选</div>
         <div class="metric-value">{{ pool?.counts?.candidates ?? '-' }}</div>
       </div>
       <div class="metric">
-        <div class="metric-label">REVIEW</div>
+        <div class="metric-label">待复核</div>
         <div class="metric-value risk-review">{{ pool?.counts?.review ?? '-' }}</div>
       </div>
       <div class="metric">
-        <div class="metric-label">BLOCK</div>
+        <div class="metric-label">阻断</div>
         <div class="metric-value risk-block">{{ pool?.counts?.blocked ?? '-' }}</div>
       </div>
       <div class="metric">
-        <div class="metric-label">Simulation</div>
+        <div class="metric-label">模拟状态</div>
         <div class="metric-value"><StatusTag :value="pool?.simulation" /></div>
       </div>
     </div>
 
     <div class="panel">
-      <h2 class="panel-title">Candidates</h2>
+      <h2 class="panel-title">候选志愿</h2>
       <el-table :data="pool?.candidates || []" height="560">
         <el-table-column prop="probability" label="概率" width="90" sortable />
         <el-table-column prop="school_name" label="院校" min-width="170" />
@@ -44,7 +44,7 @@
         <el-table-column prop="region_check_status" label="地区" width="90">
           <template #default="{ row }"><StatusTag :value="row.region_check_status" /></template>
         </el-table-column>
-        <el-table-column prop="evidence_id" label="证据ID" min-width="170" show-overflow-tooltip />
+        <el-table-column prop="evidence_id" label="证据编号" min-width="170" show-overflow-tooltip />
       </el-table>
     </div>
   </section>
@@ -70,7 +70,7 @@ async function run() {
     ElMessage.success('候选池已更新')
   } catch (error: any) {
     store.lastError = error.message
-    ElMessage.error(error.message)
+    ElMessage.error('请求失败，请确认本地后端服务正常')
   } finally {
     loading.value = false
   }

@@ -2,30 +2,28 @@
   <el-container class="layout">
     <el-aside class="side" width="238px">
       <div class="brand">
-        <div class="brand-mark">SD</div>
+        <div class="brand-mark">鲁考</div>
         <div>
           <div class="brand-title">山东高考知识库</div>
-          <div class="brand-subtitle">v3.9</div>
+          <div class="brand-subtitle">第 3.9 版</div>
         </div>
       </div>
       <el-menu router :default-active="$route.path" class="nav">
-        <el-menu-item index="/dashboard"><el-icon><DataAnalysis /></el-icon><span>Dashboard</span></el-menu-item>
-        <el-menu-item index="/profile"><el-icon><User /></el-icon><span>Student Profile</span></el-menu-item>
-        <el-menu-item index="/query"><el-icon><Search /></el-icon><span>Index Query</span></el-menu-item>
-        <el-menu-item index="/candidates"><el-icon><Filter /></el-icon><span>Candidate Pool</span></el-menu-item>
-        <el-menu-item index="/generate"><el-icon><Operation /></el-icon><span>Plan Generator</span></el-menu-item>
-        <el-menu-item index="/review"><el-icon><TrendCharts /></el-icon><span>Plan Review</span></el-menu-item>
-        <el-menu-item index="/reports"><el-icon><FolderOpened /></el-icon><span>Reports</span></el-menu-item>
+        <el-menu-item index="/dashboard"><el-icon><DataAnalysis /></el-icon><span>数据看板</span></el-menu-item>
+        <el-menu-item index="/profile"><el-icon><User /></el-icon><span>学生画像</span></el-menu-item>
+        <el-menu-item index="/query"><el-icon><Search /></el-icon><span>索引查询</span></el-menu-item>
+        <el-menu-item index="/candidates"><el-icon><Filter /></el-icon><span>候选池</span></el-menu-item>
+        <el-menu-item index="/generate"><el-icon><Operation /></el-icon><span>方案生成</span></el-menu-item>
+        <el-menu-item index="/review"><el-icon><TrendCharts /></el-icon><span>方案复核</span></el-menu-item>
+        <el-menu-item index="/reports"><el-icon><FolderOpened /></el-icon><span>报告下载</span></el-menu-item>
       </el-menu>
     </el-aside>
     <el-container>
       <el-header class="topbar">
         <div class="topbar-title">{{ routeTitle }}</div>
         <div class="topbar-actions">
-          <el-tag effect="plain">local</el-tag>
-          <el-tag :type="store.planJob?.status === 'failed' ? 'danger' : 'info'" effect="plain">
-            {{ store.planJob?.status || 'idle' }}
-          </el-tag>
+          <el-tag effect="plain">本地服务</el-tag>
+          <StatusTag :value="store.planJob?.status || 'idle'" />
         </div>
       </el-header>
       <el-main class="main">
@@ -39,11 +37,12 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { DataAnalysis, Filter, FolderOpened, Operation, Search, TrendCharts, User } from '@element-plus/icons-vue'
+import StatusTag from './components/StatusTag.vue'
 import { useAppStore } from './stores/app'
 
 const route = useRoute()
 const store = useAppStore()
-const routeTitle = computed(() => String(route.meta.title || 'Dashboard'))
+const routeTitle = computed(() => String(route.meta.title || '数据看板'))
 </script>
 
 <style scoped>
