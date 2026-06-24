@@ -1,6 +1,6 @@
 {
   "dataset": "院校地区 SQLite 索引",
-  "generated_at": "2026-06-24T09:27:30",
+  "generated_at": "2026-06-24T15:00:14",
   "db_file": "processed/院校地区/school_region_index.sqlite",
   "row_count": 2534,
   "source_files": [

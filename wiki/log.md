@@ -306,3 +306,14 @@ updated: 2026-06-22
 - `[new]` 新增 `processed/投档表/official_null_min_rank_exceptions.json` 与 `processed/志愿计划/official_null_plan_count_exceptions.json`，明确官方原表空值不得补数、不得进入概率/计划数计算
 - `[update]` `scripts/audit_data_accuracy.py` 增加官方空值白名单校验、历史分数线官方来源/SHA256 校验、动态日期报告
 - `[update]` `processed/README.md`、[[source_标准数据字典]]、[[topic_历年数据趋势]] 同步官方分数线与空值例外规则
+
+## [2026-06-24] platform | v3.9 Python 包化、主索引、FastAPI 与 Vue3 前端
+
+- `[new]` 新增 `pyproject.toml` 与 `src/sdgk/` 包，正式入口统一为 `python -m sdgk ...`
+- `[new]` 新增 `processed/master/master_index.sqlite` 与 `master_index_meta.json`，统一院校、专业、招生单元、投档历史、计划历史和证据；当前 `programs=36825`、`admission_history=151274`
+- `[new]` 新增 `src/sdgk/api/app.py`，提供 `/api/health`、索引摘要、选科/地区查询、候选池生成、方案生成、文件下载等本地 FastAPI 接口
+- `[new]` 新增 `frontend/` Vue3 + TypeScript + Element Plus 工作台，页面覆盖 Dashboard、Student Profile、Index Query、Candidate Pool、Plan Generator、Plan Review、Reports
+- `[new]` 新增 `src/sdgk/plans/` 完整方案链：学生画像 → 主索引候选池 → 策略优化 → Excel 志愿表 → Markdown 报告 → final audit
+- `[update]` `AGENTS.md` 与 `CLAUDE.md` 升级至 v3.9，新增 Z24 包化 CLI 和 Z25 前端只展示 API 结果
+- `[audit]` 重建索引：选科 180788 条、地区 2534 所、主索引 36825 个最新招生单元，保留全量投档历史 151274 条
+- `[audit]` `python -m pytest`：26 passed；`python -m sdgk audit data --full-subject-reextract`：`FAIL=0`、`WARN=0`；`frontend pnpm run build`：通过

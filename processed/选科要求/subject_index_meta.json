@@ -1,6 +1,6 @@
 {
   "dataset": "选科要求 SQLite 索引",
-  "generated_at": "2026-06-23T10:55:22",
+  "generated_at": "2026-06-24T15:00:13",
   "db_file": "processed/选科要求/subject_index.sqlite",
   "row_count": 180788,
   "source_counts": {

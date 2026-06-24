@@ -1,0 +1,26 @@
+{
+  "dataset": "master SQLite 主索引",
+  "generated_at": "2026-06-24T15:09:59",
+  "db_file": "processed/master/master_index.sqlite",
+  "counts": {
+    "schools": 2648,
+    "majors": 13219,
+    "programs": 36825,
+    "admission_history": 151274,
+    "plan_history": 11203,
+    "evidence": 36845
+  },
+  "source_files": {
+    "subject": [
+      "processed/选科要求/2024版本科.json",
+      "processed/选科要求/2024版专科.json",
+      "processed/选科要求/2027版本科.json",
+      "processed/选科要求/2027版专科.json"
+    ],
+    "region": "processed/院校地区/school_region_index.sqlite",
+    "admission": "processed/投档表/20??_round*.json",
+    "plans": "processed/志愿计划/20??.json"
+  },
+  "program_id_formula": "sha256(level|year|round|batch|school_code|major_code|school_name|major_name)",
+  "hard_gate_policy": "正式候选必须有 program_id/evidence_id/source_file；REVIEW 不得口头放行。"
+}

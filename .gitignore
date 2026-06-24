@@ -3,10 +3,12 @@
 
 # Dependencies
 node_modules/
+/frontend/dist/
 
 # Runtime/cache artifacts
 __pycache__/
 *.py[cod]
+*.egg-info/
 *.log
 *.tmp
 *.inspect.ndjson

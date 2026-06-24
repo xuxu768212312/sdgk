@@ -23,6 +23,7 @@ processed/
 ├── 志愿计划/         # 常规批 2/3 次、提前批 2 次、高职注册入学计划
 ├── 选科要求/         # 2024 版+2027 版，本/专科，约 18 万条
 ├── 院校地区/         # 从选科要求 province 派生的院校地区索引
+├── master/           # 院校、专业、招生单元、历史投档、计划和证据主索引
 └── README.md         # 本文件
 ```
 
@@ -251,7 +252,48 @@ processed/
 - 查询“苏州/青岛”等城市时，`MATCH` 才可直接进入硬约束候选池；`REVIEW` 必须人工核查校区或招生计划原文。
 - 例：青岛大学、济南大学、烟台大学均通过 `province=山东` 命中山东；西交利物浦大学通过 reviewed override 命中苏州；山东大学按“青岛”查询返回 `REVIEW`。
 
-**数据量**：4 个 PDF 合计 180788 条
+**数据量**：2534 所唯一院校
+
+### 7. master 主索引
+
+**位置**：`processed/master/`
+
+**文件**：
+- `master_index.sqlite` — 主 SQLite 索引
+- `master_index_meta.json` — 元数据
+
+**核心表**：
+
+| 表 | 说明 |
+|---|---|
+| `schools` | 院校主库，统一院校名称、代码、省份、城市、多校区状态和证据 |
+| `majors` | 专业主库，含师范、法学、英语、金融、生物医农等标签 |
+| `programs` | 招生单元库，唯一表示“专业+学校+年份+批次+轮次” |
+| `admission_history` | 历年投档位次与计划数 |
+| `plan_history` | 历年剩余计划和注册入学计划 |
+| `evidence` | 统一证据表，保存 `evidence_id, source_file, quality_level, source_url` |
+
+**主键规则**：
+
+```text
+program_id = sha256(level|year|round|batch|school_code|major_code|school_name|major_name)
+```
+
+**当前规模**：
+
+| 指标 | 数量 |
+|---|---:|
+| schools | 2648 |
+| majors | 13219 |
+| programs | 36825 |
+| admission_history | 151274 |
+| plan_history | 11203 |
+| evidence | 36845 |
+
+**使用规则**：
+- 正式候选必须有 `program_id`、`evidence_id`、`source_file`。
+- 院校名称多义、专业标签不确定、代码体系冲突必须 `REVIEW`。
+- 官方空位次/空计划数只允许引用例外清单，不得自动补值。
 
 ## 使用建议
 
@@ -286,7 +328,18 @@ print(f"2025 常规批第2次剩余本科计划：{len(r2)} 条")
 3. **志愿计划按 batch 区分**：第2/3次计划是剩余计划，与第1次不同
 4. **官方空值不补数**：`official_null_min_rank_exceptions.json` 与 `official_null_plan_count_exceptions.json` 仅记录官方原表空白，不得自动填补或进入概率/计划数计算
 
-## 数据生成脚本
+## 数据生成命令
+
+正式入口统一为：
+
+```bash
+python -m sdgk build subject-index --rebuild
+python -m sdgk build region-index --rebuild
+python -m sdgk build master-index --rebuild
+python -m sdgk audit data --full-subject-reextract
+```
+
+兼容脚本保留在 `scripts/`：
 
 - `_process_score_table.py` — 一分一段表
 - `_process_admission.py` — 投档表
@@ -294,4 +347,4 @@ print(f"2025 常规批第2次剩余本科计划：{len(r2)} 条")
 - `_process_plans.py` — 志愿计划
 - `_process_subject_requirements.py` — 选科要求
 
-脚本可重复运行，输出幂等。
+兼容脚本可重复运行，输出幂等；新正式逻辑应进入 `src/sdgk/` 包。

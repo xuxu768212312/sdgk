@@ -2,7 +2,7 @@
 
 > 本文件定义知识库的组织约定、操作流程、以及**国内顶尖、国际专业**的志愿填报决策算法框架。
 > LLM 在每次操作前**必须先读本文件**，所有策略输出必须遵循此框架。
-> 版本：v3.7（2026-06-24 院校地区索引加固版）
+> 版本：v3.9（2026-06-24 Vue3 + FastAPI + Python 包化 + 主索引方案链版）
 > - v1.0：初版 schema
 > - v2.0：引入精算/量化金融/运筹学/博弈论/ML 级算法
 > - v3.0：System2 明确化（Kahneman 双系统严格映射）+ 多 Agent 协作框架（8 Agent 辩论式制衡）
@@ -13,12 +13,14 @@
 > - v3.5：引入低分高价值捕获模型（Value Capture）与 Excel + Markdown 图文双交付标准
 > - v3.6：引入 Rush Guard 受控冲刺策略，允许高价值深度冲“搏一搏”，但必须满足概率下限、价值证据、数量上限和保底闸门
 > - v3.7：引入院校地区 SQLite 索引，省份查询禁止学校名 contains，城市/多校区不确定必须 REVIEW
+> - v3.8：引入 master 主索引，统一院校、专业、招生单元、历史投档、计划与证据
+> - v3.9：引入 `src/sdgk/` Python 包、`python -m sdgk` 统一 CLI、FastAPI 后端和 Vue3 前端
 
 ---
 
 ## 第零章 · 系统级铁律（不可违反）
 
-> 以下 23 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
+> 以下 25 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
 
 | # | 铁律 | 违反后果 |
 |---|------|---------|
@@ -38,13 +40,15 @@
 | Z14 | **多 Agent 制衡** | 高风险/临界/特殊招生方案必须经 8 Agent 评审，红军否决必须重做 |
 | Z15 | **红蓝对抗** | 方案必须有红军 A7 挑刺记录，致命漏洞必须解决才能提交 |
 | Z16 | **共识阈值** | 多 Agent 共识度 < 0.75 或偏差指数 > 0.25 必须重做 |
-| Z17 | **选科硬闸门** | 选科能否报考必须经 `scripts/check_subject_eligibility.py` 或 `scripts/audit_volunteer_subjects.py` 返回证据；任何 `BLOCK`/`REVIEW` 不得作为正式方案交付 |
-| Z18 | **互联网数据准入** | 互联网资料必须先经 `scripts/internet_source_policy.py` 定级；非 S/A/B 级不得进入正式策略算法，第三方数据只能作线索 |
+| Z17 | **选科硬闸门** | 选科能否报考必须经 `python -m sdgk check subject` 或最终方案审计返回证据；任何 `BLOCK`/`REVIEW` 不得作为正式方案交付 |
+| Z18 | **互联网数据准入** | 互联网资料必须先经 `python -m sdgk source check` 定级；非 S/A/B 级不得进入正式策略算法，第三方数据只能作线索 |
 | Z19 | **算法失败关闭** | 策略算法遇到缺字段、异常数值、重复志愿、来源不可追溯或保守滑档超限时必须阻断，不得自动补默认值或夹紧异常值后交付 |
 | Z20 | **价值捕获不越过安全闸门** | “低分上好大学/好专业”只能在选科 PASS、来源 S/A/B、保底充足、滑档可控后排序；不得用价值机会覆盖硬风险 |
 | Z21 | **双件图文交付** | 正式志愿方案必须同时输出 Excel 志愿表和 Markdown 详细说明报告；报告必须含图表/结构化可视化、风险结论、证据索引 |
 | Z22 | **冲刺有界可搏** | 冲刺志愿可以搏一搏，但必须由 `strategy_optimizer_v4_rush_guard_fail_closed` 控制概率下限、深度冲价值证据、深度冲数量上限、保/垫和滑档闸门；不得口头放宽 |
-| Z23 | **地区查询走索引** | “山东/江苏/苏州/青岛”等地区偏好必须经 `scripts/check_school_region.py` 或等价索引结果；省份用 `province` 字段，禁止 `school_name contains 山东`；城市不确定或多校区必须 `REVIEW` |
+| Z23 | **地区查询走索引** | “山东/江苏/苏州/青岛”等地区偏好必须经 `python -m sdgk check region` 或等价索引结果；省份用 `province` 字段，禁止 `school_name contains 山东`；城市不确定或多校区必须 `REVIEW` |
+| Z24 | **正式入口走包化 CLI** | 正式构建、查询、审计、方案生成必须优先使用 `python -m sdgk ...`；旧 `scripts/` 与 `algorithms/` 仅作兼容，不再新增正式入口 |
+| Z25 | **前端只展示 API 结果** | Vue3 前端不得自行计算选科、地区、概率或交付状态；所有判定必须来自 FastAPI/`sdgk` 包返回，正式导出按钮受最终硬闸门控制 |
 
 ---
 
@@ -57,8 +61,9 @@
 | 1. 原始资料 | `raw/` | 人工 | 不可变，只读 |
 | 2. 标准数据 | `processed/` | 脚本生成 | 可重复生成，CSV+JSON 双格式 |
 | 3. Wiki 知识 | `wiki/` | LLM 维护 | 结构化页面，交叉引用 |
-| 4. 处理脚本 | `scripts/` | 人工/LLM | 从 raw 生成 processed |
-| 5. 算法引擎 | `algorithms/` | LLM 维护 | 量化决策算法实现（Python） |
+| 4. Python 包 | `src/sdgk/` | 人工/LLM | 正式索引、算法、审计、方案、API 实现 |
+| 5. 前端工作台 | `frontend/` | 人工/LLM | Vue3 本地可视化，不做业务判定 |
+| 6. 兼容脚本 | `scripts/`/`algorithms/` | 人工/LLM | 旧入口兼容，正式链路迁入 `src/sdgk/` |
 | 学生工作区 | `students/` | 人工/LLM | 具体学生咨询材料，**不入库** |
 
 ### 目录结构
@@ -66,23 +71,16 @@
 ```
 山东高考知识库/
 ├── AGENTS.md              # 本文件（schema + 决策框架）
+├── pyproject.toml         # Python 包与测试配置
+├── src/sdgk/              # 正式 Python 包：索引、算法、审计、方案、API
+├── frontend/              # Vue3 + TypeScript + Element Plus 前端
 ├── raw/                   # 原始资料（按年份分目录，只读）
 ├── processed/             # 标准数据（CSV+JSON）
+│   └── master/            # 主索引 SQLite
 ├── wiki/                  # LLM 维护的知识页面
-├── scripts/               # 数据处理脚本
-├── algorithms/            # 【新增】量化决策算法引擎
-│   ├── position_model.py          # 位次映射模型
-│   ├── probability_model.py       # 录取概率估计（贝叶斯+蒙特卡洛）
-│   ├── gradient_optimizer.py      # 96志愿梯度优化器
-│   ├── kelly_allocator.py         # 凯利公式志愿分配
-│   ├── risk_engine.py             # 风险量化引擎
-│   ├── bayesian_updater.py        # 动态贝叶斯更新
-│   ├── monte_carlo_simulator.py   # 蒙特卡洛模拟器
-│   ├── game_theory_analyzer.py    # 博弈论分析（纳什均衡）
-│   ├── utility_function.py        # 个性化效用函数
-│   ├── bias_checker.py            # 行为经济学偏差核查
-│   ├── portfolio_optimizer.py     # 投资组合理论优化
-│   └── strategy_optimizer.py      # 失败关闭策略优化器 + 低分高价值捕获排序 + 受控冲刺
+├── tests/                 # pytest 回归测试
+├── scripts/               # 旧脚本兼容区，不新增正式入口
+├── algorithms/            # 旧算法兼容区，正式策略在 src/sdgk/strategy/
 └── students/              # 学生工作区（不入库）
 ```
 
@@ -94,9 +92,10 @@
 
 ```
 raw/（原始 Excel/PDF）
-   ↓ scripts/_process_*.py（幂等）
+   ↓ src/sdgk/data 与兼容 scripts/_process_*.py（幂等）
 processed/（标准 CSV+JSON）
-   ↓ algorithms/*.py（量化引擎）
+   ↓ src/sdgk/indexes 构建 subject/region/master SQLite
+   ↓ src/sdgk/plans + src/sdgk/strategy + src/sdgk/audits
    ↓ LLM 综合 + 交叉验证
 wiki/（结构化知识）
    ↓ + 学生数据
@@ -113,6 +112,7 @@ students/<姓名>/志愿方案/（96志愿方案）
 | 志愿计划 | `processed/志愿计划/` | year, batch, category, school/major, subject_requirement, plan_count | 约 1.1 万条 |
 | 选科要求 | `processed/选科要求/` | school/major, subject_requirement, version(2024/2027), evidence_id | 全省覆盖（SQLite 索引 180788 条） |
 | 院校地区 | `processed/院校地区/` | school_name, province, city, city_status, evidence_id | 院校覆盖（SQLite 索引 2534 所） |
+| 主索引 | `processed/master/` | schools, majors, programs, admission_history, plan_history, evidence | SQLite 主索引 36825 个最新招生单元 + 全量历史 |
 
 ### 2.3 数据质量分级
 
@@ -140,9 +140,9 @@ students/<姓名>/志愿方案/（96志愿方案）
 > 选科可报性属于高考高风险判定，禁止 LLM 直接凭记忆、上下文、大表扫读或向量召回结果判断“能不能报”。
 
 1. **唯一机器判定入口**：
-   - 单条院校专业查询：`python scripts/check_subject_eligibility.py ... --json`
-   - 96 志愿方案审核：`python scripts/audit_volunteer_subjects.py ... --out <报告路径>.json`
-2. **索引来源**：`processed/选科要求/subject_index.sqlite` 只能由 `scripts/build_subject_index.py --rebuild` 从 4 个官方派生 JSON 构建，不得人工编辑 SQLite。
+   - 单条院校专业查询：`python -m sdgk check subject ... --json`
+   - 96 志愿/最终方案审核：`python -m sdgk plan generate ...` 生成后必须查看 `final_audit.json`
+2. **索引来源**：`processed/选科要求/subject_index.sqlite` 只能由 `python -m sdgk build subject-index --rebuild` 从 4 个官方派生 JSON 构建，不得人工编辑 SQLite。
 3. **年份映射**：
    - 2025/2026 默认使用 `2024版`
    - 2027 及以后默认使用 `2027版`
@@ -156,7 +156,7 @@ students/<姓名>/志愿方案/（96志愿方案）
    - `BLOCK`：不可报，禁止进入正式方案
    - `REVIEW`：机器无法确定，必须人工回查山东省教育招生考试院官方原文或当年招生计划，禁止口头解释为“应该可以报”
 6. **正式方案字段**：最终志愿表/报告必须包含 `subject_check_status`、`evidence_id`、`source_file`；任一志愿为 `BLOCK` 或 `REVIEW`，不得交付为正式方案。
-7. **审计要求**：大批量更新选科数据后必须运行 `scripts/build_subject_index.py --rebuild`、`scripts/test_subject_index.py` 和 `scripts/audit_data_accuracy.py`。
+7. **审计要求**：大批量更新选科数据后必须运行 `python -m sdgk build subject-index --rebuild`、`python -m pytest tests/test_subject_index.py` 和 `python -m sdgk audit data --full-subject-reextract`。
 8. **候选池前置过滤**：生成候选志愿池时必须先查 SQLite 索引，只允许 `PASS` 候选进入概率、效用、价值捕获计算；`BLOCK` 直接剔除，`REVIEW` 进入人工复核清单，不得混入正式候选池。
 9. **证据粒度**：每条候选必须保存 `match_type`、`reason_code`、`subject_requirement_raw`、`evidence_id`、`source_file`；最终 Excel 和 Markdown 报告均必须能反查到这些字段。
 10. **代码/名称错位处理**：若投档表院校代码与选科索引 5 位代码体系不一致，只允许在 `school_name + major_name` 唯一命中时回退；名称含“师范类/实验班/中外合作/校区”等后缀不一致时默认 `REVIEW`，不得模糊放行。
@@ -166,8 +166,8 @@ students/<姓名>/志愿方案/（96志愿方案）
 > 地区偏好会直接影响候选池，不得用院校名称关键词代替真实地区判断。
 
 1. **唯一机器判定入口**：
-   - 构建索引：`python scripts/build_school_region_index.py --rebuild`
-   - 单校查询：`python scripts/check_school_region.py --regions 山东,苏州 --school-name 青岛大学 --json`
+   - 构建索引：`python -m sdgk build region-index --rebuild`
+   - 单校查询：`python -m sdgk check region --regions 山东,苏州 --school-name 青岛大学 --json`
 2. **索引来源**：`processed/院校地区/school_region_index.sqlite` 由 `processed/选科要求/*.json` 的 `province` 字段派生，覆盖 2534 所唯一院校；不得人工编辑 SQLite。
 3. **省份规则**：
    - “山东的学校”必须匹配索引中的 `province=山东`
@@ -187,12 +187,70 @@ students/<姓名>/志愿方案/（96志愿方案）
 
 > 互联网数据只能在“来源准入 → 官方回查 → raw 快照/附件 → processed 生成 → 策略算法”的链路中使用，禁止直接把网页内容喂给最终方案。
 
-1. **准入入口**：任何 URL 进入咨询、知识库或算法前，先运行 `python scripts/internet_source_policy.py --url <URL>`。
+1. **准入入口**：任何 URL 进入咨询、知识库或算法前，先运行 `python -m sdgk source check --url <URL>`。
 2. **主源判定**：`sdzk.cn`/`wsbm.sdzk.cn` 是山东高考正式主源；可作为 S 级上限，但仍需保存官方原文或附件到 `raw/` 后再生成 `processed/`。
 3. **辅助官方源**：教育部、阳光高考、山东省教育厅、高校官网只能作 C 级合规辅助，用于招生章程、体检、单科、外语、校区、学费等，不替代山东考试院计划/位次/投档。
 4. **第三方隔离**：媒体、论坛、商业软件、公众号、问答平台、非官方整理表默认为 D 级，只能放入待核验线索，不得写入 `processed/`，不得进入正式策略算法。
-5. **算法输入要求**：`algorithms/strategy_optimizer.py` 只接受 `source_quality` 为 S/A/B 且 `subject_check_status=PASS` 且含 `evidence_id` 的候选志愿；否则自动阻断。
+5. **算法输入要求**：`src/sdgk/strategy/optimizer.py` 只接受 `source_quality` 为 S/A/B 且 `subject_check_status=PASS` 且含 `evidence_id` 的候选志愿；否则自动阻断。
 6. **当前性要求**：涉及 2026 当年计划、缺额、志愿填报入口状态、分数线、一分一段、投档结果时，必须在操作当日回查山东省教育招生考试院最新页面或本地 raw 快照。
+
+### 2.7 master 主索引与 Python 包化
+
+> v3.9 起，正式链路以 `src/sdgk/` 包和 `processed/master/master_index.sqlite` 为中心。旧 `scripts/` 和 `algorithms/` 不再新增正式入口。
+
+1. **构建入口**：
+   - `python -m sdgk build subject-index --rebuild`
+   - `python -m sdgk build region-index --rebuild`
+   - `python -m sdgk build master-index --rebuild`
+2. **主索引表**：`schools`、`majors`、`programs`、`admission_history`、`plan_history`、`evidence`。
+3. **招生单元主键**：`program_id = sha256(level|year|round|batch|school_code|major_code|school_name|major_name)`。
+4. **正式候选要求**：每条候选必须有 `program_id`、`evidence_id`、`source_file`；名称多义、专业标签不确定、代码体系冲突、官方空位次/空计划数未在例外清单内时必须 `REVIEW` 或阻断。
+5. **测试入口**：包化后正式测试为 `python -m pytest`；旧 `scripts/test_*.py` 只作历史兼容参考。
+
+### 2.8 FastAPI + Vue3 前端边界
+
+1. **后端启动**：`python -m sdgk api serve --host 127.0.0.1 --port 8716`。
+2. **前端启动**：`cd frontend && pnpm run dev`，本地访问 `http://127.0.0.1:5173`。
+3. **API 路径安全**：API 只允许读写项目工作区，学生方案只能写入 `students/`；不得接受任意绝对路径覆盖文件。
+4. **前端职责**：Vue3 只录入画像、展示查询/候选/方案/报告；不得自行计算选科、地区、概率或最终交付状态。
+5. **闸门展示**：`REVIEW` 必须显示黄色风险状态，`BLOCK` 必须显示红色阻断状态；硬闸门失败时正式导出按钮必须禁用。
+6. **长任务**：方案生成、全量审计、PDF 重抽取通过 API job 返回 `queued/running/succeeded/failed` 与结构化 `reason_code`；失败不得显示成“可报”。
+
+### 2.9 完整方案链输出
+
+统一入口：
+
+```bash
+python -m sdgk plan generate \
+  --student students/<姓名>/基本信息.json \
+  --out-dir students/<姓名>/志愿方案/<方案名> \
+  --risk-profile opportunistic
+```
+
+输出目录必须包含：
+
+```text
+志愿表.xlsx
+详细报告.md
+candidate_pool.json
+strategy_result.json
+subject_audit.json
+region_audit.json
+final_audit.json
+plan_meta.json
+report_assets/
+```
+
+正式方案硬条件：
+
+- 96 条全部 `subject_check_status=PASS`
+- 地区硬偏好全部 `MATCH`
+- 无未解决 `REVIEW`
+- 无 `BLOCK`
+- `strategy_result.hard_gate_passed=true`
+- `final_audit.hard_gate_passed=true`
+- `conservative_slip_probability` 不超过风险档阈值
+- 每条志愿都有 `program_id`、`evidence_id`、`source_file`
 
 ---
 
@@ -203,7 +261,7 @@ students/<姓名>/志愿方案/（96志愿方案）
 1. 资料放入 `raw/<year>/` 对应目录
 2. LLM 执行：
    - 先核验来源是否为 `sdzk.cn` 或高校/教育部官方渠道，记录 source_url、发布机构、发布日期、下载日期
-   - 编写或更新 `scripts/_process_*.py`，重跑生成 `processed/`
+   - 编写或更新 `src/sdgk/data/` 处理模块；必要时保留兼容 `scripts/_process_*.py`，重跑生成 `processed/`
    - 更新 `processed/<数据集>/_meta.json`，写入 quality_level 与 verification_status
    - 写入或更新 wiki 页面（实体页 + 相关概念/主题页）
    - 更新 `wiki/index.md`
@@ -214,10 +272,11 @@ students/<姓名>/志愿方案/（96志愿方案）
 1. LLM 读 `wiki/index.md` 定位相关页面
 2. 深入阅读具体 wiki 页面
 3. 必要时读 `processed/` 标准数据
-4. 涉及互联网资料时，先运行 `scripts/internet_source_policy.py` 做来源准入，非 S/A/B 级不得作为正式数值依据
-5. 涉及选科能否报考时，必须运行 `scripts/check_subject_eligibility.py`，回答中引用 `status`、`reason_code`、`evidence_id`、`source_file`
-6. 综合回答并标注引用（页面路径 + 数据文件路径 + 数据质量等级）
-7. 有价值的回答回写到 wiki
+4. 涉及互联网资料时，先运行 `python -m sdgk source check` 做来源准入，非 S/A/B 级不得作为正式数值依据
+5. 涉及选科能否报考时，必须运行 `python -m sdgk check subject`，回答中引用 `status`、`reason_code`、`evidence_id`、`source_file`
+6. 涉及地区偏好时，必须运行 `python -m sdgk check region` 或使用 master/region 索引结果，禁止 school_name contains
+7. 综合回答并标注引用（页面路径 + 数据文件路径 + 数据质量等级）
+8. 有价值的回答回写到 wiki
 
 ### 3.3 Lint（健康检查，每季度或大批量入库后）
 
@@ -230,10 +289,10 @@ students/<姓名>/志愿方案/（96志愿方案）
 ```
 Phase 1: 信息采集 → 基本信息.md（必填项 + 选填项）
 Phase 2: 定位分析 → 位次映射 + 分档判定 + 选科可报范围（必须走 SQLite 选科索引）
-Phase 3: 候选池生成 → 先选科 PASS + 地区 MATCH/软偏好标注，再算概率/效用/价值捕获，不允许先猜后审
+Phase 3: 候选池生成 → 主索引取 program_id，再选科 PASS + 地区 MATCH/软偏好标注，再算概率/效用/价值捕获
 Phase 4: 策略生成 → System2 六步流程 + 互联网数据准入 + 96志愿梯度优化 + Rush Guard 受控冲刺
 Phase 5: 风险评估 → 蒙特卡洛 10000 次模拟 + 8类偏差核查 + 选科硬闸门审核
-Phase 6: 方案交付 → Excel 志愿表 + Markdown 图文说明报告（docx 可选）
+Phase 6: 方案交付 → `python -m sdgk plan generate` 输出 Excel 志愿表 + Markdown 图文说明报告（docx 可选）
 Phase 7: 追踪复盘 → 录取结果回溯，校准概率模型
 ```
 
@@ -765,7 +824,7 @@ V = 0.28 * school_value
 
 #### 5.9bis.4 策略总分
 
-`algorithms/strategy_optimizer.py` 使用失败关闭的价值捕获排序：
+`src/sdgk/strategy/optimizer.py` 使用失败关闭的价值捕获排序：
 
 ```text
 strategy_score =
@@ -810,7 +869,7 @@ strategy_score =
 
 #### 5.9ter.1 概率分层
 
-`algorithms/strategy_optimizer.py` v4 将冲刺拆成两层：
+`src/sdgk/strategy/optimizer.py` v4 将冲刺拆成两层：
 
 | 层级 | 概率区间 | 用途 | 硬要求 |
 |---|---|---|---|
@@ -874,7 +933,7 @@ strategy_score =
 
 ### 5.11 高级决策模型集成
 
-所有模型在 `algorithms/` 下实现，详见 `wiki/topics/topic_高级决策模型.md`：
+所有正式模型在 `src/sdgk/strategy/`、`src/sdgk/plans/`、`src/sdgk/audits/` 下实现，旧 `algorithms/` 仅作兼容参考。详见 `wiki/topics/topic_高级决策模型.md`：
 
 | 模型 | 用途 | 输入 | 输出 |
 |------|------|------|------|
@@ -936,7 +995,7 @@ $$\Delta_{考生} = S_{考生} - L_{批次}, \quad \Delta_{目标} = \bar{S}_{�
 10. **博弈论视角**：在零和博弈中寻找价值洼地
 11. **System2 强制激活**：8 个触发条件之一即必须深度分析
 12. **多 Agent 制衡**：方案必须经 8 个专业 Agent 评审
-13. **策略优化器硬约束**：正式 96 志愿候选池必须经 `algorithms/strategy_optimizer.py` 或等价逻辑做数据质量、选科证据、概率、效用、冲稳保垫配额检查
+13. **策略优化器硬约束**：正式 96 志愿候选池必须经 `python -m sdgk plan generate` 或 `src/sdgk/strategy/optimizer.py` 等价逻辑做数据质量、选科证据、概率、效用、冲稳保垫配额检查
 14. **价值捕获排序**：低分上好大学/好专业必须体现为 `value_capture_score`，并同时给出机会理由和风险反证
 15. **双件图文交付**：正式输出必须含 Excel 志愿表和 Markdown 图文报告，裸表不得视为完整方案
 16. **冲刺受控可搏**：冲刺比例和概率下限由风险档控制；深度冲只允许作为上行机会，不得挤占保/垫安全功能
@@ -1131,7 +1190,7 @@ LLM 在单次会话中**串行扮演**各 Agent（通过 prompt 角色切换）�
 
 ### 5.15 策略优化器（Strategy Optimizer）硬要求
 
-`algorithms/strategy_optimizer.py` 是正式候选池排序与组合风险检查的基础实现。它不替代专家判断，但提供必须通过的机器闸门。
+`src/sdgk/strategy/optimizer.py` 是正式候选池排序与组合风险检查的基础实现。它不替代专家判断，但提供必须通过的机器闸门。
 
 #### 5.15.1 输入字段
 
@@ -1284,7 +1343,7 @@ students/
 5. Phase 2-4 量化分析 + 博弈 + 合规（A1-A4, A6）
 6. Phase 5 红蓝对抗（A7 vs A1-A4, A6）
 7. Phase 6 偏差核查（A5）
-8. **选科硬闸门**：对 96 志愿表运行 `scripts/audit_volunteer_subjects.py`，生成 `subject_audit.json`；存在 `BLOCK`/`REVIEW` 必须回退修改，不得进入交付
+8. **选科/地区/最终硬闸门**：运行 `python -m sdgk plan generate` 后检查 `subject_audit.json`、`region_audit.json`、`final_audit.json`；存在 `BLOCK`/`REVIEW` 必须回退修改，不得进入交付
 9. Phase 7 总裁决（A8），生成 `final_decision.json`
 10. 输出方案到 `志愿方案/`（必须含 xlsx + md + risk.json + subject_audit.json + meta.json + agent.json；docx 可选）
 11. 操作记录追加到 `操作记录.md`
@@ -1300,7 +1359,7 @@ students/
 | `说明` | 考生信息、数据版本、是否通过硬闸门、使用限制 |
 | `志愿表` | 96 条志愿明细，含位次、概率、效用、价值捕获、选科证据 |
 | `梯度与风险` | 冲稳保垫数量、滑档概率、最强保底、Tail Risk |
-| `选科审核` | `scripts/audit_volunteer_subjects.py` 审核摘要，不得含 `BLOCK/REVIEW` |
+| `选科审核` | `python -m sdgk plan generate` 生成的 `subject_audit.json` 摘要，不得含 `BLOCK/REVIEW` |
 | `证据索引` | 每条志愿的 `source_file`、`evidence_id`、质量等级 |
 
 `志愿表` 必填列：
@@ -1379,32 +1438,24 @@ sources: ["raw/路径/文件名", "processed/路径/文件名"]
 
 ---
 
-## 第八章 · 处理脚本
+## 第八章 · 正式 CLI 与兼容脚本
 
-`scripts/` 下的脚本可重复运行，输出幂等：
+v3.9 起正式入口为 `python -m sdgk ...`：
 
-| 脚本 | 输入 | 输出 |
+| 命令 | 输入 | 输出 |
 |---|---|---|
-| `_process_score_table.py` | `raw/<year>/一分一段表.xls` | `processed/一分一段表/<year>.csv\|json` |
-| `_process_admission.py` | `raw/<year>/常规批第N次投档表/` | `processed/投档表/<year>_round<n>.csv\|json` |
-| `_process_scorelines.py` | `raw/<year>/分数线/*.pdf` | `processed/分数线/<year>.json` |
-| `_process_plans.py` | `raw/<year>/*志愿计划/` | `processed/志愿计划/<year>.csv\|json` |
-| `_process_subject_requirements.py` | `raw/2026/政策文件原件/*选考科目要求*.pdf` | `processed/选科要求/*.csv\|json` |
-| `build_subject_index.py` | `processed/选科要求/2024版本科.json` 等 4 个官方派生 JSON | `processed/选科要求/subject_index.sqlite` + `subject_index_meta.json` |
-| `check_subject_eligibility.py` | 年份/层次/三科 + 院校代码/专业代码 | 单条选科可报性 JSON（PASS/BLOCK/REVIEW + evidence_id） |
-| `audit_volunteer_subjects.py` | CSV/JSON/XLSX 志愿表 + 年份/层次/三科 | 选科硬闸门审核报告 JSON |
-| `test_subject_index.py` | `subject_index.sqlite` | 索引行数、单条查询、整表闸门 smoke test |
-| `build_school_region_index.py` | `processed/选科要求/*.json` 的院校与 province 字段 | `processed/院校地区/school_region_index.sqlite` + meta |
-| `check_school_region.py` | 地区偏好 + 院校名称/选科院校代码 | MATCH/NO_MATCH/REVIEW JSON |
-| `test_school_region.py` | `school_region_index.sqlite` | 省份非名称匹配、苏州别名、多校区 REVIEW smoke test |
-| `internet_source_policy.py` | URL 或 URL 列表 | 互联网来源质量上限与正式使用准入报告 |
-| `test_strategy_optimizer.py` | 内置模拟候选池 | 策略优化器 smoke test |
+| `python -m sdgk build subject-index --rebuild` | `processed/选科要求/*.json` | `subject_index.sqlite` + meta |
+| `python -m sdgk build region-index --rebuild` | `processed/选科要求/*.json` 的院校与 province 字段 | `school_region_index.sqlite` + meta |
+| `python -m sdgk build master-index --rebuild` | 选科、地区、投档、计划标准数据 | `processed/master/master_index.sqlite` + meta |
+| `python -m sdgk check subject ... --json` | 年份/层次/三科 + 院校专业代码或唯一名称 | PASS/BLOCK/REVIEW + evidence |
+| `python -m sdgk check region ... --json` | 地区偏好 + 院校名称/代码 | MATCH/NO_MATCH/REVIEW + evidence |
+| `python -m sdgk source check --url <URL>` | URL 或 URL 列表 | 来源质量上限与正式使用准入 |
+| `python -m sdgk audit data --full-subject-reextract` | processed/raw 官方数据 | 数据准确性审计 |
+| `python -m sdgk plan generate ...` | 学生画像 JSON | Excel、Markdown、候选池、策略、最终审计 |
+| `python -m sdgk api serve --host 127.0.0.1 --port 8716` | 本地工作区 | FastAPI 本地服务 |
+| `python -m pytest` | `tests/` | 包化回归测试 |
 
-`algorithms/` 下的策略脚本：
-
-| 脚本 | 输入 | 输出 |
-|---|---|---|
-| `strategy_optimizer.py` | 候选志愿 CSV/JSON（概率、效用、质量等级、选科证据、价值捕获字段） | 排序后的 96 志愿组合、blocked 清单、梯度统计、滑档基线、`value_capture_score` |
+`scripts/` 与 `algorithms/` 仅作历史兼容区：可以保留旧脚本以便追溯，但不得新增正式入口；新逻辑必须进入 `src/sdgk/`，测试进入 `tests/`。
 
 新增数据类型时，复制现有脚本模式，保持字段命名一致。
 
@@ -1435,7 +1486,7 @@ sources: ["raw/路径/文件名", "processed/路径/文件名"]
 ### 9.4 添加新数据集
 
 1. 在 `raw/` 收集原始资料
-2. 编写 `scripts/_process_<名称>.py`
+2. 编写 `src/sdgk/data/<名称>.py` 或 `src/sdgk/indexes/builders.py` 中的构建逻辑；必要时保留兼容脚本
 3. 在 `processed/<名称>/` 输出 CSV+JSON
 4. 写 `processed/<名称>/_meta.json` 元数据
 5. 更新 `processed/README.md` 和 `wiki/sources/source_标准数据字典.md`
@@ -1443,10 +1494,10 @@ sources: ["raw/路径/文件名", "processed/路径/文件名"]
 
 ### 9.5 添加新算法
 
-1. 编写 `algorithms/<算法名>.py`（含单元测试）
+1. 编写 `src/sdgk/strategy/<算法名>.py` 或相关包模块（含 `tests/` 单元测试）
 2. 建 `wiki/concepts/concept_<算法名>.md` 说明数学原理
 3. 在 `wiki/topics/topic_高级决策模型.md` 添加集成说明
-4. 更新 `algorithms/README.md`
+4. 更新 README、AGENTS/CLAUDE 和相关 wiki 说明
 5. 追加 `log.md`
 
 ---
@@ -1465,6 +1516,8 @@ sources: ["raw/路径/文件名", "processed/路径/文件名"]
 | v3.5 | 2026-06-23 | 价值捕获与图文双交付版：新增 Z20/Z21；低分高价值机会纳入 `value_capture_score`，正式方案必须输出 Excel 志愿表 + Markdown 图文报告 |
 | v3.6 | 2026-06-23 | 受控冲刺概率加固版：新增 Z22 与 Rush Guard；新增 `opportunistic` 风险档，深度冲必须满足概率下限、价值证据、数量上限和保/垫闸门 |
 | v3.7 | 2026-06-24 | 院校地区索引加固版：新增 Z23；省份查询走 `province` 字段，城市/多校区走 MATCH/NO_MATCH/REVIEW，禁止 `school_name contains 省名` |
+| v3.8 | 2026-06-24 | master 主索引版：统一 `schools/majors/programs/admission_history/plan_history/evidence`，正式候选必须有 `program_id/evidence_id/source_file` |
+| v3.9 | 2026-06-24 | Vue3 + FastAPI + Python 包化版：新增 Z24/Z25；正式入口统一 `python -m sdgk ...`，前端只展示 API 结果，完整方案链输出 Excel/Markdown/JSON 审计 |
 
 ---
 
