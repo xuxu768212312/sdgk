@@ -46,3 +46,13 @@ class CodeAliasRequest(BaseModel):
     school_id: str = ""
     major_id: str = ""
     limit: int = Field(default=50, ge=1, le=200)
+
+
+class ProgramSearchRequest(BaseModel):
+    query: str = ""
+    school_name: str = ""
+    major_name: str = ""
+    school_code: str = ""
+    major_code: str = ""
+    year: int | None = None
+    limit: int = Field(default=50, ge=1, le=300)

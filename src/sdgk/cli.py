@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from sdgk.indexes.builders import build_master_index, build_region_index, build_subject_index
-from sdgk.indexes.master import major_code_aliases, school_code_aliases, search_majors, search_schools, summary as master_summary
+from sdgk.indexes.master import major_code_aliases, school_code_aliases, search_majors, search_programs, search_schools, summary as master_summary
 from sdgk.indexes.region import check_school_regions, split_regions
 from sdgk.indexes.subject import check_eligibility
 from sdgk.plans.candidate_pool import main_generate as generate_candidate_pool
@@ -132,6 +132,21 @@ def cmd_master_search_majors(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_master_search_programs(args: argparse.Namespace) -> int:
+    print_json(
+        search_programs(
+            args.query,
+            school_name=args.school_name,
+            major_name=args.major_name,
+            school_code=args.school_code,
+            major_code=args.major_code,
+            year=args.year,
+            limit=args.limit,
+        )
+    )
+    return 0
+
+
 def cmd_master_school_code_aliases(args: argparse.Namespace) -> int:
     print_json(school_code_aliases(school_id=args.school_id, school_code=args.code, limit=args.limit))
     return 0
@@ -230,6 +245,15 @@ def build_parser() -> argparse.ArgumentParser:
     majors.add_argument("--family", default="")
     majors.add_argument("--limit", type=int, default=20)
     majors.set_defaults(func=cmd_master_search_majors)
+    programs = master_sub.add_parser("search-programs")
+    programs.add_argument("query", nargs="?", default="")
+    programs.add_argument("--school-name", default="")
+    programs.add_argument("--major-name", default="")
+    programs.add_argument("--school-code", default="")
+    programs.add_argument("--major-code", default="")
+    programs.add_argument("--year", type=int)
+    programs.add_argument("--limit", type=int, default=50)
+    programs.set_defaults(func=cmd_master_search_programs)
     school_aliases = master_sub.add_parser("school-code-aliases")
     school_aliases.add_argument("--code", default="")
     school_aliases.add_argument("--school-id", default="")

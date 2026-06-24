@@ -3,7 +3,7 @@ from __future__ import annotations
 import sqlite3
 
 from sdgk.indexes.builders import DEFAULT_MASTER_DB_PATH
-from sdgk.indexes.master import search_majors, search_schools, summary
+from sdgk.indexes.master import search_majors, search_programs, search_schools, summary
 from sdgk.indexes.region import DEFAULT_REGION_DB_PATH
 
 
@@ -68,3 +68,11 @@ def test_code_alias_tables_are_queryable() -> None:
     assert school_alias[2] in {"subject_5_digit", "admission_school_code", "school_code_other"}
     assert major_alias is not None
     assert major_alias[2] in {"subject_major_code", "program_major_code", "major_code_other"}
+
+
+def test_search_programs_returns_evidence_backed_units() -> None:
+    rows = search_programs("青岛大学", limit=20)
+    assert rows
+    assert any(row["school_name"] == "青岛大学" for row in rows)
+    assert all(row.get("program_id") and row.get("evidence_id") and row.get("source_file") for row in rows)
+    assert all(row.get("year") == 2025 for row in rows)

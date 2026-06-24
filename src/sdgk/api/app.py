@@ -9,17 +9,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
 from sdgk.api.jobs import JOBS, get_file, new_job, run_sync
-from sdgk.api.schemas import CandidateGenerateRequest, CodeAliasRequest, PlanGenerateRequest, RegionCheckRequest, SearchRequest, SubjectCheckRequest
+from sdgk.api.schemas import CandidateGenerateRequest, CodeAliasRequest, PlanGenerateRequest, ProgramSearchRequest, RegionCheckRequest, SearchRequest, SubjectCheckRequest
 from sdgk.core.io import write_json
 from sdgk.core.paths import ROOT, STUDENTS_DIR, ensure_students_path, rel
-from sdgk.indexes.master import major_code_aliases, school_code_aliases, search_majors, search_schools, summary as master_summary
+from sdgk.indexes.master import major_code_aliases, school_code_aliases, search_majors, search_programs, search_schools, summary as master_summary
 from sdgk.indexes.region import check_school_regions, split_regions
 from sdgk.indexes.subject import check_eligibility
 from sdgk.plans.candidate_pool import build_candidate_pool
 from sdgk.plans.generate_plan import generate_plan
 
 
-app = FastAPI(title="山东高考知识库本地 API", version="3.9.0")
+app = FastAPI(title="山东高考知识库本地 API", version="3.10.1")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://127.0.0.1:5173", "http://localhost:5173"],
@@ -50,7 +50,7 @@ def profile_student_path(profile: dict[str, Any]) -> Path:
 def health() -> dict[str, Any]:
     return {
         "status": "ok",
-        "version": "3.9.0",
+        "version": "3.10.1",
         "workspace": str(ROOT),
         "time": datetime.now().isoformat(timespec="seconds"),
     }
@@ -100,6 +100,11 @@ def api_search_schools(payload: SearchRequest) -> list[dict[str, Any]]:
 @app.post("/api/master/search-majors")
 def api_search_majors(payload: SearchRequest) -> list[dict[str, Any]]:
     return search_majors(payload.query, limit=payload.limit)
+
+
+@app.post("/api/master/search-programs")
+def api_search_programs(payload: ProgramSearchRequest) -> list[dict[str, Any]]:
+    return search_programs(**payload.model_dump())
 
 
 @app.post("/api/master/school-code-aliases")

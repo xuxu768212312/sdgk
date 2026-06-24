@@ -78,6 +78,7 @@ python -m sdgk check region \
 python -m sdgk master summary
 python -m sdgk master search-schools 青岛大学 --limit 5
 python -m sdgk master search-majors 法学 --limit 10
+python -m sdgk master search-programs 青岛大学 --major-name 法学 --limit 20
 python -m sdgk master major-code-aliases --code 01 --limit 20
 ```
 
@@ -162,7 +163,7 @@ region_index schools = 2534
 master programs = 36825
 school code aliases = 4775
 major code aliases = 25472
-pytest = 28 passed
+pytest = 30 passed
 data audit = FAIL 0, WARN 1（未执行选科 PDF 全量重抽取）
 frontend build = passed
 ```

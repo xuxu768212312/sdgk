@@ -118,18 +118,73 @@ def major_code_aliases(
     return [row_dict(row) for row in rows]
 
 
+PROGRAM_SELECT = """
+    SELECT p.*, s.province, s.city, s.city_status, s.school_level_tag,
+           s.code_status AS school_code_status,
+           m.major_family, m.preference_tags, m.classification_status AS major_classification_status,
+           m.major_code_count, m.code_status AS major_code_status,
+           m.is_teacher, m.is_law, m.is_english, m.is_finance, m.is_bio_related
+    FROM programs p
+    LEFT JOIN schools s ON p.school_id = s.school_id
+    LEFT JOIN majors m ON p.major_id = m.major_id
+"""
+
+
+def search_programs(
+    query: str = "",
+    *,
+    school_name: str = "",
+    major_name: str = "",
+    school_code: str = "",
+    major_code: str = "",
+    year: int | None = None,
+    limit: int = 50,
+    db_path: Path = DEFAULT_MASTER_DB_PATH,
+) -> list[dict[str, Any]]:
+    like = f"%{query.strip()}%"
+    school_like = f"%{school_name.strip()}%"
+    major_like = f"%{major_name.strip()}%"
+    normalized_school_code = school_code.strip().upper()
+    normalized_major_code = major_code.strip().upper()
+    with connect_master(db_path) as conn:
+        rows = conn.execute(
+            f"""
+            {PROGRAM_SELECT}
+            WHERE p.year = COALESCE(?, (SELECT MAX(year) FROM programs))
+              AND (? = '%%' OR p.school_name LIKE ? OR p.major_name LIKE ? OR p.school_code LIKE ? OR p.major_code LIKE ?)
+              AND (? = '%%' OR p.school_name LIKE ?)
+              AND (? = '%%' OR p.major_name LIKE ?)
+              AND (? = '' OR UPPER(p.school_code) = ?)
+              AND (? = '' OR UPPER(p.major_code) = ?)
+            ORDER BY p.min_rank IS NULL, p.min_rank ASC, p.school_name, p.major_name
+            LIMIT ?
+            """,
+            (
+                year,
+                like,
+                like,
+                like,
+                like,
+                like,
+                school_like,
+                school_like,
+                major_like,
+                major_like,
+                normalized_school_code,
+                normalized_school_code,
+                normalized_major_code,
+                normalized_major_code,
+                limit,
+            ),
+        ).fetchall()
+    return [row_dict(row) for row in rows]
+
+
 def recent_programs(limit: int = 200, db_path: Path = DEFAULT_MASTER_DB_PATH) -> list[dict[str, Any]]:
     with connect_master(db_path) as conn:
         rows = conn.execute(
             """
-            SELECT p.*, s.province, s.city, s.city_status, s.school_level_tag,
-                   s.code_status AS school_code_status,
-                   m.major_family, m.preference_tags, m.classification_status AS major_classification_status,
-                   m.major_code_count, m.code_status AS major_code_status,
-                   m.is_teacher, m.is_law, m.is_english, m.is_finance, m.is_bio_related
-            FROM programs p
-            LEFT JOIN schools s ON p.school_id = s.school_id
-            LEFT JOIN majors m ON p.major_id = m.major_id
+            """ + PROGRAM_SELECT + """
             WHERE p.year = (SELECT MAX(year) FROM programs)
             ORDER BY p.min_rank IS NULL, p.min_rank ASC
             LIMIT ?
@@ -145,14 +200,7 @@ def programs_for_rank(rank: int | None, limit: int = 1200, db_path: Path = DEFAU
     with connect_master(db_path) as conn:
         rows = conn.execute(
             """
-            SELECT p.*, s.province, s.city, s.city_status, s.school_level_tag,
-                   s.code_status AS school_code_status,
-                   m.major_family, m.preference_tags, m.classification_status AS major_classification_status,
-                   m.major_code_count, m.code_status AS major_code_status,
-                   m.is_teacher, m.is_law, m.is_english, m.is_finance, m.is_bio_related
-            FROM programs p
-            LEFT JOIN schools s ON p.school_id = s.school_id
-            LEFT JOIN majors m ON p.major_id = m.major_id
+            """ + PROGRAM_SELECT + """
             WHERE p.year = (SELECT MAX(year) FROM programs)
               AND p.min_rank IS NOT NULL
               AND p.min_rank BETWEEN ? AND ?

@@ -37,6 +37,17 @@ def test_region_api_qingdao_university() -> None:
     assert response.json()["status"] == "MATCH"
 
 
+def test_master_program_search_api() -> None:
+    response = client.post(
+        "/api/master/search-programs",
+        json={"query": "青岛大学", "major_name": "法学", "limit": 5},
+    )
+    assert response.status_code == 200
+    rows = response.json()
+    assert rows
+    assert all(row.get("program_id") and row.get("evidence_id") for row in rows)
+
+
 def test_plan_api_rejects_path_traversal() -> None:
     response = client.post(
         "/api/plans/generate",

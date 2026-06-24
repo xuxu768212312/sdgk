@@ -40,6 +40,11 @@ export async function searchMajors(query: string, limit = 20) {
   return data
 }
 
+export async function searchPrograms(payload: Record<string, unknown>) {
+  const { data } = await api.post('/master/search-programs', payload)
+  return data
+}
+
 export async function generateCandidates(profile: Record<string, unknown>, hardRegion = false) {
   const { data } = await api.post('/candidates/generate', { profile, hard_region: hardRegion })
   return data

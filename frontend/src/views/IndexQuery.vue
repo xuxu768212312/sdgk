@@ -56,6 +56,22 @@
         <el-input v-model="searchText" placeholder="院校或专业" clearable />
         <el-button :icon="Search" @click="runSearch">搜索</el-button>
       </div>
+      <h3 class="table-title">招生单元</h3>
+      <el-table :data="programRows" height="320">
+        <el-table-column prop="year" label="年份" width="80" />
+        <el-table-column prop="school_code" label="院校代码" width="100" />
+        <el-table-column prop="school_name" label="院校" min-width="170" />
+        <el-table-column prop="major_code" label="专业代码" width="100" />
+        <el-table-column prop="major_name" label="专业" min-width="260" show-overflow-tooltip />
+        <el-table-column prop="min_rank" label="最低位次" width="110" sortable />
+        <el-table-column prop="plan_count" label="计划数" width="90" />
+        <el-table-column prop="major_family" label="专业族" width="110" />
+        <el-table-column prop="province" label="省份" width="90" />
+        <el-table-column prop="program_id" label="招生单元编号" min-width="170" show-overflow-tooltip />
+        <el-table-column prop="evidence_id" label="证据编号" min-width="170" show-overflow-tooltip />
+        <el-table-column prop="source_file" label="来源文件" min-width="220" show-overflow-tooltip />
+      </el-table>
+      <h3 class="table-title">院校库</h3>
       <el-table :data="schoolRows" height="240">
         <el-table-column prop="school_name" label="院校" min-width="180" />
         <el-table-column prop="province" label="省份" width="90" />
@@ -68,6 +84,7 @@
           <template #default="{ row }"><StatusTag :value="row.code_status" /></template>
         </el-table-column>
       </el-table>
+      <h3 class="table-title">专业库</h3>
       <el-table :data="majorRows" height="240">
         <el-table-column prop="major_name" label="专业" min-width="240" />
         <el-table-column prop="major_family" label="专业族" width="120" />
@@ -91,7 +108,7 @@
 import { reactive, ref } from 'vue'
 import { Location, Search } from '@element-plus/icons-vue'
 import StatusTag from '../components/StatusTag.vue'
-import { checkRegion, checkSubject, searchMajors, searchSchools } from '../api/client'
+import { checkRegion, checkSubject, searchMajors, searchPrograms, searchSchools } from '../api/client'
 import { useAppStore } from '../stores/app'
 
 const store = useAppStore()
@@ -111,6 +128,7 @@ const regionResult = ref<any>(null)
 const searchText = ref('青岛大学')
 const schoolRows = ref<any[]>([])
 const majorRows = ref<any[]>([])
+const programRows = ref<any[]>([])
 const reasonLabels: Record<string, string> = {
   ELIGIBLE: '选科满足要求',
   INELIGIBLE: '选科不满足要求',
@@ -179,8 +197,22 @@ async function runRegion() {
 }
 
 async function runSearch() {
-  const [schools, majors] = await Promise.all([searchSchools(searchText.value), searchMajors(searchText.value)])
+  const [schools, majors, programs] = await Promise.all([
+    searchSchools(searchText.value),
+    searchMajors(searchText.value),
+    searchPrograms({ query: searchText.value, limit: 80 })
+  ])
   schoolRows.value = schools
   majorRows.value = majors
+  programRows.value = programs
 }
 </script>
+
+<style scoped>
+.table-title {
+  margin: 16px 0 8px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 700;
+}
+</style>
