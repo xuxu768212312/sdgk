@@ -6,6 +6,17 @@ from typing import Any
 
 from sdgk.indexes.builders import DEFAULT_MASTER_DB_PATH
 
+MASTER_TABLES = (
+    "schools",
+    "school_code_aliases",
+    "majors",
+    "major_code_aliases",
+    "programs",
+    "admission_history",
+    "plan_history",
+    "evidence",
+)
+
 
 def connect_master(db_path: Path = DEFAULT_MASTER_DB_PATH) -> sqlite3.Connection:
     conn = sqlite3.connect(str(db_path))
@@ -22,7 +33,7 @@ def summary(db_path: Path = DEFAULT_MASTER_DB_PATH) -> dict[str, Any]:
         return {"exists": False, "db_file": str(db_path), "counts": {}}
     with connect_master(db_path) as conn:
         counts = {}
-        for table in ("schools", "majors", "programs", "admission_history", "plan_history", "evidence"):
+        for table in MASTER_TABLES:
             counts[table] = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
     return {"exists": True, "db_file": str(db_path), "counts": counts}
 
@@ -38,6 +49,28 @@ def search_schools(query: str = "", limit: int = 20, db_path: Path = DEFAULT_MAS
             LIMIT ?
             """,
             (like, like, like, like, limit),
+        ).fetchall()
+    return [row_dict(row) for row in rows]
+
+
+def school_code_aliases(
+    *,
+    school_id: str = "",
+    school_code: str = "",
+    limit: int = 50,
+    db_path: Path = DEFAULT_MASTER_DB_PATH,
+) -> list[dict[str, Any]]:
+    with connect_master(db_path) as conn:
+        rows = conn.execute(
+            """
+            SELECT *
+            FROM school_code_aliases
+            WHERE (? = '' OR school_id = ?)
+              AND (? = '' OR school_code = ?)
+            ORDER BY ambiguity_status DESC, code_system, school_code, school_name
+            LIMIT ?
+            """,
+            (school_id, school_id, school_code.strip().upper(), school_code.strip().upper(), limit),
         ).fetchall()
     return [row_dict(row) for row in rows]
 
@@ -63,11 +96,36 @@ def search_majors(
     return [row_dict(row) for row in rows]
 
 
+def major_code_aliases(
+    *,
+    major_id: str = "",
+    major_code: str = "",
+    limit: int = 50,
+    db_path: Path = DEFAULT_MASTER_DB_PATH,
+) -> list[dict[str, Any]]:
+    with connect_master(db_path) as conn:
+        rows = conn.execute(
+            """
+            SELECT *
+            FROM major_code_aliases
+            WHERE (? = '' OR major_id = ?)
+              AND (? = '' OR major_code = ?)
+            ORDER BY ambiguity_status DESC, code_system, major_code, major_name
+            LIMIT ?
+            """,
+            (major_id, major_id, major_code.strip().upper(), major_code.strip().upper(), limit),
+        ).fetchall()
+    return [row_dict(row) for row in rows]
+
+
 def recent_programs(limit: int = 200, db_path: Path = DEFAULT_MASTER_DB_PATH) -> list[dict[str, Any]]:
     with connect_master(db_path) as conn:
         rows = conn.execute(
             """
-            SELECT p.*, s.province, s.city, s.city_status, m.major_family,
+            SELECT p.*, s.province, s.city, s.city_status, s.school_level_tag,
+                   s.code_status AS school_code_status,
+                   m.major_family, m.preference_tags, m.classification_status AS major_classification_status,
+                   m.major_code_count, m.code_status AS major_code_status,
                    m.is_teacher, m.is_law, m.is_english, m.is_finance, m.is_bio_related
             FROM programs p
             LEFT JOIN schools s ON p.school_id = s.school_id
@@ -87,7 +145,10 @@ def programs_for_rank(rank: int | None, limit: int = 1200, db_path: Path = DEFAU
     with connect_master(db_path) as conn:
         rows = conn.execute(
             """
-            SELECT p.*, s.province, s.city, s.city_status, m.major_family,
+            SELECT p.*, s.province, s.city, s.city_status, s.school_level_tag,
+                   s.code_status AS school_code_status,
+                   m.major_family, m.preference_tags, m.classification_status AS major_classification_status,
+                   m.major_code_count, m.code_status AS major_code_status,
                    m.is_teacher, m.is_law, m.is_english, m.is_finance, m.is_bio_related
             FROM programs p
             LEFT JOIN schools s ON p.school_id = s.school_id

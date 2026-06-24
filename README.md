@@ -7,7 +7,7 @@
 ## 核心能力
 
 - **Python 包化入口**：正式命令统一为 `python -m sdgk ...`，核心代码位于 `src/sdgk/`。
-- **SQLite 主索引**：`processed/master/master_index.sqlite` 汇总院校、专业、招生单元、投档历史、计划历史和证据。
+- **SQLite 主索引**：`processed/master/master_index.sqlite` 汇总院校库、院校代码别名、专业库、专业代码别名、招生单元、投档历史、计划历史和证据。
 - **选科硬闸门**：`subject_index.sqlite` 输出 `PASS/BLOCK/REVIEW + evidence_id + source_file`，任何 `BLOCK/REVIEW` 不得交付正式方案。
 - **地区硬闸门**：省份按 `province` 字段匹配，城市不确定或多校区返回 `REVIEW`，禁止用院校名 contains 判断“山东学校”。
 - **策略优化器**：`strategy_optimizer_v4_rush_guard_fail_closed` 支持低分高价值捕获和受控冲刺，但保底、滑档和证据不足时失败关闭。
@@ -72,6 +72,15 @@ python -m sdgk check region \
   --json
 ```
 
+查询院校库和专业库：
+
+```bash
+python -m sdgk master summary
+python -m sdgk master search-schools 青岛大学 --limit 5
+python -m sdgk master search-majors 法学 --limit 10
+python -m sdgk master major-code-aliases --code 01 --limit 20
+```
+
 互联网来源准入：
 
 ```bash
@@ -114,13 +123,13 @@ pnpm run dev
 
 ## 前端页面
 
-- `Dashboard`：审计状态、索引规模、主索引计数。
-- `Student Profile`：学生画像录入。
-- `Index Query`：选科、地区、院校、专业确定性查询。
-- `Candidate Pool`：候选池、PASS/BLOCK/REVIEW、证据字段。
-- `Plan Generator`：一键生成方案链。
-- `Plan Review`：冲稳保垫、滑档概率、证据 ID、闸门失败项。
-- `Reports`：Excel、Markdown、JSON 输出文件。
+- `数据看板`：审计状态、索引规模、主索引计数。
+- `学生画像`：学生画像录入。
+- `索引查询`：选科、地区、院校库、专业库和代码状态查询。
+- `候选池`：候选池、通过/阻断/待复核、证据字段。
+- `方案生成`：一键生成方案链。
+- `方案复核`：冲稳保垫、滑档概率、证据编号、闸门失败项。
+- `报告下载`：志愿表、详细报告、审计文件。
 
 ## 正式方案硬条件
 
@@ -151,8 +160,10 @@ cd frontend && pnpm run build
 subject_index rows = 180788
 region_index schools = 2534
 master programs = 36825
-pytest = 26 passed
-data audit = FAIL 0, WARN 0
+school code aliases = 4775
+major code aliases = 25472
+pytest = 28 passed
+data audit = FAIL 0, WARN 1（未执行选科 PDF 全量重抽取）
 frontend build = passed
 ```
 

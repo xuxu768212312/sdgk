@@ -160,13 +160,59 @@ def normalize_name(value: Any) -> str:
     return str(value or "").strip().replace("（", "(").replace("）", ")").replace("　", "").replace(" ", "")
 
 
+def normalize_code(value: Any) -> str:
+    return str(value or "").strip().upper()
+
+
+def school_code_system(code: str) -> str:
+    if re.match(r"^\d{5}$", code):
+        return "subject_5_digit"
+    if re.match(r"^[A-Z]\d{3,4}$", code):
+        return "admission_school_code"
+    if code:
+        return "school_code_other"
+    return "missing"
+
+
+def major_code_system(code: str) -> str:
+    if re.match(r"^\d{4}$", code):
+        return "subject_major_code"
+    if re.match(r"^[A-Z0-9]{1,6}$", code):
+        return "program_major_code"
+    if code:
+        return "major_code_other"
+    return "missing"
+
+
 def major_tags(major_name: str) -> dict[str, Any]:
     name = normalize_name(major_name)
-    is_teacher = "师范" in name
-    is_law = "法学" in name or "知识产权" in name or "马克思主义理论" in name or "政治学" in name
+    law_scan_name = name.replace("书法学", "")
+    is_teacher = "师范" in name or name in {"小学教育", "学前教育", "特殊教育", "教育学", "教育技术学", "科学教育"}
+    is_law = (
+        law_scan_name == "法学"
+        or law_scan_name.startswith("法学(")
+        or "法学类" in law_scan_name
+        or "法学试验" in law_scan_name
+        or "法学双" in law_scan_name
+        or "含法学" in law_scan_name
+        or any(token in law_scan_name for token in ("知识产权", "马克思主义理论", "政治学", "国际政治"))
+    )
     is_english = "英语" in name or "商务英语" in name or "翻译" in name
-    is_finance = any(token in name for token in ("金融", "会计", "财务", "审计", "经济", "财政", "保险", "投资"))
-    is_bio_related = any(token in name for token in ("生物", "食品", "药学", "制药", "医学", "园林", "农学", "生态"))
+    is_finance = any(token in name for token in ("金融", "会计", "财务", "审计", "经济", "财政", "保险", "投资", "税收", "国际经济与贸易"))
+    is_bio_related = any(token in name for token in ("生物", "食品", "药学", "制药", "医学", "园林", "农学", "生态", "动物", "植物"))
+    preference_tags: list[str] = []
+    if is_teacher:
+        preference_tags.append("师范")
+    if is_law:
+        preference_tags.append("法学")
+    if is_english:
+        preference_tags.append("英语")
+    if is_finance:
+        preference_tags.append("金融")
+    if is_bio_related:
+        preference_tags.append("生物相关")
+        if "生物工程" in name:
+            preference_tags.append("生物工程")
     family = "其他"
     if is_teacher:
         family = "师范教育"
@@ -185,6 +231,7 @@ def major_tags(major_name: str) -> dict[str, Any]:
         "is_english": int(is_english),
         "is_finance": int(is_finance),
         "is_bio_related": int(is_bio_related),
+        "preference_tags": "|".join(preference_tags),
         "classification_status": "PASS" if family != "其他" else "REVIEW",
     }
 
@@ -196,6 +243,8 @@ def create_master_schema(conn: sqlite3.Connection) -> None:
         DROP TABLE IF EXISTS plan_history;
         DROP TABLE IF EXISTS admission_history;
         DROP TABLE IF EXISTS programs;
+        DROP TABLE IF EXISTS major_code_aliases;
+        DROP TABLE IF EXISTS school_code_aliases;
         DROP TABLE IF EXISTS majors;
         DROP TABLE IF EXISTS schools;
 
@@ -210,11 +259,29 @@ def create_master_schema(conn: sqlite3.Connection) -> None:
             city_status TEXT NOT NULL,
             school_level_tag TEXT NOT NULL,
             ownership_tag TEXT NOT NULL,
+            subject_school_code_count INTEGER NOT NULL,
+            admission_school_code_count INTEGER NOT NULL,
+            program_count INTEGER NOT NULL,
+            code_status TEXT NOT NULL,
             source_files TEXT NOT NULL,
             evidence_id TEXT NOT NULL
         );
         CREATE INDEX idx_master_schools_name ON schools(normalized_name);
         CREATE INDEX idx_master_schools_province ON schools(province);
+        CREATE INDEX idx_master_schools_code_status ON schools(code_status);
+
+        CREATE TABLE school_code_aliases (
+            alias_id TEXT PRIMARY KEY,
+            school_id TEXT NOT NULL,
+            school_name TEXT NOT NULL,
+            school_code TEXT NOT NULL,
+            code_system TEXT NOT NULL,
+            source_files TEXT NOT NULL,
+            usage_count INTEGER NOT NULL,
+            ambiguity_status TEXT NOT NULL,
+            evidence_id TEXT NOT NULL
+        );
+        CREATE INDEX idx_master_school_code_aliases_code ON school_code_aliases(school_code, code_system);
 
         CREATE TABLE majors (
             major_id TEXT PRIMARY KEY,
@@ -227,12 +294,30 @@ def create_master_schema(conn: sqlite3.Connection) -> None:
             is_english INTEGER NOT NULL,
             is_finance INTEGER NOT NULL,
             is_bio_related INTEGER NOT NULL,
+            preference_tags TEXT NOT NULL,
             classification_status TEXT NOT NULL,
+            major_code_count INTEGER NOT NULL,
+            program_count INTEGER NOT NULL,
+            code_status TEXT NOT NULL,
             source_files TEXT NOT NULL,
             evidence_id TEXT NOT NULL
         );
         CREATE INDEX idx_master_majors_name ON majors(normalized_name);
         CREATE INDEX idx_master_majors_family ON majors(major_family);
+        CREATE INDEX idx_master_majors_code_status ON majors(code_status);
+
+        CREATE TABLE major_code_aliases (
+            alias_id TEXT PRIMARY KEY,
+            major_id TEXT NOT NULL,
+            major_name TEXT NOT NULL,
+            major_code TEXT NOT NULL,
+            code_system TEXT NOT NULL,
+            source_files TEXT NOT NULL,
+            usage_count INTEGER NOT NULL,
+            ambiguity_status TEXT NOT NULL,
+            evidence_id TEXT NOT NULL
+        );
+        CREATE INDEX idx_master_major_code_aliases_code ON major_code_aliases(major_code, code_system);
 
         CREATE TABLE programs (
             program_id TEXT PRIMARY KEY,
@@ -359,20 +444,71 @@ def build_master_index(
             copied["level"] = copied.get("level") or ("本科" if "本科" in copied.get("batch", "") else "")
             plan_rows.append(copied)
 
+    latest_program_year = max(
+        [int(row.get("year") or 0) for row in admission_rows + plan_rows],
+        default=0,
+    )
+    latest_program_keys: set[tuple[Any, ...]] = set()
+    school_program_counts: dict[str, int] = defaultdict(int)
+    major_program_counts: dict[str, int] = defaultdict(int)
+    for row in admission_rows + plan_rows:
+        if int(row.get("year") or 0) != latest_program_year:
+            continue
+        school_name = normalize_name(row.get("school_name"))
+        major_name = normalize_name(row.get("major_name"))
+        key = (
+            str(row.get("level") or ""),
+            int(row.get("year") or 0),
+            int(row.get("round") or 0),
+            str(row.get("batch") or ""),
+            normalize_code(row.get("school_code")),
+            normalize_code(row.get("major_code")),
+            school_name,
+            major_name,
+        )
+        if key in latest_program_keys:
+            continue
+        latest_program_keys.add(key)
+        if school_name:
+            school_program_counts[school_name] += 1
+        if major_name:
+            major_program_counts[major_name] += 1
+
     school_codes: dict[str, set[str]] = defaultdict(set)
     school_sources: dict[str, set[str]] = defaultdict(set)
     major_codes: dict[str, set[str]] = defaultdict(set)
     major_sources: dict[str, set[str]] = defaultdict(set)
-    for rows in (subject_rows, admission_rows, plan_rows):
+    school_alias_sources: dict[tuple[str, str, str], set[str]] = defaultdict(set)
+    school_alias_usage: dict[tuple[str, str, str], int] = defaultdict(int)
+    school_code_to_names: dict[tuple[str, str], set[str]] = defaultdict(set)
+    major_alias_sources: dict[tuple[str, str, str], set[str]] = defaultdict(set)
+    major_alias_usage: dict[tuple[str, str, str], int] = defaultdict(int)
+    major_code_to_names: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for rows, include_major_alias in ((subject_rows, False), (admission_rows, True), (plan_rows, True)):
         for row in rows:
             school_name = normalize_name(row.get("school_name"))
             major_name = normalize_name(row.get("major_name"))
+            school_code = normalize_code(row.get("school_code"))
+            major_code = normalize_code(row.get("major_code"))
+            source_file = str(row.get("source_file", "")).strip()
             if school_name:
-                school_codes[school_name].add(str(row.get("school_code", "")).strip())
-                school_sources[school_name].add(str(row.get("source_file", "")).strip())
+                school_codes[school_name].add(school_code)
+                school_sources[school_name].add(source_file)
+                if school_code:
+                    system = school_code_system(school_code)
+                    alias_key = (school_name, school_code, system)
+                    school_alias_sources[alias_key].add(source_file)
+                    school_alias_usage[alias_key] += 1
+                    school_code_to_names[(system, school_code)].add(school_name)
             if major_name:
-                major_codes[major_name].add(str(row.get("major_code", "")).strip())
-                major_sources[major_name].add(str(row.get("source_file", "")).strip())
+                major_codes[major_name].add(major_code)
+                major_sources[major_name].add(source_file)
+                if major_code and include_major_alias and int(row.get("year") or 0) == latest_program_year:
+                    system = major_code_system(major_code)
+                    alias_key = (major_name, major_code, system)
+                    major_alias_sources[alias_key].add(source_file)
+                    major_alias_usage[alias_key] += 1
+                    major_code_to_names[(system, major_code)].add(major_name)
 
     schools: list[dict[str, Any]] = []
     school_id_by_name: dict[str, str] = {}
@@ -380,6 +516,13 @@ def build_master_index(
         region = regions.get(school_name, {})
         codes = sorted(code for code in school_codes[school_name] if code)
         subject_codes = sorted(code for code in str(region.get("subject_school_codes", "")).split("|") if code)
+        subject_code_set = set(subject_codes) | {code for code in codes if school_code_system(code) == "subject_5_digit"}
+        admission_code_set = {code for code in codes if school_code_system(code) != "subject_5_digit"}
+        code_status = "PASS"
+        if not codes and not subject_code_set:
+            code_status = "REVIEW"
+        elif any(len(school_code_to_names[(school_code_system(code), code)]) > 1 for code in codes):
+            code_status = "REVIEW"
         school_id = stable_hash("school", school_name)
         school_id_by_name[school_name] = school_id
         schools.append(
@@ -394,6 +537,10 @@ def build_master_index(
                 "city_status": region.get("city_status", "UNKNOWN") or "UNKNOWN",
                 "school_level_tag": school_level_tag(school_name),
                 "ownership_tag": "REVIEW",
+                "subject_school_code_count": len(subject_code_set),
+                "admission_school_code_count": len(admission_code_set),
+                "program_count": school_program_counts.get(school_name, 0),
+                "code_status": code_status,
                 "source_files": "|".join(sorted(school_sources[school_name])),
                 "evidence_id": stable_hash("school", school_name, region.get("province", ""), "|".join(codes)),
             }
@@ -410,17 +557,52 @@ def build_master_index(
                 "major_id": major_id,
                 "major_name": major_name,
                 "normalized_name": major_name,
-                "major_code_samples": "|".join(sorted(code for code in major_codes[major_name] if code)),
+                "major_code_samples": "|".join(sorted(code for code in major_codes[major_name] if code)[:30]),
+                "major_code_count": len([code for code in major_codes[major_name] if code]),
+                "program_count": major_program_counts.get(major_name, 0),
+                "code_status": "PASS" if any(code for code in major_codes[major_name]) else "REVIEW",
                 "source_files": "|".join(sorted(major_sources[major_name])),
                 "evidence_id": stable_hash("major", major_name, tags["major_family"]),
                 **tags,
             }
         )
 
-    latest_program_year = max(
-        [int(row.get("year") or 0) for row in admission_rows + plan_rows],
-        default=0,
-    )
+    school_code_aliases: list[dict[str, Any]] = []
+    for (school_name, code, system), sources in sorted(school_alias_sources.items()):
+        school_id = school_id_by_name.get(school_name, stable_hash("school", school_name))
+        ambiguity_status = "PASS" if len(school_code_to_names[(system, code)]) == 1 else "REVIEW"
+        school_code_aliases.append(
+            {
+                "alias_id": stable_hash("school_code_alias", school_id, code, system),
+                "school_id": school_id,
+                "school_name": school_name,
+                "school_code": code,
+                "code_system": system,
+                "source_files": "|".join(sorted(sources)),
+                "usage_count": school_alias_usage[(school_name, code, system)],
+                "ambiguity_status": ambiguity_status,
+                "evidence_id": stable_hash("school_code_alias", school_name, code, system, ambiguity_status),
+            }
+        )
+
+    major_code_aliases: list[dict[str, Any]] = []
+    for (major_name, code, system), sources in sorted(major_alias_sources.items()):
+        major_id = major_id_by_name.get(major_name, stable_hash("major", major_name))
+        ambiguity_status = "PASS" if len(major_code_to_names[(system, code)]) == 1 else "REVIEW"
+        major_code_aliases.append(
+            {
+                "alias_id": stable_hash("major_code_alias", major_id, code, system),
+                "major_id": major_id,
+                "major_name": major_name,
+                "major_code": code,
+                "code_system": system,
+                "source_files": "|".join(sorted(sources)),
+                "usage_count": major_alias_usage[(major_name, code, system)],
+                "ambiguity_status": ambiguity_status,
+                "evidence_id": stable_hash("major_code_alias", major_name, code, system, ambiguity_status),
+            }
+        )
+
     programs: list[dict[str, Any]] = []
     admission_history: list[dict[str, Any]] = []
     plan_history: list[dict[str, Any]] = []
@@ -541,12 +723,45 @@ def build_master_index(
     with sqlite3.connect(str(tmp_path)) as conn:
         create_master_schema(conn)
         conn.executemany(
-            "INSERT INTO schools VALUES (:school_id,:school_name,:normalized_name,:subject_school_codes,:admission_school_codes,:province,:city,:city_status,:school_level_tag,:ownership_tag,:source_files,:evidence_id)",
+            """
+            INSERT INTO schools VALUES (
+                :school_id,:school_name,:normalized_name,:subject_school_codes,
+                :admission_school_codes,:province,:city,:city_status,
+                :school_level_tag,:ownership_tag,:subject_school_code_count,
+                :admission_school_code_count,:program_count,:code_status,
+                :source_files,:evidence_id
+            )
+            """,
             schools,
         )
         conn.executemany(
-            "INSERT INTO majors VALUES (:major_id,:major_name,:normalized_name,:major_code_samples,:major_family,:is_teacher,:is_law,:is_english,:is_finance,:is_bio_related,:classification_status,:source_files,:evidence_id)",
+            """
+            INSERT INTO school_code_aliases VALUES (
+                :alias_id,:school_id,:school_name,:school_code,:code_system,
+                :source_files,:usage_count,:ambiguity_status,:evidence_id
+            )
+            """,
+            school_code_aliases,
+        )
+        conn.executemany(
+            """
+            INSERT INTO majors VALUES (
+                :major_id,:major_name,:normalized_name,:major_code_samples,
+                :major_family,:is_teacher,:is_law,:is_english,:is_finance,
+                :is_bio_related,:preference_tags,:classification_status,
+                :major_code_count,:program_count,:code_status,:source_files,:evidence_id
+            )
+            """,
             majors,
+        )
+        conn.executemany(
+            """
+            INSERT INTO major_code_aliases VALUES (
+                :alias_id,:major_id,:major_name,:major_code,:code_system,
+                :source_files,:usage_count,:ambiguity_status,:evidence_id
+            )
+            """,
+            major_code_aliases,
         )
         conn.executemany(
             "INSERT OR IGNORE INTO programs VALUES (:program_id,:school_id,:major_id,:school_code,:major_code,:school_name,:major_name,:level,:year,:round,:batch,:category,:plan_count,:min_rank,:subject_check_status,:region_check_status,:source_quality,:source_file,:evidence_id)",
@@ -566,7 +781,16 @@ def build_master_index(
         )
         counts = {
             table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
-            for table in ("schools", "majors", "programs", "admission_history", "plan_history", "evidence")
+            for table in (
+                "schools",
+                "school_code_aliases",
+                "majors",
+                "major_code_aliases",
+                "programs",
+                "admission_history",
+                "plan_history",
+                "evidence",
+            )
         }
         conn.execute("PRAGMA optimize")
 
@@ -583,6 +807,11 @@ def build_master_index(
             "plans": "processed/志愿计划/20??.json",
         },
         "program_id_formula": "sha256(level|year|round|batch|school_code|major_code|school_name|major_name)",
+        "code_alias_policy": {
+            "school_code_aliases": "按院校名称、院校代码、代码体系聚合；同一代码体系下同码多校为 REVIEW。",
+            "major_code_aliases": "专业代码不是全局唯一，仅保留最近招生年份的专业代码别名；正式判断必须结合 program_id 或学校+专业组合。",
+            "major_code_samples": "专业主表仅保存前 30 个代码样本，完整当前代码看 major_code_aliases，历史明细看 admission_history/plan_history。",
+        },
         "hard_gate_policy": "正式候选必须有 program_id/evidence_id/source_file；REVIEW 不得口头放行。",
     }
     write_json(meta_path, meta)

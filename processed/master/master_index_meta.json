@@ -1,10 +1,12 @@
 {
   "dataset": "master SQLite 主索引",
-  "generated_at": "2026-06-24T15:09:59",
+  "generated_at": "2026-06-24T15:51:47",
   "db_file": "processed/master/master_index.sqlite",
   "counts": {
     "schools": 2648,
+    "school_code_aliases": 4775,
     "majors": 13219,
+    "major_code_aliases": 25472,
     "programs": 36825,
     "admission_history": 151274,
     "plan_history": 11203,
@@ -22,5 +24,10 @@
     "plans": "processed/志愿计划/20??.json"
   },
   "program_id_formula": "sha256(level|year|round|batch|school_code|major_code|school_name|major_name)",
+  "code_alias_policy": {
+    "school_code_aliases": "按院校名称、院校代码、代码体系聚合；同一代码体系下同码多校为 REVIEW。",
+    "major_code_aliases": "专业代码不是全局唯一，仅保留最近招生年份的专业代码别名；正式判断必须结合 program_id 或学校+专业组合。",
+    "major_code_samples": "专业主表仅保存前 30 个代码样本，完整当前代码看 major_code_aliases，历史明细看 admission_history/plan_history。"
+  },
   "hard_gate_policy": "正式候选必须有 program_id/evidence_id/source_file；REVIEW 不得口头放行。"
 }

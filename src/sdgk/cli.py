@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from sdgk.indexes.builders import build_master_index, build_region_index, build_subject_index
-from sdgk.indexes.master import search_majors, search_schools, summary as master_summary
+from sdgk.indexes.master import major_code_aliases, school_code_aliases, search_majors, search_schools, summary as master_summary
 from sdgk.indexes.region import check_school_regions, split_regions
 from sdgk.indexes.subject import check_eligibility
 from sdgk.plans.candidate_pool import main_generate as generate_candidate_pool
@@ -132,6 +132,16 @@ def cmd_master_search_majors(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_master_school_code_aliases(args: argparse.Namespace) -> int:
+    print_json(school_code_aliases(school_id=args.school_id, school_code=args.code, limit=args.limit))
+    return 0
+
+
+def cmd_master_major_code_aliases(args: argparse.Namespace) -> int:
+    print_json(major_code_aliases(major_id=args.major_id, major_code=args.code, limit=args.limit))
+    return 0
+
+
 def cmd_source_check(args: argparse.Namespace) -> int:
     from sdgk.data.source_policy import classify_url, load_urls
 
@@ -220,6 +230,16 @@ def build_parser() -> argparse.ArgumentParser:
     majors.add_argument("--family", default="")
     majors.add_argument("--limit", type=int, default=20)
     majors.set_defaults(func=cmd_master_search_majors)
+    school_aliases = master_sub.add_parser("school-code-aliases")
+    school_aliases.add_argument("--code", default="")
+    school_aliases.add_argument("--school-id", default="")
+    school_aliases.add_argument("--limit", type=int, default=50)
+    school_aliases.set_defaults(func=cmd_master_school_code_aliases)
+    major_aliases = master_sub.add_parser("major-code-aliases")
+    major_aliases.add_argument("--code", default="")
+    major_aliases.add_argument("--major-id", default="")
+    major_aliases.add_argument("--limit", type=int, default=50)
+    major_aliases.set_defaults(func=cmd_master_major_code_aliases)
 
     source = sub.add_parser("source")
     source_sub = source.add_subparsers(dest="target", required=True)

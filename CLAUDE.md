@@ -2,7 +2,7 @@
 
 > 本文件定义知识库的组织约定、操作流程、以及**国内顶尖、国际专业**的志愿填报决策算法框架。
 > LLM 在每次操作前**必须先读本文件**，所有策略输出必须遵循此框架。
-> 版本：v3.9（2026-06-24 Vue3 + FastAPI + Python 包化 + 主索引方案链版）
+> 版本：v3.10（2026-06-24 院校库/专业库/代码别名加固版）
 > - v1.0：初版 schema
 > - v2.0：引入精算/量化金融/运筹学/博弈论/ML 级算法
 > - v3.0：System2 明确化（Kahneman 双系统严格映射）+ 多 Agent 协作框架（8 Agent 辩论式制衡）
@@ -15,12 +15,13 @@
 > - v3.7：引入院校地区 SQLite 索引，省份查询禁止学校名 contains，城市/多校区不确定必须 REVIEW
 > - v3.8：引入 master 主索引，统一院校、专业、招生单元、历史投档、计划与证据
 > - v3.9：引入 `src/sdgk/` Python 包、`python -m sdgk` 统一 CLI、FastAPI 后端和 Vue3 前端
+> - v3.10：引入院校代码别名表、专业代码别名表、专业偏好标签和代码状态，专业匹配不得只靠名称 contains
 
 ---
 
 ## 第零章 · 系统级铁律（不可违反）
 
-> 以下 25 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
+> 以下 26 条铁律具有最高优先级，任何操作不得违反。冲突时以此为准。
 
 | # | 铁律 | 违反后果 |
 |---|------|---------|
@@ -49,6 +50,7 @@
 | Z23 | **地区查询走索引** | “山东/江苏/苏州/青岛”等地区偏好必须经 `python -m sdgk check region` 或等价索引结果；省份用 `province` 字段，禁止 `school_name contains 山东`；城市不确定或多校区必须 `REVIEW` |
 | Z24 | **正式入口走包化 CLI** | 正式构建、查询、审计、方案生成必须优先使用 `python -m sdgk ...`；旧 `scripts/` 与 `algorithms/` 仅作兼容，不再新增正式入口 |
 | Z25 | **前端只展示 API 结果** | Vue3 前端不得自行计算选科、地区、概率或交付状态；所有判定必须来自 FastAPI/`sdgk` 包返回，正式导出按钮受最终硬闸门控制 |
+| Z26 | **院校专业代码走主索引** | 院校库、专业库、院校代码、专业代码必须来自 `processed/master/master_index.sqlite`；专业偏好优先走 `preference_tags/major_family`，不得只靠名称 contains 作为正式匹配依据 |
 
 ---
 
@@ -112,7 +114,7 @@ students/<姓名>/志愿方案/（96志愿方案）
 | 志愿计划 | `processed/志愿计划/` | year, batch, category, school/major, subject_requirement, plan_count | 约 1.1 万条 |
 | 选科要求 | `processed/选科要求/` | school/major, subject_requirement, version(2024/2027), evidence_id | 全省覆盖（SQLite 索引 180788 条） |
 | 院校地区 | `processed/院校地区/` | school_name, province, city, city_status, evidence_id | 院校覆盖（SQLite 索引 2534 所） |
-| 主索引 | `processed/master/` | schools, majors, programs, admission_history, plan_history, evidence | SQLite 主索引 36825 个最新招生单元 + 全量历史 |
+| 主索引 | `processed/master/` | schools, school_code_aliases, majors, major_code_aliases, programs, admission_history, plan_history, evidence | SQLite 主索引 36825 个最新招生单元 + 全量历史 |
 
 ### 2.3 数据质量分级
 
@@ -202,10 +204,13 @@ students/<姓名>/志愿方案/（96志愿方案）
    - `python -m sdgk build subject-index --rebuild`
    - `python -m sdgk build region-index --rebuild`
    - `python -m sdgk build master-index --rebuild`
-2. **主索引表**：`schools`、`majors`、`programs`、`admission_history`、`plan_history`、`evidence`。
+2. **主索引表**：`schools`、`school_code_aliases`、`majors`、`major_code_aliases`、`programs`、`admission_history`、`plan_history`、`evidence`。
 3. **招生单元主键**：`program_id = sha256(level|year|round|batch|school_code|major_code|school_name|major_name)`。
 4. **正式候选要求**：每条候选必须有 `program_id`、`evidence_id`、`source_file`；名称多义、专业标签不确定、代码体系冲突、官方空位次/空计划数未在例外清单内时必须 `REVIEW` 或阻断。
-5. **测试入口**：包化后正式测试为 `python -m pytest`；旧 `scripts/test_*.py` 只作历史兼容参考。
+5. **院校代码规则**：院校代码别名按 `school_code + code_system + school_name` 聚合；同一代码体系下同一代码指向多个院校时 `ambiguity_status=REVIEW`，不得自动合并。
+6. **专业代码规则**：专业代码不是全国全局唯一，`major_code_aliases` 只作为当前招生单元代码索引；正式判断必须同时保留 `school_code + major_code + school_name + major_name` 或 `program_id`。
+7. **专业偏好规则**：师范、法学、英语、金融、生物工程相关等偏好优先走 `preference_tags`、`major_family` 和布尔标签；名称 contains 只能作低置信辅助，不得作为唯一依据。
+8. **测试入口**：包化后正式测试为 `python -m pytest`；旧 `scripts/test_*.py` 只作历史兼容参考。
 
 ### 2.8 FastAPI + Vue3 前端边界
 
@@ -1518,6 +1523,7 @@ v3.9 起正式入口为 `python -m sdgk ...`：
 | v3.7 | 2026-06-24 | 院校地区索引加固版：新增 Z23；省份查询走 `province` 字段，城市/多校区走 MATCH/NO_MATCH/REVIEW，禁止 `school_name contains 省名` |
 | v3.8 | 2026-06-24 | master 主索引版：统一 `schools/majors/programs/admission_history/plan_history/evidence`，正式候选必须有 `program_id/evidence_id/source_file` |
 | v3.9 | 2026-06-24 | Vue3 + FastAPI + Python 包化版：新增 Z24/Z25；正式入口统一 `python -m sdgk ...`，前端只展示 API 结果，完整方案链输出 Excel/Markdown/JSON 审计 |
+| v3.10 | 2026-06-24 | 院校库/专业库/代码别名加固版：新增 Z26；master 增加 `school_code_aliases`、`major_code_aliases`、专业偏好标签、代码状态和招生单元统计 |
 
 ---
 

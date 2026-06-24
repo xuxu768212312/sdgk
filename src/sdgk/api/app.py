@@ -9,10 +9,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
 from sdgk.api.jobs import JOBS, get_file, new_job, run_sync
-from sdgk.api.schemas import CandidateGenerateRequest, PlanGenerateRequest, RegionCheckRequest, SearchRequest, SubjectCheckRequest
+from sdgk.api.schemas import CandidateGenerateRequest, CodeAliasRequest, PlanGenerateRequest, RegionCheckRequest, SearchRequest, SubjectCheckRequest
 from sdgk.core.io import write_json
 from sdgk.core.paths import ROOT, STUDENTS_DIR, ensure_students_path, rel
-from sdgk.indexes.master import search_majors, search_schools, summary as master_summary
+from sdgk.indexes.master import major_code_aliases, school_code_aliases, search_majors, search_schools, summary as master_summary
 from sdgk.indexes.region import check_school_regions, split_regions
 from sdgk.indexes.subject import check_eligibility
 from sdgk.plans.candidate_pool import build_candidate_pool
@@ -100,6 +100,16 @@ def api_search_schools(payload: SearchRequest) -> list[dict[str, Any]]:
 @app.post("/api/master/search-majors")
 def api_search_majors(payload: SearchRequest) -> list[dict[str, Any]]:
     return search_majors(payload.query, limit=payload.limit)
+
+
+@app.post("/api/master/school-code-aliases")
+def api_school_code_aliases(payload: CodeAliasRequest) -> list[dict[str, Any]]:
+    return school_code_aliases(school_id=payload.school_id, school_code=payload.code, limit=payload.limit)
+
+
+@app.post("/api/master/major-code-aliases")
+def api_major_code_aliases(payload: CodeAliasRequest) -> list[dict[str, Any]]:
+    return major_code_aliases(major_id=payload.major_id, major_code=payload.code, limit=payload.limit)
 
 
 @app.post("/api/candidates/generate")

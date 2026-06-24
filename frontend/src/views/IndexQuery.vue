@@ -61,10 +61,24 @@
         <el-table-column prop="province" label="省份" width="90" />
         <el-table-column prop="city" label="城市" width="90" />
         <el-table-column prop="school_level_tag" label="层次" width="120" />
+        <el-table-column prop="program_count" label="招生单元" width="100" />
+        <el-table-column prop="subject_school_code_count" label="选科代码" width="100" />
+        <el-table-column prop="admission_school_code_count" label="投档代码" width="100" />
+        <el-table-column prop="code_status" label="代码状态" width="100">
+          <template #default="{ row }"><StatusTag :value="row.code_status" /></template>
+        </el-table-column>
       </el-table>
       <el-table :data="majorRows" height="240">
         <el-table-column prop="major_name" label="专业" min-width="240" />
-        <el-table-column prop="major_family" label="标签" width="120" />
+        <el-table-column prop="major_family" label="专业族" width="120" />
+        <el-table-column label="偏好标签" min-width="150" show-overflow-tooltip>
+          <template #default="{ row }">{{ tagText(row.preference_tags) }}</template>
+        </el-table-column>
+        <el-table-column label="代码样本" min-width="140" show-overflow-tooltip>
+          <template #default="{ row }">{{ codeText(row.major_code_samples) }}</template>
+        </el-table-column>
+        <el-table-column prop="major_code_count" label="代码数" width="90" />
+        <el-table-column prop="program_count" label="招生单元" width="100" />
         <el-table-column prop="classification_status" label="状态" width="110">
           <template #default="{ row }"><StatusTag :value="row.classification_status" /></template>
         </el-table-column>
@@ -144,6 +158,16 @@ function regionReasonText(value?: string) {
 function matchText(value?: string) {
   if (!value) return '无'
   return matchLabels[value] || '其他匹配'
+}
+
+function tagText(value?: string) {
+  return value ? value.split('|').filter(Boolean).join('、') : '待复核'
+}
+
+function codeText(value?: string) {
+  const codes = value ? value.split('|').filter(Boolean) : []
+  if (!codes.length) return '无'
+  return codes.slice(0, 5).join('、') + (codes.length > 5 ? ' 等' : '')
 }
 
 async function runSubject() {

@@ -39,3 +39,10 @@ class PlanGenerateRequest(BaseModel):
 class SearchRequest(BaseModel):
     query: str = ""
     limit: int = Field(default=20, ge=1, le=200)
+
+
+class CodeAliasRequest(BaseModel):
+    code: str = ""
+    school_id: str = ""
+    major_id: str = ""
+    limit: int = Field(default=50, ge=1, le=200)

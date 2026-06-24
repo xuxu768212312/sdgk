@@ -74,16 +74,20 @@ def major_preference_score(row: dict[str, Any], majors: list[str]) -> tuple[floa
     matched: list[str] = []
     score = 0.0
     major_name = str(row.get("major_name") or "")
+    preference_tags = {item for item in str(row.get("preference_tags") or "").split("|") if item}
     for pref in majors:
         field_family = PREFERENCE_FIELDS.get(pref)
         if field_family:
             field, family = field_family
-            if int(row.get(field) or 0) == 1 or row.get("major_family") == family:
+            if pref in preference_tags or int(row.get(field) or 0) == 1 or row.get("major_family") == family:
                 matched.append(pref)
                 score = max(score, 1.0)
+        elif pref in preference_tags:
+            matched.append(pref)
+            score = max(score, 0.9)
         elif pref and pref in major_name:
             matched.append(pref)
-            score = max(score, 0.72)
+            score = max(score, 0.55)
     if matched:
         return score, matched
     return 0.25, []
