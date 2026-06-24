@@ -5,17 +5,17 @@
         <div class="brand-mark">鲁考</div>
         <div>
           <div class="brand-title">山东高考知识库</div>
-          <div class="brand-subtitle">第 3.9 版</div>
+          <div class="brand-subtitle">第 3.10 版</div>
         </div>
       </div>
       <el-menu router :default-active="$route.path" class="nav">
         <el-menu-item index="/dashboard"><el-icon><DataAnalysis /></el-icon><span>数据看板</span></el-menu-item>
-        <el-menu-item index="/profile"><el-icon><User /></el-icon><span>学生画像</span></el-menu-item>
-        <el-menu-item index="/query"><el-icon><Search /></el-icon><span>索引查询</span></el-menu-item>
-        <el-menu-item index="/candidates"><el-icon><Filter /></el-icon><span>候选池</span></el-menu-item>
-        <el-menu-item index="/generate"><el-icon><Operation /></el-icon><span>方案生成</span></el-menu-item>
-        <el-menu-item index="/review"><el-icon><TrendCharts /></el-icon><span>方案复核</span></el-menu-item>
-        <el-menu-item index="/reports"><el-icon><FolderOpened /></el-icon><span>报告下载</span></el-menu-item>
+        <el-menu-item index="/profile"><el-icon><User /></el-icon><span>1 学生画像</span></el-menu-item>
+        <el-menu-item index="/query"><el-icon><Search /></el-icon><span>2 证据查询</span></el-menu-item>
+        <el-menu-item index="/candidates"><el-icon><Filter /></el-icon><span>3 候选池</span></el-menu-item>
+        <el-menu-item index="/generate"><el-icon><Operation /></el-icon><span>4 方案生成</span></el-menu-item>
+        <el-menu-item index="/review"><el-icon><TrendCharts /></el-icon><span>5 方案复核</span></el-menu-item>
+        <el-menu-item index="/reports"><el-icon><FolderOpened /></el-icon><span>6 报告下载</span></el-menu-item>
       </el-menu>
     </el-aside>
     <el-container>

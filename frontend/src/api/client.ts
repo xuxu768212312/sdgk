@@ -45,6 +45,16 @@ export async function searchPrograms(payload: Record<string, unknown>) {
   return data
 }
 
+export async function searchSchoolCodeAliases(payload: Record<string, unknown>) {
+  const { data } = await api.post('/master/school-code-aliases', payload)
+  return data
+}
+
+export async function searchMajorCodeAliases(payload: Record<string, unknown>) {
+  const { data } = await api.post('/master/major-code-aliases', payload)
+  return data
+}
+
 export async function generateCandidates(profile: Record<string, unknown>, hardRegion = false) {
   const { data } = await api.post('/candidates/generate', { profile, hard_region: hardRegion })
   return data
