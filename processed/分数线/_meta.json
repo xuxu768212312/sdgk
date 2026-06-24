@@ -12,6 +12,8 @@
     {
       "file": "processed/分数线/2025.json",
       "source_file": "raw/2025/分数线/附件1_夏季高考各类别分数线.pdf",
+      "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=6941",
+      "source_sha256": "d9fe251c095ec2ccc9c4238110fee3baeada4adf855ef77ad45285766bfa0102",
       "publisher": "山东省教育招生考试院",
       "quality_level": "A",
       "verification_status": "official_pdf_extracted",
@@ -19,15 +21,51 @@
     },
     {
       "file": "processed/分数线/历史分数线_2020-2024.json",
-      "source_file": null,
-      "publisher": "第三方公开资料汇总，待山东省教育招生考试院回查",
-      "quality_level": "D",
-      "verification_status": "pending_sdzk_verification",
-      "use_limit": "仅作趋势线索，禁止作为正式志愿方案数值依据；正式引用前必须回查 sdzk.cn 对应年度公告或原始页面。"
+      "source_files": [
+        {
+          "year": 2020,
+          "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=4941",
+          "source_file": "raw/2020/分数线/20.png",
+          "source_page": "raw/2020/分数线/2020_页面.html",
+          "source_image_sha256": "8ec4633a72359032a00385ed9bfaf7554e942c31ac3029d11bc20bebe0ccbe3e"
+        },
+        {
+          "year": 2021,
+          "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=5460",
+          "source_file": "raw/2021/分数线/21.png",
+          "source_page": "raw/2021/分数线/2021_页面.html",
+          "source_image_sha256": "7fa7d796f7a1515d161d19c1503e164f6ad09b437211fa99dff369795d5ac758"
+        },
+        {
+          "year": 2022,
+          "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=5788",
+          "source_file": "raw/2022/分数线/2022062501.png",
+          "source_page": "raw/2022/分数线/2022_页面.html",
+          "source_image_sha256": "22a48309e1b0b1958146967cc7d92eb82c7c107c1b271be069ec2195f9ee0a71"
+        },
+        {
+          "year": 2023,
+          "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=6210",
+          "source_file": "raw/2023/分数线/23.png",
+          "source_page": "raw/2023/分数线/2023_页面.html",
+          "source_image_sha256": "5d220b1876ced0c787e998dca3c6a94d20459122835b685c218ed738f518ca33"
+        },
+        {
+          "year": 2024,
+          "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=6579",
+          "source_file": "raw/2024/分数线/24.png",
+          "source_page": "raw/2024/分数线/2024_页面.html",
+          "source_image_sha256": "f89d6130ac3b3782e8ba0cc2dc40ba78792f8031911a35203ceee44cfcbac95b"
+        }
+      ],
+      "publisher": "山东省教育招生考试院",
+      "quality_level": "B",
+      "verification_status": "official_sdzk_image_manual_transcription_checked",
+      "use_limit": "可作为历史趋势和正式方案辅助依据；正式填报仍以当年最新公告为准。"
     }
   ],
   "notes": [
     "山东高考正式分数线以山东省教育招生考试院最新发布为准。",
-    "若第三方汇总与 sdzk.cn 冲突，直接采用 sdzk.cn。"
+    "2020-2024 年度公告为图片形式，结构化值按官方图片转录，保留页面、图片与 SHA256 证据。"
   ]
 }

@@ -1,39 +1,94 @@
 {
-  "说明": "2020-2024 山东高考分数线汇总（从互联网公开数据整理）",
-  "quality_level": "D",
-  "verification_status": "待山东省教育招生考试院官方页面回查",
-  "use_limit": "仅作趋势线索，禁止作为正式志愿方案数值依据；正式引用前必须回查 sdzk.cn 对应年度公告或原始页面。",
-  "来源": [
-    "https://gaokao.eol.cn/shan_dong/dongtai/202007/t20200726_1740379.shtml",
-    "http://qd.bendibao.com/edu/2024625/94071.shtm",
-    "https://gaokao.eol.cn/shan_dong/dongtai/202406/t20240625_2619306.shtml",
-    "https://www.dxsbb.com/news/59565.html"
+  "说明": "2020-2024 山东高考分数线汇总（山东省教育招生考试院官方页面图片公告转录）",
+  "quality_level": "B",
+  "verification_status": "official_sdzk_image_manual_transcription_checked",
+  "publisher": "山东省教育招生考试院",
+  "official_domain": "sdzk.cn",
+  "use_limit": "可作为历史趋势和正式方案辅助依据；正式填报仍以当年山东省教育招生考试院最新公告为准。",
+  "sources": [
+    {
+      "year": 2020,
+      "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=4941",
+      "source_page": "raw/2020/分数线/2020_页面.html",
+      "source_image": "raw/2020/分数线/20.png",
+      "source_image_sha256": "8ec4633a72359032a00385ed9bfaf7554e942c31ac3029d11bc20bebe0ccbe3e",
+      "publisher": "山东省教育招生考试院",
+      "published_date": "2020-07-26",
+      "quality_level": "B",
+      "verification_status": "official_image_manual_transcription_checked"
+    },
+    {
+      "year": 2021,
+      "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=5460",
+      "source_page": "raw/2021/分数线/2021_页面.html",
+      "source_image": "raw/2021/分数线/21.png",
+      "source_image_sha256": "7fa7d796f7a1515d161d19c1503e164f6ad09b437211fa99dff369795d5ac758",
+      "publisher": "山东省教育招生考试院",
+      "published_date": "2021-06-25",
+      "quality_level": "B",
+      "verification_status": "official_image_manual_transcription_checked"
+    },
+    {
+      "year": 2022,
+      "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=5788",
+      "source_page": "raw/2022/分数线/2022_页面.html",
+      "source_image": "raw/2022/分数线/2022062501.png",
+      "source_image_sha256": "22a48309e1b0b1958146967cc7d92eb82c7c107c1b271be069ec2195f9ee0a71",
+      "publisher": "山东省教育招生考试院",
+      "published_date": "2022-06-25",
+      "quality_level": "B",
+      "verification_status": "official_image_manual_transcription_checked"
+    },
+    {
+      "year": 2023,
+      "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=6210",
+      "source_page": "raw/2023/分数线/2023_页面.html",
+      "source_image": "raw/2023/分数线/23.png",
+      "source_image_sha256": "5d220b1876ced0c787e998dca3c6a94d20459122835b685c218ed738f518ca33",
+      "publisher": "山东省教育招生考试院",
+      "published_date": "2023-06-25",
+      "quality_level": "B",
+      "verification_status": "official_image_manual_transcription_checked"
+    },
+    {
+      "year": 2024,
+      "source_url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=6579",
+      "source_page": "raw/2024/分数线/2024_页面.html",
+      "source_image": "raw/2024/分数线/24.png",
+      "source_image_sha256": "f89d6130ac3b3782e8ba0cc2dc40ba78792f8031911a35203ceee44cfcbac95b",
+      "publisher": "山东省教育招生考试院",
+      "published_date": "2024-06-25",
+      "quality_level": "B",
+      "verification_status": "official_image_manual_transcription_checked"
+    }
   ],
   "data": {
     "2020": {
       "普通类": {
         "特殊类型招生控制线": 532,
         "一段线": 449,
-        "二段线": 150
+        "二段线": 150,
+        "3+2对口贯通分段培养高职志愿填报资格线": 399
       },
       "艺术类": {
         "本科文化控制线": {
           "文学编导类、播音主持类、摄影类": 381,
           "美术类、音乐类、书法类": 314,
-          "舞蹈类、影视戏剧表演类、服装表演类": 291
+          "舞蹈类、影视戏剧表演类、服装表演(模特)类": 291
         },
         "专科文化控制线": 150
       },
       "体育类": {
-        "综合分一段线": 537,
-        "综合分二段线": 459
+        "综合分一段线": 561,
+        "综合分二段线": 457
       }
     },
     "2021": {
       "普通类": {
         "特殊类型招生控制线": 518,
         "一段线": 444,
-        "二段线": 150
+        "二段线": 150,
+        "3+2对口贯通分段培养高职志愿填报资格线": 394
       },
       "艺术类": {
         "本科文化控制线": {
@@ -44,15 +99,16 @@
         "专科文化控制线": 150
       },
       "体育类": {
-        "综合分一段线": 558,
-        "综合分二段线": 462
+        "综合分一段线": 569,
+        "综合分二段线": 470
       }
     },
     "2022": {
       "普通类": {
         "特殊类型招生控制线": 513,
         "一段线": 437,
-        "二段线": 150
+        "二段线": 150,
+        "3+2对口贯通分段培养高职志愿填报资格线": 387
       },
       "艺术类": {
         "本科文化控制线": {
@@ -63,15 +119,16 @@
         "专科文化控制线": 150
       },
       "体育类": {
-        "综合分一段线": 548,
-        "综合分二段线": 462
+        "综合分一段线": 583,
+        "综合分二段线": 474
       }
     },
     "2023": {
       "普通类": {
         "特殊类型招生控制线": 520,
         "一段线": 443,
-        "二段线": 150
+        "二段线": 150,
+        "3+2对口贯通分段培养高职志愿填报资格线": 393
       },
       "艺术类": {
         "本科文化控制线": {
@@ -82,8 +139,8 @@
         "专科文化控制线": 150
       },
       "体育类": {
-        "综合分一段线": 558,
-        "综合分二段线": 462
+        "综合分一段线": 587,
+        "综合分二段线": 480
       }
     },
     "2024": {
@@ -95,19 +152,17 @@
       },
       "艺术类": {
         "本科文化控制线": {
-          "播音与主持类、书法类": 444,
-          "美术与设计类、音乐类": 333,
+          "播音与主持类": 444,
+          "美术与设计类、音乐类、书法类": 333,
           "舞蹈类、表（导）演类、戏曲类": 288
         },
         "专科文化控制线": 150
       },
       "体育类": {
-        "综合分一段线": 566,
-        "综合分二段线": 428,
-        "本科文化控制线": 288,
-        "专科文化控制线": 150
+        "综合分一段线": 594,
+        "综合分二段线": 470
       }
     }
   },
-  "注": "2020-2023 艺术类分类名称仍沿用旧分类（文学编导、播音主持、摄影等），2024 起按新分类（播音与主持类、美术与设计类、表（导）演类等）。2024 艺术类分数线为推断值，以一段线 444 为基数按 100%/75%/65% 计算。"
+  "注": "2020-2023 艺术类分类名称沿用当年官方公告；2024 起按新艺术类分类。图片公告为官方原文，结构化值为人工转录并经审计脚本核验来源文件存在与 SHA256。"
 }

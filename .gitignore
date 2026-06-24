@@ -24,6 +24,8 @@ students/
 # Root-level generated demo outputs
 /96个志愿表_*.xlsx
 /志愿表_*.txt
+/*.xlsx
+/.~*.xlsx
 
 # Root-level ad hoc generation scripts kept local; maintained scripts live in scripts/
 /gen_excel.py

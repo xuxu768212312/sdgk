@@ -296,3 +296,13 @@ updated: 2026-06-22
 - `[new]` 生成 `processed/院校地区/school_region_index.sqlite` 与 `school_region_index_meta.json`，当前覆盖 2534 所唯一院校
 - `[update]` `AGENTS.md` 与 `CLAUDE.md` 升级至 v3.7，新增 Z23 地区查询走索引；城市/多校区不确定必须 REVIEW
 - `[update]` `processed/README.md` 与 [[source_标准数据字典]] 纳入院校地区索引说明
+
+## [2026-06-24] audit | 数据准确性审计加固与历史分数线官方化
+
+- `[fix]` 将 `processed/分数线/历史分数线_2020-2024.json` 从第三方 D 级线索重建为山东省教育招生考试院官方图片公告转录（B 级）
+- `[fix]` 新增 `raw/2020/分数线/2020_页面.html` 与 2020-2024 五张官方分数线图片，保留 `source_url`、`source_file` 与 SHA256 证据
+- `[fix]` 修正旧历史汇总中的体育类综合分历史线：2020=561/457、2021=569/470、2022=583/474、2023=587/480、2024=594/470
+- `[fix]` 补齐 2020-2023 普通类 `3+2对口贯通分段培养高职志愿填报资格线`，并修正 2024 艺术类分组为官方公告口径
+- `[new]` 新增 `processed/投档表/official_null_min_rank_exceptions.json` 与 `processed/志愿计划/official_null_plan_count_exceptions.json`，明确官方原表空值不得补数、不得进入概率/计划数计算
+- `[update]` `scripts/audit_data_accuracy.py` 增加官方空值白名单校验、历史分数线官方来源/SHA256 校验、动态日期报告
+- `[update]` `processed/README.md`、[[source_标准数据字典]]、[[topic_历年数据趋势]] 同步官方分数线与空值例外规则

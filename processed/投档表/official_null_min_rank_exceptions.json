@@ -1,0 +1,76 @@
+{
+  "dataset": "投档表",
+  "exception_type": "official_null_min_rank",
+  "publisher": "山东省教育招生考试院",
+  "quality_level": "A",
+  "verification_status": "official_raw_blank_allowlist",
+  "use_limit": "仅说明官方原表空位次；不得把空位次自动填补为数值，不得用于录取概率阈值建模。",
+  "count": 5,
+  "rows": [
+    {
+      "year": 2021,
+      "round": 1,
+      "major_code": "0Q",
+      "major_name": "文科试验班类(通用基础类)",
+      "school_code": "A003",
+      "school_name": "清华大学",
+      "plan_count": 1,
+      "min_rank": null,
+      "exception_field": "min_rank",
+      "exception_reason": "山东省教育招生考试院官方投档表原始单元格为空；不得推断位次，概率建模前需人工复核或排除该记录。",
+      "source_file": "raw/2021/常规批第1次投档表.xls"
+    },
+    {
+      "year": 2021,
+      "round": 1,
+      "major_code": "QU",
+      "major_name": "物理学(师范类，非西藏生源定向西藏就业)",
+      "school_code": "Y006",
+      "school_name": "山东师范大学",
+      "plan_count": 1,
+      "min_rank": null,
+      "exception_field": "min_rank",
+      "exception_reason": "山东省教育招生考试院官方投档表原始单元格为空；不得推断位次，概率建模前需人工复核或排除该记录。",
+      "source_file": "raw/2021/常规批第1次投档表.xls"
+    },
+    {
+      "year": 2022,
+      "round": 1,
+      "major_code": "1Y",
+      "major_name": "旅游管理(博雅实验班)",
+      "school_code": "B417",
+      "school_name": "北京联合大学",
+      "plan_count": 2,
+      "min_rank": null,
+      "exception_field": "min_rank",
+      "exception_reason": "山东省教育招生考试院官方投档表原始单元格为空；不得推断位次，概率建模前需人工复核或排除该记录。",
+      "source_file": "raw/2022/常规批第1次投档表.xls"
+    },
+    {
+      "year": 2024,
+      "round": 1,
+      "major_code": "1B",
+      "major_name": "文科试验班类(通用基础类)",
+      "school_code": "A003",
+      "school_name": "清华大学",
+      "plan_count": 2,
+      "min_rank": null,
+      "exception_field": "min_rank",
+      "exception_reason": "山东省教育招生考试院官方投档表原始单元格为空；不得推断位次，概率建模前需人工复核或排除该记录。",
+      "source_file": "raw/2024/常规批第1次投档表.xls"
+    },
+    {
+      "year": 2025,
+      "round": 1,
+      "major_code": "1C",
+      "major_name": "文科试验班类(文科各专业)",
+      "school_code": "A003",
+      "school_name": "清华大学",
+      "plan_count": 3,
+      "min_rank": null,
+      "exception_field": "min_rank",
+      "exception_reason": "山东省教育招生考试院官方投档表原始单元格为空；不得推断位次，概率建模前需人工复核或排除该记录。",
+      "source_file": "raw/2025/常规批第1次投档表.xls"
+    }
+  ]
+}

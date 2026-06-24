@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import csv
 import glob
+import hashlib
 import json
 import math
 import os
@@ -24,6 +25,7 @@ import re
 import sys
 import time
 from collections import Counter, defaultdict
+from datetime import date
 from pathlib import Path
 from typing import Any, Optional, Union
 
@@ -43,6 +45,8 @@ ROOT = Path(__file__).resolve().parents[1]
 YEARS = [2021, 2022, 2023, 2024, 2025]
 SUBJECTS = ["physics", "chemistry", "biology", "politics", "history", "geography"]
 CN_SUBJECTS = {"物理", "化学", "生物", "思想政治", "历史", "地理"}
+ADMISSION_NULL_RANK_EXCEPTIONS_PATH = ROOT / "processed/投档表/official_null_min_rank_exceptions.json"
+PLAN_NULL_COUNT_EXCEPTIONS_PATH = ROOT / "processed/志愿计划/official_null_plan_count_exceptions.json"
 
 
 class Audit:
@@ -85,6 +89,21 @@ def rel(path: Union[Path, str]) -> str:
 def load_json(path: Path) -> Any:
     with path.open(encoding="utf-8") as f:
         return json.load(f)
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def load_exception_rows(path: Path, key_fields: tuple[str, ...]) -> set[tuple[Any, ...]]:
+    if not path.exists():
+        return set()
+    data = load_json(path)
+    return {tuple(row.get(field) for field in key_fields) for row in data.get("rows", [])}
 
 
 def read_csv_rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -489,6 +508,10 @@ def audit_admission(audit: Audit) -> None:
     null_ranks = []
     null_plans = []
     duplicate_counter = Counter()
+    null_rank_exception_keys = load_exception_rows(
+        ADMISSION_NULL_RANK_EXCEPTIONS_PATH,
+        ("year", "round", "school_code", "major_code", "major_name"),
+    )
     for year in YEARS:
         raw_by_round: dict[int, list[dict[str, Any]]] = {}
         f1 = ROOT / f"raw/{year}/常规批第1次投档表.xls"
@@ -524,8 +547,26 @@ def audit_admission(audit: Audit) -> None:
         audit.warn("ADMISSION_DUPLICATES", "投档表存在重复 school_code+major_code+major_name 键", detail={"count": len(duplicates), "sample": duplicates[:10]})
     audit.stats["admission_null_ranks"] = len(null_ranks)
     audit.stats["admission_null_plans"] = len(null_plans)
+    null_rank_uncovered = [
+        row
+        for row in null_ranks
+        if (row["year"], row["round"], row["school_code"], row["major_code"], row["major_name"]) not in null_rank_exception_keys
+    ]
+    audit.stats["admission_null_rank_exceptions"] = len(null_ranks) - len(null_rank_uncovered)
     if null_ranks:
-        audit.warn("ADMISSION_NULL_RANKS", "投档表存在原始空位次，需要人工确认特殊类型", detail={"count": len(null_ranks), "sample": null_ranks[:10]})
+        if null_rank_uncovered:
+            audit.warn(
+                "ADMISSION_NULL_RANKS",
+                "投档表存在未登记的原始空位次，需要人工确认特殊类型",
+                detail={"count": len(null_rank_uncovered), "sample": null_rank_uncovered[:10]},
+            )
+        else:
+            audit.info(
+                "ADMISSION_NULL_RANKS_ALLOWLISTED",
+                "投档表原始空位次均已登记为官方空值例外；不得自动推断位次",
+                rel(ADMISSION_NULL_RANK_EXCEPTIONS_PATH),
+                {"count": len(null_ranks)},
+            )
     if null_plans:
         audit.warn("ADMISSION_NULL_PLANS", "投档表存在空计划数，需要确认是否为原始空值", detail={"count": len(null_plans), "sample": null_plans[:10]})
     audit.info("ADMISSION", "投档表 raw 重抽取与字段合法性检查完成")
@@ -536,6 +577,10 @@ def audit_plans(audit: Audit) -> None:
     allowed_categories = {"普通类", "艺术类", "体育类", "春季高考"}
     missing_school_codes = []
     null_plans = []
+    null_plan_exception_keys = load_exception_rows(
+        PLAN_NULL_COUNT_EXCEPTIONS_PATH,
+        ("year", "batch", "category", "school_code", "major_code", "major_name"),
+    )
     for year in YEARS:
         expected = []
         for batch, dirname in [
@@ -573,10 +618,28 @@ def audit_plans(audit: Audit) -> None:
                 audit.fail("PLAN_COUNT_NONPOSITIVE", "志愿计划计划数非正", rel(path), row)
     audit.stats["plan_missing_school_codes"] = len(missing_school_codes)
     audit.stats["plan_null_plan_count"] = len(null_plans)
+    null_plan_uncovered = [
+        row
+        for row in null_plans
+        if (row["year"], row["batch"], row["category"], row["school_code"], row["major_code"], row["major_name"]) not in null_plan_exception_keys
+    ]
+    audit.stats["plan_null_plan_count_exceptions"] = len(null_plans) - len(null_plan_uncovered)
     if missing_school_codes:
         audit.warn("PLAN_MISSING_SCHOOL_CODE", "志愿计划存在空院校代码，需人工核查原始表结构", detail={"count": len(missing_school_codes), "sample": missing_school_codes[:10]})
     if null_plans:
-        audit.warn("PLAN_NULL_PLAN_COUNT", "志愿计划存在空计划数，需确认是否为原始专项/格式空值", detail={"count": len(null_plans), "sample": null_plans[:10]})
+        if null_plan_uncovered:
+            audit.warn(
+                "PLAN_NULL_PLAN_COUNT",
+                "志愿计划存在未登记的空计划数，需确认是否为原始专项/格式空值",
+                detail={"count": len(null_plan_uncovered), "sample": null_plan_uncovered[:10]},
+            )
+        else:
+            audit.info(
+                "PLAN_NULL_PLAN_COUNT_ALLOWLISTED",
+                "志愿计划空计划数均已登记为官方空值例外；不得自动推断计划数",
+                rel(PLAN_NULL_COUNT_EXCEPTIONS_PATH),
+                {"count": len(null_plans)},
+            )
     audit.info("PLANS", "志愿计划 raw 重抽取与字段合法性检查完成")
 
 
@@ -755,9 +818,51 @@ def audit_scorelines(audit: Audit) -> None:
         if str(value) not in text:
             audit.fail("SCORELINE_PDF_TEXT", f"2025 分数线 PDF 文本中未找到数值 {value}", rel(pdf_path))
     hist = load_json(ROOT / "processed/分数线/历史分数线_2020-2024.json")
-    if hist.get("quality_level") != "D":
-        audit.fail("HIST_SCORELINE_QUALITY", "历史分数线 2020-2024 未标注 D 级线索", "processed/分数线/历史分数线_2020-2024.json")
-    audit.warn("HIST_SCORELINE_NOT_OFFICIAL", "2020-2024 历史分数线为 D 级线索，正式方案前必须回查 sdzk.cn")
+    if hist.get("quality_level") not in {"A", "B"}:
+        audit.fail("HIST_SCORELINE_QUALITY", "历史分数线 2020-2024 未达到官方可用质量等级", "processed/分数线/历史分数线_2020-2024.json")
+    if hist.get("publisher") != "山东省教育招生考试院" or hist.get("official_domain") != "sdzk.cn":
+        audit.fail("HIST_SCORELINE_OFFICIAL_SOURCE", "历史分数线未标注山东省教育招生考试院官方来源", "processed/分数线/历史分数线_2020-2024.json")
+    if hist.get("verification_status") != "official_sdzk_image_manual_transcription_checked":
+        audit.fail("HIST_SCORELINE_VERIFICATION", "历史分数线核验状态不是官方图片转录已核查", "processed/分数线/历史分数线_2020-2024.json")
+
+    expected_hist = {
+        "2020": {"special": 532, "first": 449, "second": 150, "bridge": 399, "sport_first": 561, "sport_second": 457},
+        "2021": {"special": 518, "first": 444, "second": 150, "bridge": 394, "sport_first": 569, "sport_second": 470},
+        "2022": {"special": 513, "first": 437, "second": 150, "bridge": 387, "sport_first": 583, "sport_second": 474},
+        "2023": {"special": 520, "first": 443, "second": 150, "bridge": 393, "sport_first": 587, "sport_second": 480},
+        "2024": {"special": 521, "first": 444, "second": 150, "bridge": 394, "sport_first": 594, "sport_second": 470},
+    }
+    for year, expected_values in expected_hist.items():
+        year_data = hist.get("data", {}).get(year)
+        if not year_data:
+            audit.fail("HIST_SCORELINE_YEAR_MISSING", f"历史分数线缺少年份 {year}", "processed/分数线/历史分数线_2020-2024.json")
+            continue
+        actual_values = {
+            "special": year_data["普通类"].get("特殊类型招生控制线"),
+            "first": year_data["普通类"].get("一段线"),
+            "second": year_data["普通类"].get("二段线"),
+            "bridge": year_data["普通类"].get("3+2对口贯通分段培养高职志愿填报资格线"),
+            "sport_first": year_data["体育类"].get("综合分一段线"),
+            "sport_second": year_data["体育类"].get("综合分二段线"),
+        }
+        if actual_values != expected_values:
+            audit.fail("HIST_SCORELINE_VALUE", f"{year} 历史分数线结构化数值与官方图片转录不一致", "processed/分数线/历史分数线_2020-2024.json", {"expected": expected_values, "actual": actual_values})
+
+    sources = hist.get("sources", [])
+    if len(sources) != 5:
+        audit.fail("HIST_SCORELINE_SOURCES", "历史分数线来源数量不是 2020-2024 五年", "processed/分数线/历史分数线_2020-2024.json", {"count": len(sources)})
+    for source in sources:
+        if "sdzk.cn" not in source.get("source_url", ""):
+            audit.fail("HIST_SCORELINE_SOURCE_URL", "历史分数线来源 URL 不是 sdzk.cn", "processed/分数线/历史分数线_2020-2024.json", source)
+        image = ROOT / source.get("source_image", "")
+        page = ROOT / source.get("source_page", "")
+        if not image.exists():
+            audit.fail("HIST_SCORELINE_IMAGE_MISSING", "历史分数线官方图片缺失", rel(image))
+        elif source.get("source_image_sha256") != sha256_file(image):
+            audit.fail("HIST_SCORELINE_IMAGE_SHA", "历史分数线官方图片 SHA256 不匹配", rel(image), source)
+        if not page.exists():
+            audit.fail("HIST_SCORELINE_PAGE_MISSING", "历史分数线官方页面快照缺失", rel(page))
+    audit.info("HIST_SCORELINE_OFFICIAL", "2020-2024 历史分数线已升级为 sdzk.cn 官方图片公告转录并通过来源核验")
     audit.info("SCORELINES", "分数线检查完成")
 
 
@@ -802,17 +907,17 @@ def audit_metadata_and_sources(audit: Audit) -> None:
 def render_report(audit: Audit, full_subject_reextract: bool) -> str:
     counts = audit.counts()
     status = "通过" if counts["FAIL"] == 0 else "未通过"
-    now = "2026-06-23"
+    now = date.today().isoformat()
     lines = [
         "---",
-        "title: 数据准确性审计 2026-06-23",
+        f"title: 数据准确性审计 {now}",
         "tags: [lint, 数据审计, 官方来源, 高考]",
-        "created: 2026-06-23",
-        "updated: 2026-06-23",
+        f"created: {now}",
+        f"updated: {now}",
         "sources: [\"processed/\", \"raw/\", \"scripts/audit_data_accuracy.py\"]",
         "---",
         "",
-        "# 数据准确性审计 · 2026-06-23",
+        f"# 数据准确性审计 · {now}",
         "",
         "## 结论",
         "",
@@ -832,7 +937,7 @@ def render_report(audit: Audit, full_subject_reextract: bool) -> str:
         "- 志愿计划：从 `raw/<year>/*志愿计划` 全量重抽取比对",
         "- 选科要求：结构化字段自洽检查；如启用则从 4 个官方 PDF 全量重抽取比对",
         "- 院校地区索引：从选科要求唯一院校和 province 字段派生，检查 SQLite 行数与 evidence_id",
-        "- 分数线：2025 官方 PDF 文本核查；2020-2024 历史汇总质量等级核查",
+        "- 分数线：2025 官方 PDF 文本核查；2020-2024 官方图片公告来源与 SHA256 核查",
         "- `_meta.json` 来源等级与核验状态字段",
         "",
         "## 统计",
@@ -865,7 +970,8 @@ def render_report(audit: Audit, full_subject_reextract: bool) -> str:
             "",
             "- 只要存在 FAIL，不得把相关数据用于正式志愿方案。",
             "- WARN 不是自动错误，但必须在正式填报前人工复核。",
-            "- 2020-2024 历史分数线当前为 D 级线索，不能作为正式填报依据。",
+            "- 官方原表空位次/空计划数只作为例外记录保留，不得自动填补，不得进入概率或计划数量计算。",
+            "- 2020-2024 历史分数线为山东省教育招生考试院官方图片公告转录，正式填报仍以当年最新公告为准。",
             "- 正式填报前仍需以山东省教育招生考试院最新发布为准。"
         ]
     )
